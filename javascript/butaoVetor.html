@@ -1,0 +1,43 @@
+<html>
+<head>
+
+<script language="javascript">
+function add(type) {
+
+  //Criar um input dinamicamente.
+  var element = document.createElement("input");
+
+  //Configura diferentes atributos ao elemento.
+  element.setAttribute("type", type);
+  element.setAttribute("value", type);
+  element.setAttribute("name", type);
+
+
+  var container = document.getElementById("containerBar");
+
+  //Acrescenta o element à página (dentro do span).
+  container.appendChild(document.createElement("br"));
+  container.appendChild(element);
+
+}
+</script>
+
+</head>
+<body>
+<form>
+<H2>Adicionar elemento</H2>
+Selecione o elemento.
+<br/><br>
+<select name="element">
+  <option value="button">Button</option>
+  <option value="text">Textbox</option>
+  <option value="radio">Radio</option>
+</select>
+
+<input type="button" value="Add" onclick="add(document.forms[0].element.value)"/>
+
+<span id="containerBar">&nbsp;</span>
+
+</form>
+</body>
+</html>

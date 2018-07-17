@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<form id="formaNome">Nome: </form><br>
+	<form id="formaCPF">CPF: </form><br>
+	<form id="formaNascimento">Nascimento: </form><br>
+	<form id="formaPassword">Password: </form><br>
+	<form id="formaCheckbox1">Escolha:</form>
+	<form id="formaCheckbox2">Escolha:</form>
+	<form id="butaoReset"></form>
+	<form id="butaoSubmit"></form>	
+</head>
+<body>	
+
+	<script type="text/javascript">
+		
+		var checkbox1 = document.createElement('input');
+		checkbox1.setAttribute('type', 'checkbox');
+		form = document.getElementById("formaCheckbox1")
+		form.append(checkbox1)
+
+		var checkbox2 = document.createElement('input');
+		checkbox2.setAttribute('type', 'checkbox');
+		form = document.getElementById("formaCheckbox2")
+		form.append(checkbox2)
+
+		var nome = document.createElement("input");
+		nome.type ="text";
+		//nome.value = "";
+		var form = document.getElementById("formaNome")
+		form.append(nome)
+		
+		var cpf = document.createElement("input");
+		cpf.type = "text";
+		form = document.getElementById("formaCPF")
+		form.append(cpf) 
+
+		var password = document.createElement("input");
+		password.setAttribute('type', 'password');
+		form = document.getElementById("formaPassword")
+		form.append(password) 
+
+		var date = document.createElement("input");
+		date.setAttribute('type', 'date');
+		form = document.getElementById("formaNascimento")
+		form.append(date) 
+
+
+		var butaoSubmit = document.createElement("input");
+		butaoSubmit.setAttribute('type', 'submit');
+		form = document.getElementById("butaoSubmit")
+		form.append(butaoSubmit) 
+
+		var butaoReset = document.createElement("input");
+		butaoReset.setAttribute('type', 'button');
+		form = document.getElementById("butaoReset")
+		form.append(butaoReset) 
+
+	</script>
+</body>
+</html>
+
+

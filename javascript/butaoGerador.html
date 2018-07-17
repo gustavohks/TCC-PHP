@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="test.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+
+	<input type="button" id="criarTextField" value="Criar text field">
+	<input type="button" id="criarPassword" value="Criar um password field">
+	<input type="button" id="criarButao" value="Criar um butão"><br>
+
+	<div >
+	<form id="formaTexto"></form>  
+	<form id="formaPassword"></form>
+	<form id="formaButao"></form>
+	</div>
+
+</head>
+<body>	
+
+	<script type="text/javascript">
+//declarando funções com JQuery 
+$(function(){
+  	$('#criarTextField').on('click', function(){          
+		var formaTexto = document.getElementById("formaTexto");
+		var rowWrapper = document.createElement('div');
+      	var leftLabel = document.createElement('span');
+        leftLabel.innerHTML = 'Texto: ';
+		rowWrapper.appendChild(leftLabel);
+          
+     	 var input = document.createElement("input");
+      	input.type ="text";
+      	rowWrapper.appendChild(input);
+      
+      	formaTexto.appendChild(rowWrapper);
+
+      	var removerTexto = document.getElementById("formaTexto");      
+      	var inputRemover = document.createElement("input");
+      	inputRemover.type ="button";      
+      	formaTexto.appendChild(inputRemover);      
+
+  		$(function(){
+ 	 	$('#formaTexto').on('click', function(){
+      	removerTexto.parentNode.removeChild(removerTexto);
+      		});
+      	});
+      
+  		div.textContent = formaTexto;
+      	document.body.appendChild(div);
+      	formaTexto.appendChild(document.createElement("br"));
+			
+	});
+});
+	
+$(function(){
+      $('#criarPassword').on('click', function(){
+      var formaPassword = document.getElementById("formaPassword");
+      formaPassword.appendChild(document.createTextNode("Password:"));
+      var input = document.createElement("input");
+      input.type ="password";
+      formaPassword.appendChild(input);
+      formaPassword.appendChild(document.createElement("br"));
+    });
+});
+
+$(function(){
+      $('#criarButao').on('click', function(){
+      var formaButao = document.getElementById("formaButao");
+      var input = document.createElement("input");
+      input.type ="button";
+      formaButao.appendChild(input);
+      formaButao.appendChild(document.createElement("br"));
+    });
+});
+
+	</script>
+</body>
+</html>
+
+

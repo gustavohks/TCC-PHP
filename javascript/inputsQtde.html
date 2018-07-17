@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Campo</title>
+	<input type="text" id="member" name="member" value="">Número máximo de campos.<br />	
+	<a href="#" id="preencherdetalhes" onclick="addCampos()">Preencher detalhes</a>
+	<div id="container"/></div>   
+</head>
+<body>	
+	<script type="text/javascript">
+
+        function addCampos(){
+            var qtde = document.getElementById("member").value;
+            var container = document.getElementById("container");
+            while (container.hasChildNodes()) {
+                container.removeChild(container.lastChild);
+            }
+            for (i=0;i<qtde;i++){
+                container.appendChild(document.createTextNode("Campo " + (i+1)));
+                var input = document.createElement("input");
+                input.type = "text";
+                container.appendChild(input);
+                container.appendChild(document.createElement("br"));
+            }
+        }
+
+        
+	</script>
+</body>
+</html>
+
+

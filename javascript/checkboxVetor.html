@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+    function populate(slct1,slct2){
+var s1 = document.getElementById(slct1); //retorna a referência do elemento através do seu ID
+var s2 = document.getElementById(slct2); // slct1 = categoria ; slct2 = subcategoria
+s2.innerHTML = ""; //zera a subcategoria caso a categoria seja desselecionada
+if(s1.value == "Item1"){
+    var optionArray = ["Subitem","Subitem.1","Subitem.2"];
+} else if(s1.value == "Item2"){
+    var optionArray = ["Subitem2","Subitem2.1","Subitem2.2"];
+} else if(s1.value == "Item3"){
+    var optionArray = ["Subitem","Subitem.1","Subitem.2"];
+}else if(s1.value == "Item4"){
+    var optionArray = ["Subitem","Subitem.1","Subitem.2"];
+}
+for(var option in optionArray){ //interage sobre as propriedades enumeradas de um objeto, na ordem original de inserção
+     if (optionArray.hasOwnProperty(option)) { //hasOwnProperty -> retorna um boolean indicando se o objeto possui a propriedade especificada
+        var pair = optionArray[option]; //cria um vetor com os items e subitems
+        var newOption = document.createElement("option");
+        newOption.value = pair;
+        newOption.innerHTML = pair;
+        s2.options.add(newOption);
+    }
+}
+}
+</script>
+</head>
+<body>
+<h2>Dynamic Select Dropdown</h2>
+<hr />
+Choose a Category:
+<select id="slct1" name="slct1" onchange="populate(this.id,'slct2')">
+   <option value=""></option>
+   <option value="Item1">Item 1</option>
+   <option value="Item2">Item 2</option>
+   <option value="Item3">Item 3</option>
+   <option value="Item4">Item 4</option>
+</select>
+<hr />
+   Choose Subcategory:
+<select id="slct2" name="slct2"></select>
+<hr />
+</body>
+</html>
