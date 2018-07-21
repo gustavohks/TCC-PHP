@@ -1,0 +1,9 @@
+- Cadastro de usuário
+- Login - Fazer o login básico
+- Criar um um menu de acesso a tela
+- Grid para acessar as telas
+- Cadastro de telas
+- Grid para navegar entre os campos - Nesta tela deve haver um botao como acessar os detalhes do registro ou criar um novo registro
+- Definir os campos do cadastro
+- Criar tela para poder fazer o cadastro do metadata (informação sobre a tela)
+- Poder visualizar a tela criada (Preview)
