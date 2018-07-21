@@ -24,30 +24,30 @@ $(function(){
   	$('#criarTextField').on('click', function(){          
 		var formaTexto = document.getElementById("formaTexto");
 		var rowWrapper = document.createElement('div');
-      	var leftLabel = document.createElement('span');
-        leftLabel.innerHTML = 'Texto: ';
-		rowWrapper.appendChild(leftLabel);
+  	var leftLabel = document.createElement('span');
+    leftLabel.innerHTML = 'Texto: ';
+    rowWrapper.appendChild(leftLabel);
           
-     	 var input = document.createElement("input");
-      	input.type ="text";
-      	rowWrapper.appendChild(input);
-      
-      	formaTexto.appendChild(rowWrapper);
+ 	  var input = document.createElement("input");
+  	input.type ="text";
+  	rowWrapper.appendChild(input);
+  
+  	formaTexto.appendChild(rowWrapper);
 
-      	var removerTexto = document.getElementById("formaTexto");      
-      	var inputRemover = document.createElement("input");
-      	inputRemover.type ="button";      
-      	formaTexto.appendChild(inputRemover);      
+  	var removerTexto = document.getElementById("formaTexto");      
+  	var inputRemover = document.createElement("input");
+  	inputRemover.type ="button";      
+  	formaTexto.appendChild(inputRemover);      
 
-  		$(function(){
- 	 	$('#formaTexto').on('click', function(){
+  	$(function(){
+ 	 	  $('#formaTexto').on('click', function(){
       	removerTexto.parentNode.removeChild(removerTexto);
-      		});
-      	});
+    	});
+    });
       
-  		div.textContent = formaTexto;
-      	document.body.appendChild(div);
-      	formaTexto.appendChild(document.createElement("br"));
+		div.textContent = formaTexto;
+  	document.body.appendChild(div);
+  	formaTexto.appendChild(document.createElement("br"));
 			
 	});
 });
