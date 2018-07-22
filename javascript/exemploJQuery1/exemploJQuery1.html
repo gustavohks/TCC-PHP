@@ -22,7 +22,7 @@ $(document).ready(function() {
         var fieldWrapper = $("<div class=\"fieldwrapper\" id=\"field" + intId + "\"/>");
         fieldWrapper.data("idx", intId);
         var fName = $("<input type=\"text\" class=\"fieldname\" />");
-        var fType = $("<select class=\"fieldtype\"><option value=\"checkbox\">Checked</option><option value=\"textbox\">Text</option><option value=\"textarea\">Paragraph</option></select>");
+        var fType = $("<select class=\"fieldtype\"><option value=\"checkbox\">Checked</option><option value=\"textbox\">Text</option><option value=\"textarea\">Paragraph</option>><option value=\"password\">Password</option></select>");
         var removeButton = $("<input type=\"button\" class=\"remove\" value=\"-\" />");
         removeButton.click(function() {
             $(this).parent().remove();
@@ -41,14 +41,17 @@ $(document).ready(function() {
             var input;
             switch ($(this).find("select.fieldtype").first().val()) {
                 case "checkbox":
-                    input = $("<input type=\"checkbox\" id=\"" + id + "\" name=\"" + id + "\" />");
+                    input = $("<input type=\"checkbox\" id=\"" + id + "\" name=\"" + id + "\" /><br>");
                     break;
                 case "textbox":
-                    input = $("<input type=\"text\" id=\"" + id + "\" name=\"" + id + "\" />");
+                    input = $("<input type=\"text\" id=\"" + id + "\" name=\"" + id + "\" /><br>");
                     break;
                 case "textarea":
-                    input = $("<textarea id=\"" + id + "\" name=\"" + id + "\" ></textarea>");
-                    break;    
+                    input = $("<textarea id=\"" + id + "\" name=\"" + id + "\" ></textarea><br>");
+                    break;                  
+                case "password":
+                input = $("<input type = \"password\" id=\"" + id + "\" name=\"" + id + "\" ></input><br>");
+                break;    
             }
             fieldSet.append(label);
             fieldSet.append(input);
