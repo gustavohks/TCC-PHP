@@ -36,22 +36,29 @@ $(document).ready(function() {
         $("#yourform").remove();
         var fieldSet = $("<fieldset id=\"yourform\"><legend>Your Form</legend></fieldset>");
         $("#buildyourform div").each(function() {
-            var id = "input" + $(this).attr("id").replace("field","");
-            var label = $("<label for=\"" + id + "\">" + $(this).find("input.fieldname").first().val() + "</label>");
+            var idCheckbox = "checkbox" + $(this).attr("id").replace("field","");
+            var idTextbox = "textbox" + $(this).attr("id").replace("field","");
+            var idTextarea = "textarea" + $(this).attr("id").replace("field","");
+            var idPassword = "password" + $(this).attr("id").replace("field","");
+            var label;
             var input;
             switch ($(this).find("select.fieldtype").first().val()) {
                 case "checkbox":
-                    input = $("<input type=\"checkbox\" id=\"" + id + "\" name=\"" + id + "\" /><br>");
+                    input = $("<input type=\"checkbox\" id=\"" + idCheckbox + "\" name=\"" + idCheckbox + "\" /><br>");
+                    label = $("<label for=\"" + idCheckbox + "\">" + $(this).find("input.fieldname").first().val() + "</label>");
                     break;
                 case "textbox":
-                    input = $("<input type=\"text\" id=\"" + id + "\" name=\"" + id + "\" /><br>");
+                    input = $("<input type=\"text\" id=\"" + idTextbox + "\" name=\"" + idTextbox + "\" /><br>");
+                    label = $("<label for=\"" + idTextbox + "\">" + $(this).find("input.fieldname").first().val() + "</label>");
                     break;
                 case "textarea":
-                    input = $("<textarea id=\"" + id + "\" name=\"" + id + "\" ></textarea><br>");
+                    input = $("<textarea id=\"" + idTextarea + "\" name=\"" + idTextarea + "\" ></textarea><br>");
+                    label = $("<label for=\"" + idTextarea + "\">" + $(this).find("input.fieldname").first().val() + "</label>");
                     break;                  
                 case "password":
-                input = $("<input type = \"password\" id=\"" + id + "\" name=\"" + id + "\" ></input><br>");
-                break;    
+                    input = $("<input type = \"password\" id=\"" + idPassword + "\" name=\"" + idPassword + "\" ></input><br>");
+                    label = $("<label for=\"" + idPassword + "\">" + $(this).find("input.fieldname").first().val() + "</label>");
+                    break;    
             }
             fieldSet.append(label);
             fieldSet.append(input);
@@ -63,5 +70,4 @@ $(document).ready(function() {
 	</script>
 </body>
 </html>
-
 
