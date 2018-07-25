@@ -1,0 +1,1139 @@
+vendor "ATI" 0x1002
+	card 0x6798  "AMD Radeon HD 7900 Series"
+	card 0x6799  "AMD Radeon HD 7900 Series"
+	card 0x679a  "AMD Radeon HD 7900 Series"
+	card 0x6800  "AMD Radeon HD 7900 Series"
+	card 0x6818  "AMD Radeon HD 7800 Series"
+	card 0x6819  "AMD Radeon HD 7800 Series"
+	card 0x682f  "AMD Radeon HD 7700 Series"
+	card 0x683d  "AMD Radeon HD 7700 Series"
+	card 0x683f  "AMD Radeon HD 7700 Series"
+	card 0x6840  "AMD Radeon HD 7600 Series"
+	card 0x6841  "AMD Radeon HD 7600 Series"
+	card 0x6843  "AMD Radeon HD 7600 Series"
+	card 0x6850  "AMD Radeon HD 7500 Series"
+	card 0x675d  "AMD Radeon HD 7500 Series"
+	card 0x6858  "AMD Radeon HD 7500 Series"
+	card 0x6772  "AMD Radeon HD 7400 Series"
+	card 0x677b  "AMD Radeon HD 7400 Series"
+	card 0x6778  "AMD Radeon HD 7000 Series"
+    card 0x6738 "AMD Radeon HD 6800 Series"
+    card 0x6739 "AMD Radeon HD 6800 Series"
+	card 0x6779 "AMD Radeon HD 6450"
+	card 0x6718 "AMD Radeon HD 6900 Series"
+	card 0x6719 "AMD Radeon HD 6900 Series"
+	card 0x671C "ATI Radeon Graphics Processor"
+	card 0x671D "ATI Radeon Graphics Processor"
+	card 0x6758 "AMD Radeon HD 6600 series"
+	card 0x6759 "AMD Radeon HD 6500"
+	card 0x6770 "ATI Radeon 5xxx series"
+	card 0x6750 "ATI Radeon 5xxx series"
+    card 0x6898 "Radeon HD 5800 Series"
+    card 0x6899 "Radeon HD 5800 Series"
+    card 0x689C "Radeon HD 5800 Series"
+    card 0x689E "Radeon HD 5800 Series"
+    card 0x68BE "Radeon HD 5700 Series"
+    card 0x68B8 "Radeon HD 5700 Series"
+    card 0x68D8 "Radeon HD 5600 Series"
+    card 0x68B9 "Radeon HD 5600 Series"
+    card 0x68DA "Radeon HD 5500 Series"
+    card 0x68D9 "Radeon HD 5500 Series"
+    card 0x68F9 "Radeon HD 5400 Series"
+    card 0x9440 "Radeon HD 4870"
+    card 0x9441 "Radeon HD 4870 X2"
+    card 0x9442 "Radeon HD 4850"
+    card 0x9443 "Radeon HD 4850 x2"
+    card 0x944C "Radeon HD 4830"
+    card 0x944A "Radeon HD 4800 Series"
+    card 0x9460 "Radeon HD 4800 Series"
+    card 0x9462 "Radeon HD 4800 Series"
+    card 0x94B3 "Radeon HD 4770"
+    card 0x94B5 "Radeon HD 4770"
+    card 0x9501 "Radeon HD 4750"
+    card 0x9490 "Radeon HD 4720"
+    card 0x944E "Radeon HD 4700 Series"
+    card 0x94B4 "Radeon HD 4700 Series"
+    card 0x9505 "Radeon HD 4700 Series"
+    card 0x9498 "Radeon HD 4600 Series"
+    card 0x9490 "Radeon HD 4600 Series"
+    card 0x9450 "Radeon HD 4550"
+    card 0x9598 "Radeon HD 4500 Series"
+    card 0x9540 "Radeon HD 4500 Series"
+    card 0x954F "Radeon HD 4300 Series"
+    card 0x9552 "Radeon HD 4300 Series"
+    card 0x9714 "Radeon HD 4290"
+    card 0x95C0 "Radeon HD 4250"
+    card 0x9715 "Radeon HD 4250"
+    card 0x9710 "Radeon HD 4200"
+    card 0x95C5 "Radeon HD 4200 Series"
+    card 0x950F "Radeon HD 3870 X2"
+    card 0x9509 "Radeon HD 3870 X2"
+    card 0x9508 "Radeon HD 3870"
+    card 0x9501 "Radeon HD 3870"
+    card 0x724e "Radeon HD 3870"
+    card 0x726e "Radeon HD 3870"
+    card 0x9519 "Radeon HD 3870"
+    card 0x9511 "Radeon HD 3870"
+    card 0x9513 "Radeon HD 3850 X2"
+    card 0x9506 "Radeon HD 3850 X2"
+    card 0x9505 "Radeon HD 3850"
+    card 0x9504 "Radeon HD 3850"
+    card 0x9507 "Radeon HD 3850"
+    card 0x9515 "Radeon HD 3850 AGP"
+    card 0x9590 "Radeon HD 3600"
+    card 0x9597 "Radeon HD 3600"
+    card 0x9598 "Radeon HD 3600"
+    card 0x9599 "Radeon HD 3600"
+    card 0x9591 "Radeon HD 3600"
+    card 0x9593 "Radeon HD 3600"
+    card 0x9596 "Radeon HD 3600 AGP"
+    card 0x95C5 "Radeon HD 3400"
+    card 0x95C4 "Radeon HD 3400"
+    card 0x95C2 "Radeon HD 3400"
+    card 0x95c7 "Radeon HD 3400"
+    card 0x95c0 "Radeon HD 3400"
+    card 0x9614 "Radeon HD 3200"
+    card 0x9610 "Radeon HD 3200"
+    card 0x9612 "Radeon HD 3200"
+    card 0x9405 "Radeon HD 2900"
+    card 0x9404 "Radeon HD 2900"
+    card 0x9403 "Radeon HD 2900"
+    card 0x9402 "Radeon HD 2900"
+    card 0x9401 "Radeon HD 2900"
+    card 0x9400 "Radeon HD 2900"
+    card 0x958E "Radeon HD 2600"
+    card 0x958B "Radeon HD 2600"
+    card 0x9589 "Radeon HD 2600"
+    card 0x9588 "Radeon HD 2600"
+    card 0x9587 "Radeon HD 2600"
+    card 0x9586 "Radeon HD 2600"
+    card 0x9583 "Radeon HD 2600"
+    card 0x9581 "Radeon HD 2600"
+    card 0x95cc "Radeon HD 2600"
+    card 0x94CB "Radeon HD 2400"
+    card 0x94C9 "Radeon HD 2400"
+    card 0x94C5 "Radeon HD 2400"
+    card 0x94C4 "Radeon HD 2400"
+    card 0x94C3 "Radeon HD 2400"
+    card 0x94C1 "Radeon HD 2400"
+    card 0x94CC "Radeon HD 2400"
+    card 0x9611 "Radeon HD 2400"
+    card 0x9613 "Radeon HD 2400"
+    card 0x94C8 "Radeon HD 2300"
+    card 0x94C7 "Radeon HD 2300"
+    card 0x718A "Radeon HD 2300"
+    card 0x7188 "Radeon HD 2300"
+    card 0x7211 "Radeon HD 2300"
+    card 0x7210 "Radeon HD 2300"
+    card 0x958D "Radeon HD 2300"
+    card 0x958C "Radeon HD 2300"
+    card 0x940F "Radeon HD 2300"
+    card 0x940B "Radeon HD 2300"
+    card 0x940A "Radeon HD 2300"
+    card 0x7248 "Radeon X1900"
+    card 0x7249 "Radeon X1900"
+    card 0x724A "Radeon X1900"
+    card 0x724B "Radeon X1900"
+    card 0x724C "Radeon X1900"
+    card 0x724D "Radeon X1900"
+    card 0x724F "Radeon X1900"
+    card 0x7243 "Radeon X1900"
+    card 0x7245 "Radeon X1900"
+    card 0x7246 "Radeon X1900"
+    card 0x7247 "Radeon X1900"
+    card 0x7268 "Radeon X1900"
+    card 0x7269 "Radeon X1900"
+    card 0x726A "Radeon X1900"
+    card 0x726B "Radeon X1900"
+    card 0x726C "Radeon X1900"
+    card 0x726D "Radeon X1900"
+    card 0x726F "Radeon X1900"
+    card 0x7263 "Radeon X1900"
+    card 0x7265 "Radeon X1900"
+    card 0x7266 "Radeon X1900"
+    card 0x7267 "Radeon X1900"
+    card 0x7280 "Radeon X1900"
+    card 0x7240 "Radeon X1900"
+    card 0x7244 "Radeon X1900"
+    card 0x72A0 "Radeon X1900"
+    card 0x7260 "Radeon X1900"
+    card 0x7264 "Radeon X1900"
+    card 0x7288 "Radeon X1900"
+    card 0x72A8 "Radeon X1900"
+    card 0x7284 "Radeon X1900"
+    card 0x7100 "Radeon X1800 Series"
+    card 0x7101 "Radeon X1800"
+    card 0x7102 "Radeon X1800"
+    card 0x7105 "Radeon X1800"
+    card 0x7108 "Radeon X1800"
+    card 0x7109 "Radeon X1800 Series"
+    card 0x7120 "Radeon X1800"
+    card 0x7129 "Radeon X1800"
+    card 0x710A "Radeon X1800"
+    card 0x710B "Radeon X1800"
+    card 0x710C "Radeon X1800"
+    card 0x7100 "Radeon X1800"
+    card 0x7125 "Radeon X1800"
+    card 0x7128 "Radeon X1800"
+    card 0x712A "Radeon X1800"
+    card 0x712B "Radeon X1800"
+    card 0x712C "Radeon X1800"
+    card 0x7124 "Radeon X1800"
+    card 0x710E "Radeon X1800"
+    card 0x712E "Radeon X1800"
+    card 0x710F "Radeon X1800"
+    card 0x712F "Radeon X1800"
+    card 0x7104 "Radeon X1800"
+    card 0x7106 "Radeon X1800 Mobility"
+    card 0x7103 "Radeon X1800 Mobility"
+    card 0x71C0 "Radeon X1600"
+    card 0x71C2 "Radeon X1600"
+    card 0x71E0 "Radeon X1600"
+    card 0x71E2 "Radeon X1600"
+    card 0x81EE "Radeon X1600"
+    card 0x81C0 "Radeon X1600"
+    card 0x7140 "Radeon X1600"
+    card 0x71CD "Radeon X1600"
+    card 0x7181 "Radeon X1600"
+    card 0x7160 "Radeon X1600"
+    card 0x71ED "Radeon X1600"
+    card 0x71A1 "Radeon X1600"
+    card 0x71C6 "Radeon X1600"
+    card 0x7291 "Radeon X1600"
+    card 0x7293 "Radeon X1600"
+    card 0x71C1 "Radeon X1600"
+    card 0x71C5 "Radeon X1600 Mobility"
+    card 0x71C7 "Radeon X1600"
+    card 0x71E6 "Radeon X1600"
+    card 0x72B1 "Radeon X1600"
+    card 0x72B3 "Radeon X1600"
+    card 0x71E1 "Radeon X1600"
+    card 0x71E7 "Radeon X1600"
+    card 0x719B "Radeon X1600"
+    card 0x71BB "Radeon X1600"
+    card 0x71D4 "Radeon X1600 Mobility"
+    card 0x7142 "Radeon X1550"
+    card 0x7146 "Radeon X1300 Series"
+    card 0x7162 "Radeon X1300 Series"
+    card 0x7166 "Radeon X1300 Series"
+    card 0x714E "Radeon X1300"
+    card 0x715E "Radeon X1300"
+    card 0x714D "Radeon X1300"
+    card 0x71CE "Radeon X1300"
+    card 0x71C3 "Radeon X1300"
+    card 0x718F "Radeon X1300"
+    card 0x716E "Radeon X1300"
+    card 0x717E "Radeon X1300"
+    card 0x716D "Radeon X1300"
+    card 0x71E3 "Radeon X1300"
+    card 0x71AF "Radeon X1300"
+    card 0x7190 "Radeon X1300"
+    card 0x7183 "Radeon X1300"
+    card 0x7187 "Radeon X1300"
+    card 0x71A0 "Radeon X1300"
+    card 0x71A3 "Radeon X1300"
+    card 0x71A7 "Radeon X1300"
+    card 0x7147 "Radeon X1300"
+    card 0x715F "Radeon X1300"
+    card 0x7167 "Radeon X1300"
+    card 0x717f "Radeon X1300"
+    card 0x7193 "Radeon X1300"
+    card 0x7143 "Radeon X1300"
+    card 0x71B3 "Radeon X1300"
+    card 0x7163 "Radeon X1300"
+    card 0x7149 "Radeon X1300"
+    card 0x714A "Radeon X1300"
+    card 0x714B "Radeon X1300"
+    card 0x714C "Radeon X1300"
+    card 0x718B "Radeon X1300"
+    card 0x718C "Radeon X1300"
+    card 0x7196 "Radeon X1300"
+    card 0x7145 "Radeon X1300"
+    card 0x7186 "Radeon X1300"
+    card 0x718D "Radeon X1300"
+    card 0x71C4 "Radeon X1300"
+    card 0x71D5 "Radeon X1300"
+    card 0x71DE "Radeon X1300"
+    card 0x71D6 "Radeon X1300"
+    card 0x7152 "Radeon X1300"
+    card 0x7172 "Radeon X1300"
+    card 0x7153 "Radeon X1300"
+    card 0x7173 "Radeon X1300"
+    card 0x71D2 "Radeon X1300"
+    card 0x71DA "Radeon X1300"
+    card 0x71F2 "Radeon X1300"
+    card 0x71FA "Radeon X1300"
+    card 0x5E48 "Radeon X1300"
+    card 0x7180 "Radeon X1300"
+    card 0x719f "Radeon X1300"
+    card 0x71ee "Radeon X1300"
+    card 0x791E "Radeon X1200"
+    card 0x791F "Radeon X1200"
+    card 0x793F "Radeon X1200"
+    card 0x7941 "Radeon X1200"
+    card 0x7942 "Radeon X1200"
+    card 0x5A62 "Radeon X1200"
+    card 0x5975 "Radeon X1200"
+    card 0x5A42 "Radeon X1200"
+    card 0x4B49 "Radeon X850"
+    card 0x4B4B "Radeon X850"
+    card 0x4B4C "Radeon X850 AGP"
+    card 0x4B69 "Radeon X850"
+    card 0x4B6B "Radeon X850"
+    card 0x4B6C "Radeon X850"
+    card 0x5D52 "Radeon X850 (R423)"
+    card 0x5D4D "Radeon X850 (R423) AGP"
+    card 0x5D4F "Radeon X850 (R423)"
+    card 0x5D6F "Radeon X850 (R423)"
+    card 0x5D72 "Radeon X850 (R423)"
+    card 0x5D6D "Radeon X850 (R423)"
+    card 0x4b4a "Radeon X850"
+    card 0x4b6a "Radeon X850"
+    card 0x554A "Radeon X800 XT (R423)"
+    card 0x5D57 "Radeon X800 XT (R423)"
+    card 0x5548 "Radeon X800 XT (R423)"
+    card 0x5568 "Radeon X800 XT (R423)"
+    card 0x5D77 "Radeon X800 XT (R423)"
+    card 0x556A "Radeon X800 XT (R423)"
+    card 0x4a48 "Radeon X800 (R420)"
+    card 0x4A49 "Radeon X800 PRO"
+    card 0x4A4A "Radeon X800"
+    card 0x4A4B "Radeon X800"
+    card 0x4A4C "Radeon X800"
+    card 0x4A4D "Radeon X800"
+    card 0x4a4e "Radeon X800 (R420)"
+    card 0x4A50 "Radeon X800 XT Platinum Edition"
+    card 0x4a68 "Radeon X800 (R420)"
+    card 0x4a69 "Radeon X800 (R420)"
+    card 0x4a6a "Radeon X800 (R420)"
+    card 0x4a6b "Radeon X800 (R420)"
+    card 0x4a6c "Radeon X800 (R420)"
+    card 0x4a6d "Radeon X800 (R420)"
+    card 0x4a6e "Radeon X800 (R420)"
+    card 0x4A70 "Radeon X800 XT Platinum Edition"
+    card 0x5549 "Radeon X800 AGP"
+    card 0x554B "Radeon X800GT"
+    card 0x554D "Radeon X800 Series"
+    card 0x554F "Radeon X800 Series"
+    card 0x5569 "Radeon X800 PRO"
+    card 0x556B "Radeon X800GT"
+    card 0x556D "Radeon X800 Series"
+    card 0x556F "Radeon X800 Series"
+    card 0x4A54 "Radeon ALL-IN-WONDER X800 VE"
+    card 0x4A74 "Radeon ALL-IN-WONDER X800 VE"
+    card 0x5E68 "Radeon X800"
+    card 0x5551 "Radeon X800"
+    card 0x5571 "Radeon X800"
+    card 0x5550 "Radeon X800"
+    card 0x5570 "Radeon X800"
+    card 0x5D49 "Radeon X800 Mobility"
+    card 0x5d4a "Radeon X800 Mobility"
+    card 0x5d48 "Radeon X800 Mobility"
+    card 0x4a4f "Radeon X800"
+    card 0x4a6f "Radeon X800"
+    card 0x5d4e "Radeon X800"
+    card 0x554e "Radeon X800"
+    card 0x5d6e "Radeon X800"
+    card 0x556e "Radeon X800"
+    card 0x5E4B "Radeon X700"
+    card 0x5E4C "Radeon X700"
+    card 0x5E4D "Radeon X700"
+    card 0x5E6B "Radeon X700"
+    card 0x5E6C "Radeon X700"
+    card 0x5E6D "Radeon X700"
+    card 0x5653 "Radeon X700 Mobility"
+    card 0x5673 "Radeon X700 Mobility"
+    card 0x5e4a "Radeon X700 XT"
+    card 0x5e6a "Radeon X700 XT"
+    card 0x566f "Radeon X700"
+    card 0x5652 "Radeon X700 Mobility"
+    card 0x9595 "Radeon X700 Mobility"
+    card 0x3e50 "Radeon X600 (R380)"
+    card 0x3e54 "Radeon X600 (R380)"
+    card 0x3e70 "Radeon X600 (R380)"
+    card 0x3e74 "Radeon X600 (R380)"
+    card 0x5B62 "Radeon X600 Series"
+    card 0x5B72 "Radeon X600 Series"
+    card 0x4C66 "Radeon X600"
+    card 0x4C6E "Radeon X600"
+    card 0x3150 "Radeon X600"
+    card 0x5462 "Radeon X600"
+    card 0x5B63 "Radeon X550"
+    card 0x5B73 "Radeon X550 Secondary"
+    card 0x5E6F "Radeon X550 Series Secondary"
+    card 0x5E4F "Radeon X550 Series"
+    card 0x5b60 "Radeon X300 (RV370)"
+    card 0x5b64 "Radeon X300 (RV370)"
+    card 0x5b70 "Radeon X300 (RV370)"
+    card 0x5b74 "Radeon X300 (RV370)"
+    card 0x5E4F "Radeon X300"
+    card 0x5E6F "Radeon X300"
+    card 0x5460 "Radeon X300 Mobility (M22)"
+    card 0x5461 "Radeon X300 Mobility (M22)"
+    card 0x5B63 "Radeon X300"
+    card 0x564F "Radeon X300"
+    card 0x5B65 "Radeon X300"
+    card 0x5657 "Radeon X300"
+    card 0x5677 "Radeon X300"
+    card 0x5B73 "Radeon X300"
+    card 0x5B75 "Radeon X300"
+    card 0x5D45 "Radeon X300"
+    card 0x3152 "Radeon X300 Mobility (M24)"
+    card 0x5464 "Radeon X300 Mobility"
+    card 0x3154 "Radeon X300 Mobility"
+    card 0x564A "Radeon X300 Mobility"
+    card 0x564B "Radeon X300 Mobility"
+    card 0x5854 "Radeon X200" unsupported
+    card 0x5874 "Radeon X200" unsupported
+    card 0x5954 "Radeon X200" unsupported
+    card 0x5955 "Radeon X200 Mobility" unsupported
+    card 0x5965 "Radeon X200" unsupported
+    card 0x5974 "Radeon X200" unsupported
+    card 0x5A41 "Radeon X200" unsupported
+    card 0x5A43 "Radeon X200" unsupported
+    card 0x5A61 "Radeon X200" unsupported
+    card 0x5A63 "Radeon X200" unsupported
+    card 0x4148 "Radeon 9800 (R350)"
+    card 0x4168 "Radeon 9800 (R350)"
+    card 0x4E48 "Radeon 9800 Series"
+    card 0x4E49 "Radeon 9800 Series"
+    card 0x4E68 "Radeon 9800 Series"
+    card 0x4E69 "Radeon 9800 Series"
+    card 0x4e4a "Radeon 9800 XT (R360)"
+    card 0x4e6a "Radeon 9800 XT (R360)"
+    card 0x4a4e "Mobility Radeon 9800 (M18)"
+    card 0x4145 "Radeon 9700 (R300)"
+    card 0x4146 "Radeon 9700 (R300)"
+    card 0x4E44 "Radeon 9700 PRO"
+    card 0x4e45 "Radeon 9700 (R300)"
+    card 0x4e64 "Radeon 9700 PRO (R300)"
+    card 0x4e65 "Radeon 9700 (R300)"
+    card 0x4152 "Radeon 9600 XT (RV360)"
+    card 0x4172 "Radeon 9600 XT (RV360)"
+    card 0x4150 "Radeon 9600 SE (RV350)"
+    card 0x4151 "Radeon 9600 SE (RV350)"
+    card 0x4170 "Radeon 9600 (RV350)"
+    card 0x4171 "Radeon 9600 SE (RV350)"
+    card 0x4e46 "Radeon 9600 (RV350)"
+    card 0x4e66 "Radeon 9600 (RV350)"
+    card 0x4E46 "Radeon 9600 TX"
+    card 0x4E51 "Radeon 9600 Series"
+    card 0x4E71 "Radeon 9600 Series"
+    card 0x4E50 "Radeon 9600 Mobility"
+    card 0x4E54 "Radeon 9600 Mobility"
+    card 0x4E52 "Radeon 9600 Mobility"
+    card 0x4155 "Radeon 9600 Series"
+    card 0x4166 "Radeon 9600 TX"
+    card 0x4E56 "Radeon 9600 Mobility"
+    card 0x4154 "Radeon 9600"
+    card 0x4174 "Radeon 9600"
+    card 0x4175 "Radeon 9600 Series"
+    card 0x95ce "Radeon 9600"
+    card 0x95cf "Radeon 9600"
+    card 0x3151 "Radeon 9600"
+    card 0x3171 "Radeon 9600"
+    card 0x95cd "Radeon 9600"
+    card 0x959b "Radeon 9600"
+    card 0x958f "Radeon 9600"
+    card 0x4153 "Radeon 9550"
+    card 0x4173 "Radeon 9550"
+    card 0x4175 "Radeon 9500"
+    card 0x4144 "Radeon 9500 (R300)"
+    card 0x4149 "Radeon 9500 (R300)"
+    card 0x4164 "Radeon 9500 (R300)"
+    card 0x4169 "Radeon 9500 (R300)"
+    card 0x4167 "Radeon 9500"
+    card 0x4147 "Radeon 9500"
+    card 0x4E47 "Radeon 9500"
+    card 0x4E67 "Radeon 9500"
+    card 0x4E4B "Radeon 9500"
+    card 0x4E6B "Radeon 9500"
+    card 0x796e "Radeon 9500"
+    card 0x4C66 "FireMV 2400 PCI"
+    card 0x4C6E "FireMV 2400 PCI Secondary"
+    card 0x5B65 "FireMV 2200"
+    card 0x5B75 "FireMV 2200"
+    card 0x5D45 "FireMV 2200 PCI"
+    card 0x5965 "FireMV 2200 PCI"
+    card 0x4136 "Radeon IGP 320" unsupported
+    card 0x5C41 "Radeon 9250 Series" unsupported
+    card 0x5940 "Radeon 9200 (RV280)" unsupported
+    card 0x5941 "Radeon 9200 (RV280)" unsupported
+    card 0x5960 "Radeon 9200 (RV280)" unsupported
+    card 0x5961 "Radeon 9200 (RV280)" unsupported
+    card 0x5964 "Radeon 9200 (RV280)" unsupported
+    card 0x5C43 "Radeon 9200 Series" unsupported
+    card 0x5d44 "Radeon 9200 (RV280)" unsupported
+    card 0x5c61 "Mobility Radeon 9200 (M9+)" unsupported
+    card 0x5c63 "Mobility Radeon 9200 (M9+)" unsupported
+    card 0x7835 "Mobility Radeon 9200 IGP (RS350M)" unsupported
+    card 0x414d "Radeon 9100 (R200)" unsupported
+    card 0x514d "Radeon 9100 (R200)" unsupported
+    card 0x516d "Radeon 9100 (R200)" unsupported
+    card 0x7834 "Radeon 9000 XT IGP (RS350)" unsupported
+    card 0x4966 "Radeon 9000 (RV250)" unsupported
+    card 0x4967 "Radeon 9000 (RV250)" unsupported
+    card 0x496E "Radeon ALL-IN-WONDER 9000" unsupported
+    card 0x496f "Radeon 9000 (RV250)" unsupported
+    card 0x4c67 "Radeon 9000 (RV250)" unsupported
+    card 0x4c6f "Radeon 9000 (RV250)" unsupported
+    card 0x4c66 "Mobility Radeon 9000 (M9)" unsupported
+    card 0x5834 "Radeon 9000/9100 IGP (RS300)" unsupported
+    card 0x5835 "Mobility Radeon 9000 IGP (RS300M)" unsupported
+    card 0x4242 "Radeon 8500 (R200) (All-In-Wonder Radeon 8500DV)" unsupported
+    card 0x5148 "Radeon 8500 (R200 QH) (Radeon FireGL)" unsupported
+    card 0x514c "Radeon 8500 (R200)" unsupported
+    card 0x514e "Radeon 8500 (R200)" unsupported
+    card 0x514f "Radeon 8500 (R200)" unsupported
+    card 0x516c "Radeon R200 Ql" unsupported
+    card 0x5157 "Radeon 7500 (RV200)" unsupported
+    card 0x4c57 "Mobility Radeon 7500 (M7)" unsupported
+    card 0x5144 "Radeon / Radeon 7200 (R100)" unsupported
+    card 0x5145 "Radeon / Radeon 7200 (R100)" unsupported
+    card 0x5146 "Radeon / Radeon 7200 (R100)" unsupported
+    card 0x5147 "Radeon / Radeon 7200 (R100)" unsupported
+    card 0x4237 "Radeon 7000 IGP (RS250)" unsupported
+    card 0x4437 "Mobility Radeon 7000 IGP (RS250M)" unsupported
+    card 0x5159 "Radeon VE / Radeon 7000 (RV100 - low-cost Radeon, dual CRT but no TCL)" unsupported
+    card 0x515a "Radeon VE / Radeon 7000 (RV100 - low-cost Radeon, dual CRT but no TCL)" unsupported
+    card 0x4c58 "Mobility Radeon (M6 - Radeon VE based)" unsupported
+    card 0x4c59 "Mobility Radeon (M6 - Radeon VE based)" unsupported
+    card 0x4c5a "Mobility Radeon (M6 - Radeon VE based)" unsupported
+    card 0x4137 "Radeon IGP 340 (RS200)" unsupported
+    card 0x4337 "Radeon IGP 340M (RS200M)" unsupported
+    card 0x4336 "Radeon IGP 320M  (U1)" unsupported
+    card 0x4d46 "Rage Mobility 128 M4 (Rage 128 Pro based)" unsupported
+    card 0x4d4c "Rage Mobility 128 M4 (Rage 128 Pro based)" unsupported
+    card 0x4c45 "Rage Mobility 128 M3 (Rage 128 Pro based)" unsupported
+    card 0x4c46 "Rage Mobility 128 M3 (Rage 128 Pro based)" unsupported
+    card 0x5446 "Rage 128 Pro ULTRA" unsupported
+    card 0x544c "Rage 128 Pro ULTRA" unsupported
+    card 0x5452 "Rage 128 Pro ULTRA" unsupported
+    card 0x5453 "Rage 128 Pro ULTRA" unsupported
+    card 0x5454 "Rage 128 Pro ULTRA" unsupported
+    card 0x5455 "Rage 128 Pro ULTRA" unsupported
+    card 0x5041 "Rage 128 Pro GL" unsupported
+    card 0x5042 "Rage 128 Pro GL" unsupported
+    card 0x5043 "Rage 128 Pro GL" unsupported
+    card 0x5044 "Rage 128 Pro GL" unsupported
+    card 0x5045 "Rage 128 Pro GL" unsupported
+    card 0x5046 "Rage 128 Pro GL" unsupported
+    card 0x5047 "Rage 128 Pro VR" unsupported
+    card 0x5048 "Rage 128 Pro VR" unsupported
+    card 0x5049 "Rage 128 Pro VR" unsupported
+    card 0x504a "Rage 128 Pro VR" unsupported
+    card 0x504b "Rage 128 Pro VR" unsupported
+    card 0x504c "Rage 128 Pro VR" unsupported
+    card 0x504d "Rage 128 Pro VR" unsupported
+    card 0x504e "Rage 128 Pro VR" unsupported
+    card 0x504f "Rage 128 Pro VR" unsupported
+    card 0x5050 "Rage 128 Pro VR" unsupported
+    card 0x5051 "Rage 128 Pro VR" unsupported
+    card 0x5052 "Rage 128 Pro VR" unsupported
+    card 0x5053 "Rage 128 Pro VR" unsupported
+    card 0x5054 "Rage 128 Pro VR" unsupported
+    card 0x5055 "Rage 128 Pro VR" unsupported
+    card 0x5056 "Rage 128 Pro VR" unsupported
+    card 0x5057 "Rage 128 Pro VR" unsupported
+    card 0x5058 "Rage 128 Pro VR" unsupported
+    card 0x5245 "Rage 128 GL" unsupported
+    card 0x5246 "Rage 128 GL" unsupported
+    card 0x5247 "Rage 128 GL" unsupported
+    card 0x534b "Rage 128 GL" unsupported
+    card 0x534c "Rage 128 GL" unsupported
+    card 0x534d "Rage 128 GL" unsupported
+    card 0x524b "Rage 128 VR" unsupported
+    card 0x524c "Rage 128 VR" unsupported
+    card 0x5345 "Rage 128 VR" unsupported
+    card 0x5346 "Rage 128 VR" unsupported
+    card 0x5347 "Rage 128 VR" unsupported
+    card 0x4c4d "Rage Mobility M/M1/P (Rage Pro based)" unsupported
+    card 0x4c4e "Rage Mobility M/M1/P (Rage Pro based)" unsupported
+    card 0x4c52 "Rage Mobility M/M1/P (Rage Pro based)" unsupported
+    card 0x4c53 "Rage Mobility M/M1/P (Rage Pro based)" unsupported
+    card 0x4c54 "Rage Mobility M/M1/P (Rage Pro based)" unsupported
+    card 0x4c42 "Rage LT-Pro (Rage Pro based)" unsupported
+    card 0x4c44 "Rage LT-Pro (Rage Pro based)" unsupported
+    card 0x4c49 "Rage LT-Pro (Rage Pro based)" unsupported
+    card 0x4c50 "Rage LT-Pro (Rage Pro based)" unsupported
+    card 0x4c51 "Rage LT-Pro (Rage Pro based)" unsupported
+    card 0x4c47 "Rage LT (Rage II based)" unsupported
+    card 0x474d "Rage XL (Rage Pro based)" unsupported
+    card 0x474f "Rage XL (Rage Pro based)" unsupported
+    card 0x4752 "Rage XL (Rage Pro based)" unsupported
+    card 0x474c "Rage XC (Rage Pro based)" unsupported
+    card 0x474e "Rage XC (Rage Pro based)" unsupported
+    card 0x4753 "Rage XC (Rage Pro based)" unsupported
+    card 0x4742 "Rage Pro" unsupported
+    card 0x4744 "Rage Pro" unsupported
+    card 0x4747 "Rage Pro" unsupported
+    card 0x4749 "Rage Pro" unsupported
+    card 0x4750 "Rage Pro" unsupported
+    card 0x4751 "Rage Pro" unsupported
+    card 0x4757 "Rage IIC AGP" unsupported
+    card 0x4759 "Rage IIC AGP" unsupported
+    card 0x475a "Rage IIC AGP" unsupported
+    card 0x4756 "Rage IIC PCI" unsupported
+    card 0x5656 "Rage IIC PCI" unsupported
+    card 0x4755 "Rage II+" unsupported
+    card 0x4754 "Rage II" unsupported
+    card 0x4354 "Mach 64" unsupported
+    card 0x4358 "Mach 64" unsupported
+    card 0x4554 "Mach 64" unsupported
+    card 0x4654 "Mach 64" unsupported
+    card 0x4758 "Mach 64" unsupported
+    card 0x5354 "Mach 64" unsupported
+    card 0x5654 "Mach 64" unsupported
+    card 0x5655 "Mach 64" unsupported
+    card 0x4158 "Mach 32" unsupported
+end
+vendor "NVIDIA" 0x10b4 0x12d2 0x10de
+	card 0x0fd1 "GeForce GT 650M"
+	card 0x0fd2 "GeForce GT 640M"
+	card 0x0fd3 "GeForce GT 640M LE"
+	card 0x0fd4 "GeForce GTX 660M"
+	card 0x0fd5 "GeForce GT 650M"
+	card 0x0fd8 "GeForce GT 640M"
+	card 0x0fe0 "GeForce GTX 660M"
+	card 1080 "Geforce GTX 580"
+	card 0x124d "GeForce GT 555M"
+	card 0x06c0 "GeForce GTX 480"
+	card 0x06cd "GeForce GTX 470"
+	card 0x0dc4 "GeForce GTS 450"
+	card 0x0dd1 "GeForce GTX 460M (rev a1)"
+	card 0x0de1 "GeForce GT 430"
+	card 0x0e22 "GeForce GTX 460"
+	card 0x0a6e "GeForce G 305M"
+	card 0x0a70 "GeForce G 310M"
+	card 0x0a71 "GeForce G 305M"
+	card 0x0a72 "GeForce G 310M"
+	card 0x0a73 "GeForce G 305M"
+	card 0x0a35 "GeForce GT 325M"
+	card 0x0a63 "GeForce G 310"
+	card 0x0a66 "GeForce G 310"
+	card 0x0a75 "GeForce G 310M"
+	card 0x0ca0 "GeForce GT 330"
+	card 0x0ca2 "GeForce GT 320"
+	card 0x0ca4 "GeForce GT 340"
+	card 0x0ca7 "GeForce GT 330"
+	card 0x0caf "GeForce GT 335M"
+	card 0x0cb0 "GeForce GTS 350M"
+	card 0x0cb1 "GeForce GTS 360M"
+    card 0x05E0 "GeForce GTX 295"
+    card 0x05E1 "GeForce GTX 280"
+    card 0x05E2 "GeForce GTX 260"
+    card 0x05E3 "GeForce GTX 285"
+    card 0x05E6 "GeForce GTX 275"
+    card 0x05EA "GeForce GTX 260"
+    card 0x05EB "GeForce GTX 295"
+    card 0x0603 "GeForce GT 230"
+    card 0x0607 "GeForce GT 240"
+    card 0x060A "GeForce GTX 280M"
+    card 0x060F "GeForce GTX 285M"
+    card 0x0615 "GeForce GTS 250"
+    card 0x0618 "GeForce GTX 260M"
+	card 0x0654 "GeForce GT 220M"
+	card 0x0a20 "GeForce GT 220"
+	card 0x0a23 "GeForce 210"
+	card 0x0a28 "GeForce GT 230M"
+	card 0x0a29 "GeForce GT 330M"
+	card 0x0a2a "GeForce GT 230M"
+	card 0x0a2b "GeForce GT 330M"
+	card 0x0a2d "GeForce GT 320M"
+	card 0x0a34 "GeForce GT 240M"
+	card 0x0a60 "GeForce G210"
+	card 0x0a62 "GeForce 205"
+	card 0x0a65 "GeForce 210"
+	card 0x0a74 "GeForce G210M"
+	card 0x0ca3 "GeForce GT 240"
+	card 0x0ca8 "GeForce GTS 260M"
+	card 0x0ca9 "GeForce GTS 250M"
+	card 0x0626 "GeForce GT 130"
+	card 0x0627 "GeForce GT 140"
+	card 0x0631 "GeForce GTS 160M"
+	card 0x0632 "GeForce GTS 150M"
+	card 0x0646 "GeForce GT 120"
+	card 0x0651 "GeForce G 110M"
+	card 0x0652 "GeForce GT 130M"
+	card 0x0653 "GeForce GT 120M"
+	card 0x06e6 "GeForce G100"
+	card 0x06ec "GeForce G 105M"
+	card 0x06ef "GeForce G 103M"
+	card 0x06f1 "GeForce G105M"
+	card 0x0872 "GeForce G102M"
+	card 0x0873 "GeForce G102M"
+	card 0x0a68 "GeForce G105M"
+	card 0x0a69 "GeForce G105M"
+    card 0x0601 "GeForce 9800 GT"
+    card 0x0604 "GeForce 9800 GX2"
+    card 0x0605 "GeForce 9800 GT"
+    card 0x0608 "GeForce 9800M GTX"
+    card 0x060B "GeForce 9800M GT"
+    card 0x0610 "GeForce 9600 GSO"
+    card 0x0612 "GeForce 9800 GTX"
+    card 0x0613 "GeForce 9800 GTX+"
+    card 0x0614 "GeForce 9800 GT"
+    card 0x0617 "GeForce 9800M GTX"
+    card 0x0622 "GeForce 9600 GT"
+    card 0x0647 "GeForce 9600M GT"
+	card 0x0623 "GeForce 9600 GS"
+	card 0x0625 "GeForce 9600 GSO 512"
+	card 0x0628 "GeForce 9800M GTS"
+	card 0x062a "GeForce 9700M GTS"
+	card 0x062b "GeForce 9800M GS"
+	card 0x062c "GeForce 9800M GTS"
+	card 0x062d "GeForce 9600 GT"
+	card 0x062e "GeForce 9600 GT"
+	card 0x0635 "GeForce 9600 GSO"
+	card 0x0637 "GeForce 9600 GT"
+	card 0x0640 "GeForce 9500 GT"
+	card 0x0641 "GeForce 9400 GT"
+	card 0x0643 "GeForce 9500 GT"
+	card 0x0644 "GeForce 9500 GS"
+	card 0x0645 "GeForce 9500 GS"
+	card 0x0648 "GeForce 9600M GS"
+	card 0x0649 "GeForce 9600M GT"
+	card 0x064a "GeForce 9700M GT"
+	card 0x064b "GeForce 9500M G"
+	card 0x064c "GeForce 9650M GT"
+	card 0x0656 "GeForce 9650 S"
+	card 0x065b "GeForce 9400 GT"
+	card 0x06e0 "GeForce 9300 GE"
+	card 0x06e1 "GeForce 9300 GS"
+	card 0x06e5 "GeForce 9300M GS"
+	card 0x06e7 "GeForce 9300 SE"
+	card 0x06e8 "GeForce 9200M GS"
+	card 0x06e9 "GeForce 9300M GS"
+	card 0x0860 "GeForce 9300"
+	card 0x0862 "GeForce 9400M G"
+	card 0x0864 "GeForce 9300"
+	card 0x0865 "GeForce 9300"
+	card 0x0866 "GeForce 9400M G"
+	card 0x0867 "GeForce 9400"
+	card 0x086a "GeForce 9400"
+	card 0x086c "GeForce 9300"
+	card 0x086d "GeForce 9200"
+	card 0x086e "GeForce 9100M G"
+	card 0x086f "GeForce 9200M G"
+	card 0x0870 "GeForce 9400M"
+	card 0x0871 "GeForce 9200"
+	card 0x087a "GeForce 9400"
+    card 0x0861 "GeForce 9400M"
+    card 0x0863 "GeForce 9400M"
+    card 0x0191 "GeForce 8800 GTX"
+    card 0x0193 "GeForce 8800 GTS"
+    card 0x0194 "GeForce 8800 Ultra"
+    card 0x019D "GeForce 8800"
+    card 0x0600 "GeForce 8800 GTS"
+    card 0x0602 "GeForce 8800 GT"
+    card 0x0606 "GeForce 8800 GS"
+    card 0x0609 "GeForce 8800 GS"
+	card 0x060C "GeForce 8800M GTX"
+	card 0x060D "GeForce 8800 GS"
+    card 0x0611 "GeForce 8800 GT"
+    card 0x061A "GeForce 8800"
+    card 0x06e2 "GeForce 8300"
+	card 0x06E3 "GeForce 8300 GS"
+    card 0x06e4 "GeForce 8300 GS"
+    card 0x040D "Quadro FX 1600M"
+    card 0x0409 "GeForce 8700M GT"
+    card 0x0400 "GeForce 8600 GTS"
+    card 0x0401 "GeForce 8600 GT"
+    card 0x0402 "GeForce 8600 GT "
+    card 0x0403 "GeForce 8600 GS"
+    card 0x0407 "GeForce 8600 Go"
+    card 0x040A "GeForce 8600"
+    card 0x040E "GeForce 8600"
+    card 0x040F "GeForce 8600"
+    card 0x0421 "GeForce 8500 GT"
+    card 0x0427 "GeForce 8400M GS"
+    card 0x0420 "GeForce 8300 SE"
+    card 0x0422 "GeForce 8300 GS"
+    card 0x0423 "GeForce 8300 GS"
+    card 0x0424 "GeForce 8300 GS"
+    card 0x0429 "NVIDIA Quadro NVS 140M"
+    card 0x042f "GeForce 8300"
+    card 0x0404 "GeForce 8300 GS"
+    card 0x0848 "GeForce 8300"
+    card 0x0849 "GeForce 8300"
+    card 0x084b "GeForce 8300"
+    card 0x084f "GeForce 8300"
+	card 0x10C3 "GeForce 8400GS"
+    card 0x0293 "GeForce 7950 GX2"
+    card 0x0294 "GeForce 7950 GX2"
+    card 0x0295 "GeForce 7950 GT"
+    card 0x02e4 "GeForce 7950 GT"
+    card 0x0290 "GeForce 7900 GTX"
+    card 0x0291 "GeForce 7900 GT"
+    card 0x0292 "GeForce 7900 GS"
+    card 0x0298 "GeForce 7900 Go GS"
+    card 0x0299 "GeForce 7900 Go GTX"
+    card 0x029C "GeForce 7900 Quadro"
+    card 0x029D "GeForce 7900"
+    card 0x029E "GeForce 7900"
+    card 0x029f "GeForce 7900"
+    card 0x02e3 "GeForce 7900 GS"
+    card 0x00F5 "GeForce 7800 GS"
+    card 0x0091 "GeForce 7800 GTX"
+    card 0x0092 "GeForce 7800 GT"
+    card 0x0093 "GeForce 7800 GS"
+    card 0x0095 "GeForce 7800 SLI"
+    card 0x0098 "GeForce 7800 Go "
+    card 0x0099 "GeForce 7800 Go GTX"
+    card 0x009D "GeForce 7800 GTX Quadro"
+    card 0x0090 "GeForce 7800 GTX"
+    card 0x019e "GeForce 7800"
+    card 0x02E1 "GeForce 7600 GS"
+    card 0x0390 "GeForce 7600 GS"
+    card 0x0391 "GeForce 7600 GT"
+    card 0x0392 "GeForce 7600 GS"
+    card 0x0394 "GeForce 7600 LE"
+    card 0x039e "GeForce 7600"
+    card 0x02e0 "GeForce 7600 GT"
+    card 0x0398 "GeForce 7600 Go"
+    card 0x016a "GeForce 7300 GS"
+    card 0x01d0 "GeForce 7300 LE"
+    card 0x01d1 "GeForce 7300 LE"
+    card 0x01d3 "GeForce 7300 SE"
+    card 0x01dd "GeForce 7300 LE"
+    card 0x01de "GeForce 7300"
+    card 0x01df "GeForce 7300 GS"
+    card 0x0393 "GeForce 7300 GT"
+    card 0x0395 "GeForce 7300 GT"
+    card 0x02e2 "GeForce 7300 GT"
+    card 0x053a "GeForce 7300"
+    card 0x053b "GeForce 7300"
+    card 0x053e "GeForce 7300"
+    card 0x07e0 "GeForce 7300"
+    card 0x07e1 "GeForce 7300"
+    card 0x07e2 "GeForce 7300"
+    card 0x07e3 "GeForce 7300"
+    card 0x07e5 "GeForce 7300"
+    card 0x084a "GeForce 7300"
+    card 0x084c "GeForce 7300"
+    card 0x084d "GeForce 7300"
+    card 0x0040 "GeForce 6800 Ultra"
+    card 0x0041 "GeForce 6800"
+    card 0x0042 "GeForce 6800 LE"
+    card 0x0043 "GeForce 6800"
+    card 0x0044 "GeForce 6800 XT"
+    card 0x0045 "GeForce 6800 GT"
+    card 0x0046 "GeForce 6800 GT"
+    card 0x0047 "GeForce 6800 GS"
+    card 0x0048 "GeForce 6800 XT"
+    card 0x0049 "GeForce 6800 GL"
+    card 0x004e "GeForce 6800 Quadro"
+    card 0x00F6 "GeForce 6800 GS"
+    card 0x00C0 "GeForce 6800"
+    card 0x00C1 "GeForce 6800"
+    card 0x00C2 "GeForce 6800 LE"
+    card 0x00C3 "GeForce 6800 XT"
+    card 0x00C8 "GeForce 6800 Go"
+    card 0x00C9 "GeForce 6800 Go Ultra"
+    card 0x00CC "GeForce 6800 Go Quadro"
+    card 0x00CD "GeForce 6800 Quadro"
+    card 0x00CE "GeForce 6800 Go Quadro"
+    card 0x00F0 "GeForce 6800 GT"
+    card 0x00f0 "GeForce 6800 Ultra"
+    card 0x00f0 "GeForce 6800"
+    card 0x00F8 "GeForce 6800 Quadro"
+    card 0x00f8 "GeForce 6800 QuadroFX 3400"
+    card 0x00F9 "GeForce 6800"
+    card 0x00f9 "GeForce 6800 Ultra"
+    card 0x00f9 "GeForce 6800 GT"
+    card 0x00f9 "GeForce 6800 Series GPU"
+    card 0x0211 "GeForce 6800"
+    card 0x0212 "GeForce 6800 LE"
+    card 0x0215 "GeForce 6800 GT"
+    card 0x0218 "GeForce 6800 XT"
+    card 0x00F4 "GeForce 6600 LE"
+    card 0x00F1 "GeForce 6600 GT"
+    card 0x00F2 "GeForce 6600"
+    card 0x0140 "GeForce 6600 GT"
+    card 0x0140 "GeForce 6600 NV43"
+    card 0x0141 "GeForce 6600"
+    card 0x0142 "GeForce 6600 NV43"
+    card 0x0143 "GeForce 6600 NV43"
+    card 0x0144 "GeForce Go 6600"
+    card 0x0145 "GeForce 6610 XL"
+    card 0x0147 "GeForce 6600 NV43"
+    card 0x0148 "GeForce Go 6600"
+    card 0x0149 "GeForce 6600"
+    card 0x014A "GeForce 6600"
+    card 0x014B "GeForce 6600"
+    card 0x014C "GeForce 6600 GL"
+    card 0x014D "GeForce 6600 GL"
+    card 0x014E "GeForce 6600 Quadro"
+    card 0x014F "GeForce 6200"
+    card 0x0160 "GeForce 6200 NV44"
+    card 0x0161 "GeForce 6200 TC"
+    card 0x0162 "GeForce 6200 TC SE NV44"
+    card 0x0163 "GeForce 6200 LE NV44"
+    card 0x0164 "GeForce 6200 Go"
+    card 0x0165 "GeForce 6200 Go"
+    card 0x0167 "GeForce 6200 Go NV44M"
+    card 0x0168 "GeForce 6200 Go"
+    card 0x0169 "GeForce 6200 Go NV44M"
+    card 0x016B "GeForce 6200 Go NV44M"
+    card 0x016C "GeForce 6200 Go NV44M"
+    card 0x016D "GeForce 6200 Go NV44M"
+    card 0x016E "GeForce 6200 NV44"
+    card 0x0220 "GeForce 6200 NV44"
+    card 0x0221 "GeForce 6200 NV44"
+    card 0x0222 "GeForce 6200 NV44"
+    card 0x0228 "GeForce 6200 Go NV44M"
+    card 0x00F3 "GeForce 6200"
+    card 0x0240 "GeForce 6100"
+    card 0x0241 "GeForce 6100"
+    card 0x0242 "GeForce 6100"
+    card 0x0245 "GeForce 6100"
+    card 0x029A "GeForce 6100"
+    card 0x03D0 "GeForce 6100 nForce 430"
+    card 0x03D1 "GeForce 6100 nForce 405"
+    card 0x03D2 "GeForce 6100 nForce 400"
+    card 0x03D5 "GeForce 6100"
+    card 0x00fe "GeForce 5950 Quadro"
+    card 0x0333 "GeForce 5950 Ultra"
+    card 0x00ff "GeForce 5900"
+    card 0x00fb "GeForce 5900"
+    card 0x0332 "GeForceFX 5900 NV35"
+    card 0x0334 "GeForce 5900 ZT"
+    card 0x0338 "GeForce 5900 Quadro"
+    card 0x033f "GeForce 5900 Quadro"
+    card 0x0330 "GeForce 5900 Ultra"
+    card 0x0331 "GeForce 5900"
+    card 0x034c "GeForce 5800 Go Quadro"
+    card 0x0301 "GeForce 5800 Ultra"
+    card 0x0302 "GeForce 5800"
+    card 0x00fa "GeForce 5700"
+    card 0x0341 "GeForceFX 5700 Ultra"
+    card 0x0342 "GeForceFX 5700"
+    card 0x0343 "GeForceFX 5700LE"
+    card 0x0344 "GeForceFX 5700VE"
+    card 0x0345 "GeForce 5700"
+    card 0x0347 "GeForceFX Go5700"
+    card 0x0348 "GeForceFX Go5700"
+    card 0x0349 "GeForce 5700 Pro"
+    card 0x034b "GeForce 5700"
+    card 0x034e "GeForce 5700 Quadro"
+    card 0x034f "GeForce 5700 GL"
+    card 0x0308 "GeForceFX 5600 QuadroFX 2000"
+    card 0x0309 "GeForceFX 5600 QuadroFX 1000"
+    card 0x030a "GeForceFX 5600 ICE FX 2000"
+    card 0x0311 "GeForceFX 5600 Ultra"
+    card 0x0312 "GeForceFX 5600"
+    card 0x0313 "GeForceFX 5600 NV31"
+    card 0x0314 "GeForceFX 5600SE"
+    card 0x0316 "GeForceFX Go 5600 NV31M"
+    card 0x0317 "GeForceFX Go 5600 NV31M Pro"
+    card 0x031a "GeForceFX Go 5600"
+    card 0x031b "GeForceFX Go 5650"
+    card 0x031c "GeForceFX Go 5600 Quadro FX Go700"
+    card 0x031d "GeForceFX Go 5600 NV31GLM"
+    card 0x031e "GeForceFX Go 5600 NV31GLM Pro"
+    card 0x031f "GeForceFX Go 5600 NV31GLM Pro"
+    card 0x0329 "GeForce 5600"
+    card 0x032a "GeForceFX 5600 NV34GL"
+    card 0x032b "GeForceFX 5600 Quadro FX 500"
+    card 0x032f "GeForceFX 5600 NV34GL"
+    card 0x0326 "GeForce 5600"
+    card 0x032c "GeForceFX Go 53xx"
+    card 0x00fc "GeForce 5200"
+    card 0x00fd "GeForce 5200 Quadro"
+    card 0x032c "GeForce 5200 Go"
+    card 0x0320 "GeForce 5200"
+    card 0x0321 "GeForce 5200 Ultra"
+    card 0x0322 "GeForce 5200"
+    card 0x0323 "GeForce 5200 SE"
+    card 0x0324 "GeForce 5200 Go"
+    card 0x0328 "GeForce 5200 Go"
+    card 0x0325 "GeForce 5200 Go"
+    card 0x0327 "GeForce 5200"
+    card 0x032d "GeForce 5200 Go"
+    card 0x0320 "GeForceFX 5200"
+    card 0x0321 "GeForceFX 5200 Ultra"
+    card 0x0322 "GeForceFX 5200"
+    card 0x0323 "GeForceFX 5200 SE"
+    card 0x0324 "GeForceFX Go 5200"
+    card 0x0325 "GeForceFX Go 5250"
+    card 0x0328 "GeForceFX Go 5200 32M/64M"
+    card 0x0327 "GeForceFX 5100"
+    card 0x032d "GeForceFX Go 5100"
+    card 0x0329 "GeForceFX NV34MAP"
+    card 0x0338 "GeForceFX QuadroFX 3000"
+    card 0x033f "GeForceFX QuadroFX 700"
+    card 0x0345 "GeForceFX NV36"
+    card 0x009D "GeForceFX Quadro FX 4500"
+    card 0x00CC "GeForceFX Quadro FX Go1400"
+    card 0x00CD "GeForceFX Quadro FX 3450/4000 SDI"
+    card 0x00CE "GeForceFX Quadro FX 1400"
+    card 0x00fa "GeForceFX PCX 5750"
+    card 0x00fb "GeForceFX PCX 5900"
+    card 0x00fc "GeForceFX PCX 5300"
+    card 0x00fd "GeForceFX QuadroFX 330"
+    card 0x00fe "GeForceFX QuadroFX 1300"
+    card 0x00ff "GeForceFX PCX 4300"
+    card 0x014E "GeForceFX Quadro FX 540"
+    card 0x0349 "GeForceFX NV36M Pro"
+    card 0x034b "GeForceFX NV36MAP"
+    card 0x034c "GeForceFX QuadroFX Go1000"
+    card 0x034e "GeForceFX QuadroFX 1100"
+    card 0x034f "GeForceFX NV36GL"
+    card 0x0165 "Quadro NVS 285"
+    card 1c02 "GeForce GTX 1060 3GB"
+    card 0x0170 "GeForce4 MX 460" unsupported
+    card 0x0171 "GeForce4 MX 440" unsupported
+    card 0x0172 "GeForce4 MX 420" unsupported
+    card 0x0173 "GeForce4 MX 440-SE" unsupported
+    card 0x0174 "GeForce4 440 Go" unsupported
+    card 0x0175 "GeForce4 420 Go" unsupported
+    card 0x0176 "GeForce4 420 Go 32M" unsupported
+    card 0x0177 "GeForce4 460 Go" unsupported
+    card 0x0178 "GeForce4 Quadro4 550 XGL" unsupported
+    card 0x0179 "GeForce4 440 Go 64M" unsupported
+    card 0x017a "GeForce4 Quadro NVS" unsupported
+    card 0x017b "GeForce4 Quadro" unsupported
+    card 0x017c "GeForce4 Quadro 500 GoGL" unsupported
+    card 0x017d "GeForce4 410 Go 16M" unsupported
+    card 0x0181 "GeForce4 MX 440 with AGP8X" unsupported
+    card 0x0182 "GeForce4 MX 440SE with AGP8X" unsupported
+    card 0x0183 "GeForce4 MX 420 with AGP8X" unsupported
+    card 0x0185 "GeForce4 MX 4000" unsupported
+    card 0x0186 "GeForce4 448 Go" unsupported
+    card 0x0187 "GeForce4 488 Go" unsupported
+    card 0x0188 "GeForce4 Quadro4 580 XGL" unsupported
+    card 0x018a "GeForce4 Quadro4 NVS with AGP8X" unsupported
+    card 0x018b "GeForce4 Quadro4 380 XGL" unsupported
+    card 0x018d "GeForce4 448 Go" unsupported
+    card 0x01f0 "GeForce4 MX Integrated GPU" unsupported
+    card 0x0250 "GeForce4 Ti 4600" unsupported
+    card 0x0251 "GeForce4 Ti 4400" unsupported
+    card 0x0252 "GeForce4 Ti 4400 NV25" unsupported
+    card 0x0253 "GeForce4 Ti 4200" unsupported
+    card 0x0258 "GeForce4 Quadro4 900 XGL" unsupported
+    card 0x0259 "GeForce4 Quadro4 750 XGL" unsupported
+    card 0x025b "GeForce4 Quadro4 700 XGL" unsupported
+    card 0x0280 "GeForce4 Ti 4800" unsupported
+    card 0x0281 "GeForce4 Ti 4200 with AGP8X" unsupported
+    card 0x0282 "GeForce4 Ti 4800 SE" unsupported
+    card 0x0286 "GeForce4 4200 Go" unsupported
+    card 0x0288 "GeForce4 Quadro4 980 XGL" unsupported
+    card 0x0289 "GeForce4 Quadro4 780 XGL" unsupported
+    card 0x028c "GeForce4 Quadro4 700 GoGL" unsupported
+    card 0x02a0 "GeForce3 XBOX" unsupported
+    card 0x0200 "GeForce3" unsupported
+    card 0x0201 "GeForce3 Ti 200" unsupported
+    card 0x0202 "GeForce3 Ti 500" unsupported
+    card 0x0203 "GeForce3 Quadro DCC" unsupported
+    card 0x01a0 "GeForce2 Integrated GPU" unsupported
+    card 0x0110 "GeForce2 MX/MX 400" unsupported
+    card 0x0111 "GeForce2 MX 100/200" unsupported
+    card 0x0112 "GeForce2 Go" unsupported
+    card 0x0113 "GeForce2 Quadro MXR/EX/Go" unsupported
+    card 0x0150 "GeForce2 GTS/GeForce2 Pro" unsupported
+    card 0x0151 "GeForce2 Ti" unsupported
+    card 0x0152 "GeForce2 Ultra" unsupported
+    card 0x0153 "GeForce2 Quadro2 Pro" unsupported
+    card 0x0100 "GeForce 256" unsupported
+    card 0x0101 "GeForce 256 DDR" unsupported
+    card 0x0102 "GeForce 256 Ultra" unsupported
+    card 0x0103 "GeForce 256 Quadro" unsupported
+    card 0x0008 "NV 1" unsupported
+    card 0x0009 "NV 1" unsupported
+    card 0x0010 "NV 2" unsupported
+    card 0x0018 "Riva 128" unsupported
+    card 0x0019 "Riva 128 ZX" unsupported
+    card 0x00a0 "TNT2 Aladdin" unsupported
+    card 0x0028 "TNT2/TNT2 Pro" unsupported
+    card 0x0029 "TNT2 Ultra" unsupported
+    card 0x002a "TNT2" unsupported
+    card 0x002b "TNT2" unsupported
+    card 0x002d "TNT2 Model 64/Model 64 Pro" unsupported
+    card 0x0020 "TNT" unsupported
+    card 0x002c "TNT Vanta/Vanta LT" unsupported
+    card 0x002e "TNT Vanta" unsupported
+    card 0x002f "TNT Vanta" unsupported
+    card 0x1b1d "Riva 128" unsupported
+end
+vendor "Intel" 0x8086
+    card 0x0042 "Havendale"
+    card 0x0046 "Havendale"
+    card 0x2A42 "Intel® Graphics Media Accelerator 4500"
+    card 0x2A43 "Intel® Graphics Media Accelerator 4500"
+    card 0x2E02 "Intel® Graphics Media Accelerator X4500HD"
+    card 0x2E03 "Intel® Graphics Media Accelerator X4500HD"
+    card 0x2E22 "Intel® Graphics Media Accelerator X4500"
+    card 0x2E23 "Intel® Graphics Media Accelerator X4500"
+    card 0x2E12 "Intel® Graphics Media Accelerator 4500"
+    card 0x2E13 "Intel® Graphics Media Accelerator 4500"
+    card 0x2E32 "Intel® Graphics Media Accelerator 4500"
+    card 0x2E33 "Intel® Graphics Media Accelerator 4500"
+    card 0x2E42 "Intel® Graphics Media Accelerator 4500"
+    card 0x2E43 "Intel® Graphics Media Accelerator 4500"
+    card 0x2E92 "Intel® Graphics Media Accelerator 4500"
+    card 0x2E93 "Intel® Graphics Media Accelerator 4500"
+    card 0x2982 "Intel® Graphics Media Accelerator X3500"
+    card 0x2983 "Intel® Graphics Media Accelerator X3500"
+    card 0x2A02 "Intel® Graphics Media Accelerator X3100 Crestline"
+    card 0x2A03 "Intel® Graphics Media Accelerator X3100 Crestline"
+    card 0x2A12 "Intel® Graphics Media Accelerator X3100 Crestline"
+    card 0x2A13 "Intel® Graphics Media Accelerator X3100 Crestline"
+    card 0x2972 "Intel® Graphics Media Accelerator 3000"
+    card 0x2973 "Intel® Graphics Media Accelerator 3000"
+    card 0x29B2 "Intel® Graphics Media Accelerator 3100"
+    card 0x29B3 "Intel® Graphics Media Accelerator 3100"
+    card 0x29C2 "Intel® Graphics Media Accelerator 3100"
+    card 0x29C3 "Intel® Graphics Media Accelerator 3100"
+    card 0x29D2 "Intel® Graphics Media Accelerator 3100"
+    card 0x29D3 "Intel® Graphics Media Accelerator 3100"
+    card 0x2992 "Intel® Graphics Media Accelerator 3000"
+    card 0x2993 "Intel® Graphics Media Accelerator 3000"
+    card 0xA001 "Intel(R) NetTop Atom D410 (GMA 3150)"
+    card 0xA002 "Intel(R) NetTop Atom D510 (GMA 3150)"
+    card 0xA011 "Intel(R) NetBook Atom N4x0 (GMA 3150)"
+    card 0xA012 "Intel(R) NetBook Atom N4x0 (GMA 3150)"
+    card 0x8108 "Intel(R) GMA 500 (Poulsbo) on MID platforms"
+    card 0x8109 "Intel(R) GMA 500 (Poulsbo) on MID platforms"
+    card 0x0106 "Mobile SandyBridge GT1"
+    card 0x0102 "Desktop SandyBridge GT1"
+    card 0x010A "Server SandyBridge"
+    card 0x0112 "Desktop SandyBridge GT2"
+    card 0x0122 "Desktop SandyBridge GT2+"
+    card 0x0116 "Mobile SandyBridge GT2"
+    card 0x0126 "Mobile SandyBridge GT2+"
+    card 0x0152 "Desktop IvyBridge GT1"
+    card 0x0156 "Mobile IvyBridge GT1"
+    card 0x015A "Server IvyBridge GT1"
+    card 0x015E "Reserved - IvyBridge GT1"
+    card 0x0162 "Desktop IvyBridge GT2"
+    card 0x0166 "Mobile IvyBridge GT2"
+    card 0x016A "Server IvyBridge GT2"
+    card 0x29A2 "GMA 3000 (G965 Express Chipset Family)" unsupported
+    card 0x29A3 "GMA 3000 (G965 Express Chipset Family)" unsupported
+    card 0x2772 "945 (82945G Express Chipset Family Graphics Controller)" unsupported
+    card 0x2776 "945 (82945G Express Chipset Family Graphics Controller)" unsupported
+    card 0x27A2 "945 Mobile" unsupported
+    card 0x27A6 "945 Mobile" unsupported
+    card 0x2582 "915 (82915G Express Chipset Family Graphics Controller)" unsupported
+    card 0x2782 "915"
+    card 0x2792 "915 Mobile"
+    card 0x2782 "915 (82915G Express Chipset Family Graphics Controller" unsupported
+    card 0x2592 "915 Mobile" unsupported
+    card 0x2572 "865 (82865G Integrated Graphics Device)" unsupported
+    card 0x3582 "855 (82852/855GM Integrated Graphics Device)" unsupported
+    card 0x2562 "845 (82845G/GL[Brookdale-G]/GE Chipset Integrated Graphics Device)" unsupported
+    card 0x3577 "830 (82830 Chipset Graphics Controller)" unsupported
+    card 0x1132 "815 (82815 Chipset Graphics Controller)" unsupported
+    card 0x7121 "810 (82810 Chipset Graphics Controller)" unsupported
+    card 0x7123 "810 (82810 DC-100 Chipset Graphics Controller)" unsupported
+    card 0x7125 "810e (82810E DC-133 Chipset Graphics Controller)" unsupported
+    card 0x7126 "810 (82810 DC-133 System and Graphics Controller)" unsupported
+    card 0x7127 "810 (82810 Chipset Graphics Controller)" unsupported
+    card 0x7128 "810 (82810-M DC-100 System and Graphics Controller)" unsupported
+    card 0x712a "810 (82810-M DC-133 System and Graphics Controller)" unsupported
+    card 0x1240 "752 (82752 AGP Graphics Accelerator)" unsupported
+    card 0x7800 "740 (82740 (i740) AGP Graphics Accelerator)" unsupported
+end
+vendor "S3" 0x5333
+    card 0x9045 "Chrome 440 GTX" unsupported
+end
