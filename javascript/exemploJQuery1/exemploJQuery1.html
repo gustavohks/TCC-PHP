@@ -12,10 +12,11 @@
     <input type="button" value="Add a field" class="add" id="add" />
 
 </head>
-<body>	
+<body>  
 
-	<script type="text/javascript">
+    <script type="text/javascript">
 $(document).ready(function() {
+    var idAuxCheckbox, idAuxTextbox, idAuxTextarea, idAuxPassword;
     $("#add").click(function() {
         var lastField = $("#buildyourform div:last");
         var intId = (lastField && lastField.length && lastField.data("idx") + 1) || 1;
@@ -33,29 +34,38 @@ $(document).ready(function() {
         $("#buildyourform").append(fieldWrapper);
     });
     $("#preview").click(function() {
+        idAuxCheckbox = idAuxTextbox = idAuxTextarea = idAuxPassword = 0;
         $("#yourform").remove();
         var fieldSet = $("<fieldset id=\"yourform\"><legend>Your Form</legend></fieldset>");
         $("#buildyourform div").each(function() {
-            var idCheckbox = "checkbox" + $(this).attr("id").replace("field","");
-            var idTextbox = "textbox" + $(this).attr("id").replace("field","");
-            var idTextarea = "textarea" + $(this).attr("id").replace("field","");
-            var idPassword = "password" + $(this).attr("id").replace("field","");
+            var idCheckbox = "checkbox";
+            var idTextbox = "textbox";
+            var idTextarea = "textarea";
+            var idPassword = "password";
             var label;
             var input;
             switch ($(this).find("select.fieldtype").first().val()) {
                 case "checkbox":
+                    idAuxCheckbox = idAuxCheckbox + 1;
+                    idCheckbox = idCheckbox + idAuxCheckbox;
                     input = $("<input type=\"checkbox\" id=\"" + idCheckbox + "\" name=\"" + idCheckbox + "\" /><br>");
                     label = $("<label for=\"" + idCheckbox + "\">" + $(this).find("input.fieldname").first().val() + "</label>");
                     break;
                 case "textbox":
+                    idAuxTextbox = idAuxTextbox + 1;
+                    idTextbox = idTextbox + idAuxTextbox;
                     input = $("<input type=\"text\" id=\"" + idTextbox + "\" name=\"" + idTextbox + "\" /><br>");
                     label = $("<label for=\"" + idTextbox + "\">" + $(this).find("input.fieldname").first().val() + "</label>");
                     break;
                 case "textarea":
+                    idAuxTextarea = idAuxTextarea + 1;
+                    idTextarea = idTextarea + idAuxTextarea;
                     input = $("<textarea id=\"" + idTextarea + "\" name=\"" + idTextarea + "\" ></textarea><br>");
                     label = $("<label for=\"" + idTextarea + "\">" + $(this).find("input.fieldname").first().val() + "</label>");
                     break;                  
                 case "password":
+                    idAuxPassword = idAuxPassword + 1;
+                    idPassword = idPassword + idAuxPassword;
                     input = $("<input type = \"password\" id=\"" + idPassword + "\" name=\"" + idPassword + "\" ></input><br>");
                     label = $("<label for=\"" + idPassword + "\">" + $(this).find("input.fieldname").first().val() + "</label>");
                     break;    
@@ -66,8 +76,6 @@ $(document).ready(function() {
         $("body").append(fieldSet);
     });
 });
-
-	</script>
+    </script>
 </body>
 </html>
-
