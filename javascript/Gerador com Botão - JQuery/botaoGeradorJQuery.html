@@ -4,12 +4,20 @@
     <script type="text/javascript" src="test.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-    <button id="addTextfield">Adicionar textfield</button>
-    <button id="addPassword">Adicionar textfield</button>
+    <br>
+    <div class="container">
+        <div class="row">
+        <button id="addTextfield" class="btn btn-primary">Adicionar textfield</button>
+        <button id="addPassword" class="btn btn-primary">Adicionar textfield</button>
+        </div>
+    </div>
+    <br><br>
 
-    <div id="forma"></div>
-
+    <div class="container">
+        <div id="forma" class="row"></div>
+    </div>
 
 </head>
 <body>  
@@ -18,17 +26,17 @@
 
 $(function() {
     var scntDiv = $('#forma');
-    var i = $('#forma p').size() + 1;
+    var i = $('#forma a').size() + 1;
     
     $('#addTextfield').live('click', function() {
-            $('<p><label for="p_scnts"><input type="text" id="textfield' + i +'" size="20" name="textfield" value="" placeholder="Digite seu texto" /></label> <a href="#" id="removeTextfield">Remover</a></p>').appendTo(scntDiv);
+            $('<div class="col-4"><a><label for="p_scnts">Texto: <input type="text" id="textfield' + i +'" size="24" name="textfield" value="" placeholder="Digite seu texto" /></label> <button id="removeTextfield">Remover</button></a></div>').appendTo(scntDiv);
             i++;
             return false;
     });
     
     $('#removeTextfield').live('click', function() { 
             if( i > 2 ) {
-                    $(this).parents('p').remove();
+                    $(this).parents('a').remove();
                     i--;
             }
             return false;
@@ -37,17 +45,17 @@ $(function() {
 
 $(function() {
     var scntDiv = $('#forma');
-    var i = $('#forma p').size() + 1;
+    var i = $('#forma a').size() + 1;
     
     $('#addPassword').live('click', function() {
-            $('<p><label for="p_scnts"><input type="password" id="password' + i +'" size="20" name="password" value="" placeholder="Digite seu password" /></label> <a href="#" id="removePassword">Remover</a></p>').appendTo(scntDiv);
+            $('<div class="col-4"><a><label for="p_scnts">Password: <input type="password" id="password' + i +'" size="20" name="password" value="" placeholder="Digite seu password" /></label> <button id="removePassword">Remover</button></a></div>').appendTo(scntDiv);
             i++;
             return false;
     });
     
     $('#removePassword').live('click', function() { 
             if( i > 2 ) {
-                    $(this).parents('p').remove();
+                    $(this).parents('a').remove();
                     i--;
             }
             return false;
