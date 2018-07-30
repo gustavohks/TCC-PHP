@@ -4,14 +4,23 @@
     <script type="text/javascript" src="test.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/media.css">
+
+</head>
+<body>  
 
     <br>
     <div class="container">
         <div class="row">
-        <button id="addTextfield" class="btn btn-primary">Adicionar textfield</button>
-        <button id="addPassword" class="btn btn-primary">Adicionar textfield</button>
+            <div class="col-3">
+                <button id="addTextfield" class="btn btn-primary">Adicionar textfield</button>
+            </div>
+            <div class="col-3">
+            <button id="addPassword" class="btn btn-primary">Adicionar password</button>
+            </div>
         </div>
     </div>
     <br><br>
@@ -21,58 +30,49 @@
     </div>
 
 
-<div class="container">
-  <div class="row">
-    <div class="col">
-      1 of 3
-    </div>
-    <div class="col-6">
-      2 of 3 (wider)
-    </div>
-    <div class="col">
-      3 of 3
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      1 of 3
-    </div>
-    <div class="col-5">
-      2 of 3 (wider)
-    </div>
-    <div class="col">
-      3 of 3
-    </div>
-  </div>
-</div>
-
-</head>
-<body>  
-
 <script type="text/javascript">
-
 $(function() {
     var scntDiv = $('#forma');
-    var i = $('#forma a').size() + 1;
+    var i = $('#forma').size() + 1;
+    var idDiv;
     
     $('#addTextfield').live('click', function() {
-            $('<div class="col-4"><a><label for="p_scnts">Texto: <input type="text" id="textfield' + i +'" size="24" name="textfield" value="" placeholder="Digite seu texto" /></label> <button id="removeTextfield">Remover</button></a></div>').appendTo(scntDiv);
+            $('<div class="col-4" id = "' + i +'"><a><label for="p_scnts">Texto: <input type="text" id="textfield' + i +'" size="24" name="textfield" value="" placeholder="Digite seu texto" /></label> <button id="removeTextfield" value="' + i + '">Remover</button></a></div>').appendTo(scntDiv);
             i++;
             return false;
-    });
-    
+    });    
+
+
     $('#removeTextfield').live('click', function() { 
-            if( i > 2 ) {
-                    $(this).parents('a').remove();
-                    i--;
-            }
+            if( i > 0 ) {
+
+                //$(this).parent().remove();
+                //i--;
+
+                var id = $(this).attr('value');
+                $('#'+id).fadeOut();     
+           }
             return false;
     });
+
+
 });
+
+
+    $('#teste').live('click', function() { 
+
+        var id = $(this).attr('value');
+        $('#'+id).fadeOut();
+    //    console.log("#div"+id);
+
+    });
+
+
+
 
 $(function() {
     var scntDiv = $('#forma');
-    var i = $('#forma a').size() + 1;
+    var i = $('#forma').size() + 1;
     
     $('#addPassword').live('click', function() {
             $('<div class="col-4"><a><label for="p_scnts">Password: <input type="password" id="password' + i +'" size="20" name="password" value="" placeholder="Digite seu password" /></label> <button id="removePassword">Remover</button></a></div>').appendTo(scntDiv);
@@ -81,7 +81,7 @@ $(function() {
     });
     
     $('#removePassword').live('click', function() { 
-            if( i > 2 ) {
+            if( i > 0 ) {
                     $(this).parents('a').remove();
                     i--;
             }
