@@ -5,47 +5,56 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 
-    <input type="button" id="criarTextField" value="Criar um text field"><br>
+    <button id="addTextfield">Adicionar textfield</button>
+    <button id="addPassword">Adicionar textfield</button>
 
-    <div >
-    <form id="formaTexto"></form>  
-    </div>
+    <div id="forma"></div>
 
 
 </head>
 <body>  
 
-    <script type="text/javascript">
-$(function(){
-    $('#criarTextField').on('click', function(){
-        var idCheckbox = "checkbox";          
-        var fieldSet = $("<fieldset id=yourform><legend>Your Form</legend></fieldset>");
-        var input = $("<input type=\"checkbox\" id=\"" + idCheckbox + "\" name=\"" + idCheckbox + "\" /><br>");;
-        fieldSet.append(label);
-        fieldSet.append(input);
+<script type="text/javascript">
+
+$(function() {
+    var scntDiv = $('#forma');
+    var i = $('#forma p').size() + 1;
+    
+    $('#addTextfield').live('click', function() {
+            $('<p><label for="p_scnts"><input type="text" id="textfield' + i +'" size="20" name="textfield" value="" placeholder="Digite seu texto" /></label> <a href="#" id="removeTextfield">Remover</a></p>').appendTo(scntDiv);
+            i++;
+            return false;
     });
-    $("body").append(fieldSet);
+    
+    $('#removeTextfield').live('click', function() { 
+            if( i > 2 ) {
+                    $(this).parents('p').remove();
+                    i--;
+            }
+            return false;
+    });
+});
+
+$(function() {
+    var scntDiv = $('#forma');
+    var i = $('#forma p').size() + 1;
+    
+    $('#addPassword').live('click', function() {
+            $('<p><label for="p_scnts"><input type="password" id="password' + i +'" size="20" name="password" value="" placeholder="Digite seu password" /></label> <a href="#" id="removePassword">Remover</a></p>').appendTo(scntDiv);
+            i++;
+            return false;
+    });
+    
+    $('#removePassword').live('click', function() { 
+            if( i > 2 ) {
+                    $(this).parents('p').remove();
+                    i--;
+            }
+            return false;
+    });
 });
     
-    $(function() {
-        var scntDiv = $('#p_scents');
-        var i = $('#p_scents p').size() + 1;
-        
-        $('#addScnt').live('click', function() {
-                $('<p><label for="p_scnts"><input type="text" id="p_scnt" size="20" name="p_scnt_' + i +'" value="" placeholder="Input Value" /></label> <a href="#" id="remScnt">Remove</a></p>').appendTo(scntDiv);
-                i++;
-                return false;
-        });
-        
-        $('#remScnt').live('click', function() { 
-                if( i > 2 ) {
-                        $(this).parents('p').remove();
-                        i--;
-                }
-                return false;
-        });
-});
-    
-    </script>
+</script>
+
 </body>
 </html>
