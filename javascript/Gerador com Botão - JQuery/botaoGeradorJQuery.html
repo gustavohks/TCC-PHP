@@ -15,10 +15,10 @@
     <br>
     <div class="container">
         <div class="row">
-            <div class="col-2">
+            <div class="col-lg-2 col-12">
                 <button id="addTextfield" class="btn btn-primary">Adicionar textfield</button>
             </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-12">
             <button id="addPassword" class="btn btn-primary">Adicionar password</button>
             </div>
         </div>
@@ -36,7 +36,7 @@ $(function() {
     var i = $('#forma').size() + 1;
     
     $('#addTextfield').live('click', function() {
-            $('<div class="col-4" id = divTextField' + i +'><a><label for="p_scnts">Texto: <input type="text" id="textfield' + i +'" size="24" name="textfield" value="" placeholder="Digite seu texto" /></label> <button id="removeTextfield" class="btn btn-danger btn-sm" value="' + i + '"><i class="fa fa-close"></button></a></div>').appendTo(forma);
+            $('<div class="col-md-4 col-12" id = divTextField' + i +'><a><label for="p_scnts" style="font-weight: bold;">Texto: <input type="text" id="textfield' + i +'" size="24" name="textfield" value="" placeholder="Digite seu texto" /></label> <button id="removeTextfield" class="btn btn-danger btn-sm" value="' + i + '"><i class="fa fa-close"></button></a></div>').appendTo(forma);
             i++;
             return false;
     });    
@@ -59,7 +59,7 @@ $(function() {
     var i = $('#forma').size() + 1;
     
     $('#addPassword').live('click', function() {
-            $('<div class="col-4" id = divPassword' + i +'><a><label for="p_scnts">Password: <input type="password" id="password' + i +'" size="20" name="password" value="" placeholder="Digite seu password" /></label> <button id="removePassword" class="btn btn-danger btn-sm" value="' + i + '"><i class="fa fa-close"></button></a></div>').appendTo(forma);
+            $('<div class="col-md-4 col-12" id = divPassword' + i +'><a><label for="p_scnts" style="font-weight: bold;">Password: <input type="password" id="password' + i +'" size="20" name="password" value="" placeholder="Digite seu password" /></label> <button id="removePassword" class="btn btn-danger btn-sm" value="' + i + '"><i class="fa fa-close"></button></a></div>').appendTo(forma);
             i++;
             return false;
     });
