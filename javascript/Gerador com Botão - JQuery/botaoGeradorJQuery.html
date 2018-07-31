@@ -8,17 +8,17 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/media.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>  
 
     <br>
     <div class="container">
         <div class="row">
-            <div class="col-4">
+            <div class="col-2">
                 <button id="addTextfield" class="btn btn-primary">Adicionar textfield</button>
             </div>
-            <div class="col-4">
+            <div class="col-2">
             <button id="addPassword" class="btn btn-primary">Adicionar password</button>
             </div>
         </div>
@@ -32,53 +32,44 @@
 
 <script type="text/javascript">
 $(function() {
-    var scntDiv = $('#forma');
+    var forma = $('#forma');
     var i = $('#forma').size() + 1;
-    var idDiv;
     
     $('#addTextfield').live('click', function() {
-            $('<div class="col-6" id = divTextField' + i +'><a><label for="p_scnts">Texto: <input type="text" id="textfield' + i +'" size="24" name="textfield" value="" placeholder="Digite seu texto" /></label> <button id="removeTextfield" value="' + i + '">Remover</button></a></div>').appendTo(scntDiv);
+            $('<div class="col-4" id = divTextField' + i +'><a><label for="p_scnts">Texto: <input type="text" id="textfield' + i +'" size="24" name="textfield" value="" placeholder="Digite seu texto" /></label> <button id="removeTextfield" class="btn btn-danger btn-sm" value="' + i + '"><i class="fa fa-close"></button></a></div>').appendTo(forma);
             i++;
             return false;
     });    
-
-
     $('#removeTextfield').live('click', function() { 
             if( i > 0 ) {
-
                 //$(this).parent().remove();
                 //i--;
-
                 var id = $(this).attr('value');
-                $('#divTextField'+id).fadeOut(); 
-                    
+                $('#divTextField'+id).fadeOut(300, function(){ 
+                    $(this).remove();
+                });
+
+
            }
             return false;
     });
-
-
 });
-
-
-
-
-
-
 $(function() {
-    var scntDiv = $('#forma');
+    var forma = $('#forma');
     var i = $('#forma').size() + 1;
     
     $('#addPassword').live('click', function() {
-            $('<div class="col-6" id = divPassword' + i +'><a><label for="p_scnts">Password: <input type="password" id="password' + i +'" size="20" name="password" value="" placeholder="Digite seu password" /></label> <button id="removePassword" value="' + i + '">Remover</button></a></div>').appendTo(scntDiv);
+            $('<div class="col-4" id = divPassword' + i +'><a><label for="p_scnts">Password: <input type="password" id="password' + i +'" size="20" name="password" value="" placeholder="Digite seu password" /></label> <button id="removePassword" class="btn btn-danger btn-sm" value="' + i + '"><i class="fa fa-close"></button></a></div>').appendTo(forma);
             i++;
             return false;
     });
     
     $('#removePassword').live('click', function() { 
             if( i > 0 ) {
-                    var id = $(this).attr('value');
-                    $('#divPassword'+id).fadeOut(); 
-                    console.log("#divPassword"+id);   
+                var id = $(this).attr('value');
+                $('#divPassword'+id).fadeOut(300, function(){ 
+                    $(this).remove();
+                });
             }
             return false;
     });
