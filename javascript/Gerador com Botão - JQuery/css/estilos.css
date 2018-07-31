@@ -1,37 +1,18 @@
 .container {
-	width: 50%;
+	width: 100%;
 }
 
-.bloco1 { background: #ccc; }
-.bloco2 { background: #cc0; }
-.bloco3 { background: #c0c; }
-.bloco4 { background: #0cc; }
-
-.home {
-	height: 100px;
-	padding-top: 35px;
-	 }
-
-.logo {
-	padding-bottom: 50px;
+/* Style buttons */
+.btn {
+    border: none; /* Remove borders */
+    margin-bottom: 5px;
+    color: white; /* White text */
+    font-size: 16px; /* Set a font size */
+    cursor: pointer; /* Mouse pointer on hover */
 }
 
-.intro{
-	height: 230px;
-	max-height: 200%;
+/* Darker background on mouse-over */
+/*.btn:hover {
+    background-color: RoyalBlue;
 }
-
-.margem {
-	height: 350px;
-	text-align: center;
-	padding-top: 50px;
-}
-
-.imagensTrabalhos {
-	margin-bottom: 3px;
-	padding: 5px;
-}
-
-.rodape {
-	margin-top: 40px;
-}
+*/
