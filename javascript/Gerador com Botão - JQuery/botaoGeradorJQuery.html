@@ -20,6 +20,9 @@
             </div>
             <div class="col-lg-2 col-12">
             <button id="addPassword" class="btn btn-primary">Adicionar password</button>
+            </div>            
+            <div class="col-lg-2 col-12">
+            <button id="addCheckbox" class="btn btn-primary">Adicionar checkbox</button>
             </div>
         </div>
     </div>
@@ -29,6 +32,37 @@
         <div id="forma" class="row"></div>
     </div>
 
+<!-- <form id="rendered-form">
+<div class="rendered-form">
+    <div class="fb-checkbox-group form-group field-checkbox-group-1533220318624">
+    <label for="checkbox-group-1533220318624" class="fb-checkbox-group-label">Checkbox Group</label>
+        <div class="checkbox-group">
+            <div class="checkbox">
+                <input name="checkbox-group-1533220318624[]" id="checkbox-group-1533220318624-0" value="option-1" type="checkbox" checked="checked">
+                <label for="checkbox-group-1533220318624-0">Option 1</label>
+            </div>
+            <div class="checkbox"><input name="checkbox-group-1533220318624[]" id="checkbox-group-1533220318624-1" value="option-1" type="checkbox" checked="checked">
+            <label for="checkbox-group-1533220318624-1">Option 1</label>
+            </div>
+            <div class="checkbox"><input name="checkbox-group-1533220318624[]" id="checkbox-group-1533220318624-2" value="option-1" type="checkbox" checked="checked">
+            <label for="checkbox-group-1533220318624-2">Option 1</label>
+            </div>
+        </div>
+    </div>
+</div>
+</form> -->
+
+<div class="col-md-4 col-12" id="divCheckbox4">
+    <a>
+        <label for="forma" style="font-weight: bold;">Checkbox: 
+            <button id="removecheckbox" class="btn btn-danger btn-sm" value="4"><i class="fa fa-close"></i></button> <br>
+        <input type="checkbox" id="checkbox4" size="20" name="checkbox" value="">
+        </label> 
+    </a>
+</div>
+
+
+
 
 <script type="text/javascript">
 $(function() {
@@ -36,7 +70,7 @@ $(function() {
     var i = $('#forma').size() + 1;
     
     $('#addTextfield').live('click', function() {
-            $('<div class="col-md-4 col-12" id = divTextField' + i +'><a><label for="p_scnts" style="font-weight: bold;">Texto: <input type="text" id="textfield' + i +'" size="24" name="textfield" value="" placeholder="Digite seu texto" /></label> <button id="removeTextfield" class="btn btn-danger btn-sm" value="' + i + '"><i class="fa fa-close"></button></a></div>').appendTo(forma);
+            $('<div class="col-md-4 col-12" id = divTextField' + i +'><a><label for="forma" style="font-weight: bold;">Texto: <input type="text" id="textfield' + i +'" size="24" name="textfield" value="" placeholder="Digite seu texto" /></label> <button id="removeTextfield" class="btn btn-danger btn-sm" value="' + i + '"><i class="fa fa-close"></button></a></div>').appendTo(forma);
             i++;
             return false;
     });    
@@ -54,12 +88,13 @@ $(function() {
             return false;
     });
 });
+
 $(function() {
     var forma = $('#forma');
     var i = $('#forma').size() + 1;
     
     $('#addPassword').live('click', function() {
-            $('<div class="col-md-4 col-12" id = divPassword' + i +'><a><label for="p_scnts" style="font-weight: bold;">Password: <input type="password" id="password' + i +'" size="20" name="password" value="" placeholder="Digite seu password" /></label> <button id="removePassword" class="btn btn-danger btn-sm" value="' + i + '"><i class="fa fa-close"></button></a></div>').appendTo(forma);
+            $('<div class="col-md-4 col-12" id = divPassword' + i +'><a><label for="forma" style="font-weight: bold;">Password: <input type="password" id="password' + i +'" size="20" name="password" value="" placeholder="Digite seu password" /></label> <button id="removePassword" class="btn btn-danger btn-sm" value="' + i + '"><i class="fa fa-close"></button></a></div>').appendTo(forma);
             i++;
             return false;
     });
@@ -74,8 +109,36 @@ $(function() {
             return false;
     });
 });
+
+
+
+$(function() {
+    var forma = $('#forma');
+    var i = $('#forma').size() + 1;
+    var x = "<i \"class=  fa fa-close \">";
+    
+    $('#addCheckbox').live('click', function() {
+             $('<div class="col-md-4 col-12" id = divCheckbox' + i +'><a><label for="forma" style="font-weight: bold;">Checkbox: <button id="removecheckbox" class="btn btn-danger btn-sm" value="' + i + '"></button> '+ x +'<input type="checkbox" id="checkbox' + i +'" size="20" name="checkbox" value="" /></label></a></div>').appendTo(forma);
+            i++;
+            return false;
+    });    
+    $('#removecheckbox').live('click', function() { 
+            if( i > 0 ) {
+                //$(this).parent().remove();
+                //i--;
+                var id = $(this).attr('value');
+                $('#divCheckbox'+id).fadeOut(300, function(){ 
+                    $(this).remove();
+                });
+
+
+           }
+            return false;
+    });
+});
     
 </script>
 
 </body>
 </html>
+
