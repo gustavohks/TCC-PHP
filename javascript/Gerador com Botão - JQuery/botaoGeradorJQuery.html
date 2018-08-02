@@ -105,11 +105,20 @@ $(function() {
     var i = $('#forma').size() + 1;
     var x = "<i class=\"fa fa-close\"></i></button>";
     var y = "<i class=\"fa fa-plus\"></i></button> <br>";
-    var bloco = "";
+    var divCheckbox = $('#divCheckbox');
     
     $('#addCheckbox').live('click', function() {
-          $('<div class="col-md-4 col-12" id = divCheckbox' + i +'><a><label for="forma" style="font-weight: bold;">Checkbox: <button id="removeCheckbox" class="btn btn-danger btn-sm" value="' + i + '"> '+ x +' <button id="addOption" class="btn btn-primary btn-sm" value="' + i + '"> '+ y +' <input type="checkbox" id="checkbox' + i +'" size="20" name="checkbox" value="" /> ' + bloco + ' </label></a>').appendTo(forma);
+          $('<div class="col-md-4 col-12" id = divCheckbox' + i +'><a><label for="forma" style="font-weight: bold;">Checkbox: <button id="removeCheckbox" class="btn btn-danger btn-sm" value="' + i + '"> '+ x +' <button id="addOption" class="btn btn-primary btn-sm" value="' + i + '"> '+ y +' <input type="checkbox" id="checkbox' + i +'" size="20" name="checkbox" value="" /> </div></label></a>').appendTo(forma);
             i++;
+            return false;
+
+
+    });
+            $('#addOption').live('click', function() { 
+            $('<input type="checkbox" id="checkbox' + i +'" size="20" name="checkbox" value="" />').appendTo(divCheckbox);
+
+             //<input type=\"checkbox\" id=\"checkbox' + i +'\" size=\"20\" name=\"checkbox\" value=\"\" />
+             i++;
             return false;
     });    
     $('#removeCheckbox').live('click', function() { 
@@ -124,13 +133,7 @@ $(function() {
             return false;
 
     });    
-    $('#addOption').live('click', function() { 
-             var atual = "lol";
-             (atual).appendTo(bloco);
-             //<input type=\"checkbox\" id=\"checkbox' + i +'\" size=\"20\" name=\"checkbox\" value=\"\" />
-             i++;
-            return false;
-    });
+
 });
     
 </script>
