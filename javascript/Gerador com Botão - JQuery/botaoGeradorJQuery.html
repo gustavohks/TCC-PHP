@@ -52,18 +52,6 @@
 </div>
 </form> -->
 
-<div class="col-md-4 col-12" id="divCheckbox4">
-    <a>
-        <label for="forma" style="font-weight: bold;">Checkbox: 
-            <button id="removecheckbox" class="btn btn-danger btn-sm" value="4"><i class="fa fa-close"></i></button> <br>
-        <input type="checkbox" id="checkbox4" size="20" name="checkbox" value="">
-        </label> 
-    </a>
-</div>
-
-
-
-
 <script type="text/javascript">
 $(function() {
     var forma = $('#forma');
@@ -115,14 +103,16 @@ $(function() {
 $(function() {
     var forma = $('#forma');
     var i = $('#forma').size() + 1;
-    var x = "<i \"class=  fa fa-close \">";
+    var x = "<i class=\"fa fa-close\"></i></button>";
+    var y = "<i class=\"fa fa-plus\"></i></button> <br>";
+    var bloco = "";
     
     $('#addCheckbox').live('click', function() {
-             $('<div class="col-md-4 col-12" id = divCheckbox' + i +'><a><label for="forma" style="font-weight: bold;">Checkbox: <button id="removecheckbox" class="btn btn-danger btn-sm" value="' + i + '"></button> '+ x +'<input type="checkbox" id="checkbox' + i +'" size="20" name="checkbox" value="" /></label></a></div>').appendTo(forma);
+          $('<div class="col-md-4 col-12" id = divCheckbox' + i +'><a><label for="forma" style="font-weight: bold;">Checkbox: <button id="removeCheckbox" class="btn btn-danger btn-sm" value="' + i + '"> '+ x +' <button id="addOption" class="btn btn-primary btn-sm" value="' + i + '"> '+ y +' <input type="checkbox" id="checkbox' + i +'" size="20" name="checkbox" value="" /> ' + bloco + ' </label></a>').appendTo(forma);
             i++;
             return false;
     });    
-    $('#removecheckbox').live('click', function() { 
+    $('#removeCheckbox').live('click', function() { 
             if( i > 0 ) {
                 //$(this).parent().remove();
                 //i--;
@@ -130,9 +120,15 @@ $(function() {
                 $('#divCheckbox'+id).fadeOut(300, function(){ 
                     $(this).remove();
                 });
-
-
            }
+            return false;
+
+    });    
+    $('#addOption').live('click', function() { 
+             var atual = "lol";
+             (atual).appendTo(bloco);
+             //<input type=\"checkbox\" id=\"checkbox' + i +'\" size=\"20\" name=\"checkbox\" value=\"\" />
+             i++;
             return false;
     });
 });
