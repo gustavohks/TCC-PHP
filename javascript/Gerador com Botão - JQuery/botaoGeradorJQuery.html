@@ -51,9 +51,10 @@
     padding: 0;">
     
     <div class="col-12 text-center" style="padding-top: 10px;">
-        <input class="btn btn-danger"  type="button" value="Refresh Page" onClick="window.location.reload()">
-        <input class="btn btn-info"  type="button" value="Copy HTML" id="copyHTML" ">
-    </div>
+        <input class="btn btn-danger"  type="button" value="Refresh Page" onClick="window.location.reload()" style="width: 120px;">
+        <input class="btn btn-success"  type="button" value="Save" id="save" style="width: 120px;">
+        <input class="btn btn-info"  type="button" value="Copy HTML" id="copyHTML" style="width: 120px;">
+    </div>  
 
 <script type="text/javascript">
 
@@ -62,6 +63,39 @@ $(document).ready(function(){
         alert($("#forma").html());
     });
 });
+
+$(function() {
+    $('#save').live('click', function() { 
+        for (var i = 0; i < '#removePassword'.length; i--) {
+            $('#removePassword'+i).fadeOut(300, function(){ 
+                $(this).remove();
+            }); 
+        }
+            $('#removeTextfield').fadeOut(300, function(){ 
+                $(this).remove();
+            }); 
+            $('#removeSubmit').fadeOut(300, function(){ 
+                $(this).remove();
+            }); 
+            $('#removeReset').fadeOut(300, function(){ 
+                $(this).remove();
+            }); 
+            $('#removeRadio').fadeOut(300, function(){ 
+                $(this).remove();
+            }); 
+            $('#removeCheckbox').fadeOut(300, function(){ 
+                $(this).remove();
+            }); 
+            $('#addCheckboxInput').fadeOut(300, function(){ 
+                $(this).remove();
+            }); 
+            $('#addRadioOption').fadeOut(300, function(){ 
+                $(this).remove();
+            });
+   })
+    return false;
+});
+
 
 $(function() {
     var forma = $('#forma');
