@@ -15,24 +15,25 @@
     <br>
     <div class="container">
         <div class="row">
-            <div class="col-lg-2 col-12">
+            <div class="col-lg-2 col-md-4 col-sm-6 col-12">
                 <button id="addTextfield" class="btn btn-primary" style="width: 150px;"><i class="fa fa-indent" aria-hidden="true"></i> Add textfield</button>
             </div>
-            <div class="col-lg-2 col-12">
+            <div class="col-lg-2 col-md-4 col-sm-6 col-12">
             <button id="addPassword" class="btn btn-primary" style="width: 150px;"><i class="fa fa-key" aria-hidden="true"></i> Add password</button>
             </div>            
-            <div class="col-lg-2 col-12">
+            <div class="col-lg-2 col-md-4 col-sm-6 col-12">
             <button id="addCheckbox" class="btn btn-primary" style="width: 150px;"><i class="fa fa-check-square-o" aria-hidden="true"></i> Add checkbox</button>
             </div>            
-            <div class="col-lg-2 col-12">
+            <div class="col-lg-2 col-md-4 col-sm-6 col-12">
             <button id="addRadio" class="btn btn-primary" style="width: 150px;"><i class="fa fa-circle-o" aria-hidden="true"></i> Add radio</button>
             </div>            
-            <div class="col-lg-2 col-12">
+            <div class="col-lg-2 col-md-4 col-sm-6 col-12">
             <button id="addSubmit" class="btn btn-primary" style="width: 150px;"><i class="fa fa-send-o"></i> Add submit</button>
             </div>            
-            <div class="col-lg-2 col-12">
+            <div class="col-lg-2 col-md-4 col-sm-6 col-12">
             <button id="addReset" class="btn btn-primary" style="width: 150px;"><i class="fa fa-refresh"></i> Add reset</button>
             </div>
+
         </div>
     </div>
     <br><br>
@@ -42,16 +43,32 @@
             <div id="forma" class="row"></div>
         </form>
     </div>
-
-
+    <hr style="display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;">
+    
+    <div class="col-12 text-center" style="padding-top: 10px;">
+        <input class="btn btn-danger"  type="button" value="Refresh Page" onClick="window.location.reload()">
+        <input class="btn btn-info"  type="button" value="Copy HTML" id="copyHTML" ">
+    </div>
 
 <script type="text/javascript">
+
+$(document).ready(function(){
+    $("#copyHTML").click(function(){
+        alert($("#forma").html());
+    });
+});
+
 $(function() {
     var forma = $('#forma');
     var i = $('#forma').size();
     
     $('#addTextfield').live('click', function() {
-            $('<div class="col-md-4 col-12" id = divTextField' + i +'><a><label for="forma" style="font-weight: bold;">Texto '+i+': <input type="text" id="textfield' + i +'" size="24" name="textfield" value="" placeholder="Digite seu texto" /></label> <button id="removeTextfield" class="btn btn-danger btn-sm" value="' + i + '"><i class="fa fa-close"></button></a></div>').appendTo(forma);
+            $('<div class="col-md-4 col-12" style="padding: 10px;" id = divTextField' + i +'><a><label for="forma" style="font-weight: bold;">Texto: <input type="text" id="textfield' + i +'" size="24" name="textfield" value="" placeholder="Digite seu texto" /></label> <button id="removeTextfield" class="btn btn-danger btn-sm" value="' + i + '"><i class="fa fa-close"></button></a></div>').appendTo(forma);
             i++;
             return false;
     });    
@@ -75,7 +92,7 @@ $(function() {
     var i = $('#forma').size();
     
     $('#addPassword').live('click', function() {
-            $('<div class="col-md-4 col-12" id = divPassword' + i +'><a><label for="forma" style="font-weight: bold;">Password '+i+': <input type="password" id="password' + i +'" size="20" name="password" value="" placeholder="Digite seu password" /></label> <button id="removePassword" class="btn btn-danger btn-sm" value="' + i + '"><i class="fa fa-close"></button></a></div>').appendTo(forma);
+            $('<div class="col-md-4 col-12" style="padding: 10px;" id = divPassword' + i +'><a><label for="forma" style="font-weight: bold;">Password: <input type="password" id="password' + i +'" size="20" name="password" value="" placeholder="Digite seu password" /></label> <button id="removePassword" class="btn btn-danger btn-sm" value="' + i + '"><i class="fa fa-close"></button></a></div>').appendTo(forma);
             i++;
             return false;
     });
@@ -97,7 +114,7 @@ $(function() {
     
     $('#addSubmit').live('click', function() {
         if (i<2) {
-            $('<div class="col-6 text-left" id = divSubmit'+i+'><button class="btn btn-success" type="submit" id="submit">Submit</button> <button id="removeSubmit" class="btn btn-danger btn-sm" value="' + i + '"><i class="fa fa-close"></button></div>').appendTo(forma);
+            $('<div class="col-6 text-left" style="padding: 20px;" id = divSubmit'+i+'><button class="btn btn-success" type="submit" id="submit">Submit</button> <button id="removeSubmit" class="btn btn-danger btn-sm" value="' + i + '"><i class="fa fa-close"></button></div>').appendTo(forma);
             i++;
             return false;
         }    
@@ -120,7 +137,7 @@ $(function() {
     $('#addReset').live('click', function() {
         console.log(i);
         if (i<2) {
-            $('<div class="col-6 text-right" id = divReset'+i+'><button class="btn btn-warning" type="reset" id="reset">Reset</button> <button id="removeReset" class="btn btn-danger btn-sm" value="' + i + '"><i class="fa fa-close"></button></div>').appendTo(forma);
+            $('<div class="col-6 text-right" style="padding: 20px;" id = divReset'+i+'><button class="btn btn-warning" type="reset" id="reset">Reset</button> <button id="removeReset" class="btn btn-danger btn-sm" value="' + i + '"><i class="fa fa-close"></button></div>').appendTo(forma);
             i++;
             return false;
         }
@@ -146,7 +163,7 @@ $(function() {
 
     $('#addCheckbox').live('click', function() {
 
-          $('<div class="col-md-4 col-12" id = divCheckbox' + k +'><a><label for="forma" style="font-weight: bold;">Checkbox '+k+': <button id="removeCheckbox" class="btn btn-danger btn-sm" value="' + k + '"> <i class="fa fa-close"></i></button> <button id="addCheckboxInput" class="btn btn-primary btn-sm" value="' + k + '"> <i class="fa fa-plus"></i></button> <br> <div class = "inputsCheckbox'+ k +'" id = "inputsCheckbox' + k +'"></div></div></label></a>').appendTo(forma);
+          $('<div class="col-md-4 col-12" style="padding: 10px;" id = divCheckbox' + k +'><a><label for="forma" style="font-weight: bold;">Checkbox: <button id="removeCheckbox" class="btn btn-danger btn-sm" value="' + k + '"> <i class="fa fa-close"></i></button> <button id="addCheckboxInput" class="btn btn-primary btn-sm" value="' + k + '"> <i class="fa fa-plus"></i></button> <br> <div class = "inputsCheckbox'+ k +'" id = "inputsCheckbox' + k +'"></div></div></label></a>').appendTo(forma);
             k++;
             return false;
     });
@@ -184,7 +201,7 @@ $(function() {
 
     $('#addRadio').live('click', function() {
 
-          $('<div class="col-md-4 col-12" id = divRadio' + k +'><a><label for="forma" style="font-weight: bold;">Radio '+k+': <button id="removeRadio" class="btn btn-danger btn-sm" value="' + k + '"> <i class=\"fa fa-close\"></i></button> <button id="addRadioOption" class="btn btn-primary btn-sm" value="' + k + '"> <i class=\"fa fa-plus\"></i></button> <br> <form action ="" class = "inputsRadio'+ k +'" id = "inputsRadio' + k +'"></div></div></label></a>').appendTo(forma);
+          $('<div class="col-md-4 col-12" style="padding: 10px;" id = divRadio' + k +'><a><label for="forma" style="font-weight: bold;">Radio: <button id="removeRadio" class="btn btn-danger btn-sm" value="' + k + '"> <i class=\"fa fa-close\"></i></button> <button id="addRadioOption" class="btn btn-primary btn-sm" value="' + k + '"> <i class=\"fa fa-plus\"></i></button> <br> <form action ="" class = "inputsRadio'+ k +'" id = "inputsRadio' + k +'"></div></div></label></a>').appendTo(forma);
             k++;
             return false;
     });
