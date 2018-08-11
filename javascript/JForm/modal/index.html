@@ -1,0 +1,294 @@
+<html>
+    <head>
+        <title>Form Builder</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/media.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="row-fluid" style="overflow: hidden">
+            <div class="span10 offset1">
+                <div class="row-fluid">
+                    <div class="span7">
+                        <h1>JForm</h1>
+                        <hr>
+                        <div class="tabbable">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#editor-tab" data-toggle="tab">Editor</a></li>
+                                <!-- <li><a href="#source-tab" data-toggle="tab">Source</a></li> -->
+                            </ul>
+
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="editor-tab">
+                                    <div id="content" class="form-horizontal">
+                                        <fieldset id="content_form_name">
+                                            <legend>Formulário</legend>
+                                        </fieldset>
+                                        <div class="container"> 
+                                            <div>
+                                                <div id="forma"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="span5" >
+                        <h1>Botões</h1>
+                        <hr>
+                        <div id="components-container" class="pagination-centered">
+                            <div class="control-group component" data-type="text">
+                                <button id="addTextfield" class="btn btn-primary" style="width: 50%; height: 50px; font-size : 16px;"><i class="fa fa-indent" aria-hidden="true"></i> Add textfield</button>
+                            </div>
+                            <div class="control-group component">
+                                <button id="addPassword" class="btn btn-primary" style="width: 50%; height: 50px; font-size : 16px;""><i class="fa fa-key" aria-hidden="true"></i> Add password</button>
+
+                            </div>
+                            <div class="control-group component">
+                                <button id="addCheckbox" class="btn btn-primary" style="width: 50%; height: 50px; font-size : 16px;""><i class="fa fa-check-square-o" aria-hidden="true"></i> Add checkbox</button>
+                            </div>
+                            <div class="control-group component">
+                                    <button id="addRadio" class="btn btn-primary" style="width: 50%; height: 50px; font-size : 16px;""><i class="fa fa-circle-o" aria-hidden="true"></i> Add radio</button>
+                            </div>
+                            <div class="control-group component">
+                                    <button id="addSubmit" class="btn btn-primary" style="width: 50%; height: 50px; font-size : 16px;""><i class="fa fa-send-o"></i> Add submit</button>
+                            </div>                          
+                            <div class="control-group component">
+                                    <button id="addReset" class="btn btn-primary" style="width: 50%; height: 50px; font-size : 16px;""><i class="fa fa-refresh"></i> Add reset</button>
+                            </div>
+                            <div class="form-actions component" data-type="submit">
+                                <input class="btn btn-danger"  type="button" value="Refresh Page" onClick="window.location.reload()" style="width: 33%; height: 33px; font-size : 16px;">
+                                <input class="btn btn-success"  type="button" value="Save" id="save" style="width: 33%; height: 33px; font-size : 16px;">
+                                <input class="btn btn-info"  type="button" value="Copy HTML" id="copyHTML" style="width: 33%; height: 33px; font-size : 16px; margin-top: 10px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        </div>
+
+<script type="text/javascript">
+
+
+$(document).ready(function(){
+    $("#copyHTML").click(function(){
+        alert($("#forma").html());
+    });
+});
+
+$(document).ready(function() {
+    $('#save').on('click', function() { 
+            $('.teste').fadeOut(300, function(){ 
+                $(this).remove();
+            }); 
+   })
+    return false;
+});
+
+
+$(document).ready(function() {
+    var forma = $('#forma');
+    var i = $('#forma').length;
+    
+   $(document).on('click', '#addTextfield', function(){
+            $('<div class="col-md-4 col-12" style="padding: 10px;" id = divTextField' + i +'><a style="font-weight: bold;">Texto: <input type="text" id="textfield' + i +'" style = "width: 300px;" name="textfield" value="" placeholder="Digite seu texto" /> <button id="removeTextfield" class="teste teste btn btn-danger btn-sm" value="' + i + '"><i class="fa fa-close"></i></button> <button class="teste btn btn-primary btn-sm" value="' + i + '" data-toggle="modal" data-target="#textfieldModal" ><i class="fa fa-pencil"></i></button></div>').appendTo(forma);
+            i++;
+            return false;
+    });    
+   $(document).on('click', '#removeTextfield', function(){
+            if( i > 0 ) {
+                //$(this).parent().remove();
+                //i--;
+                var id = $(this).attr('value');
+                $('#divTextField'+id).fadeOut(300, function(){ 
+                    $(this).remove();
+                });
+           }
+            return false;
+    });
+});
+
+$(document).ready(function() {
+    var forma = $('#forma');
+    var i = $('#forma').length;
+    
+   $(document).on('click', '#addPassword', function(){
+            $('<div class="col-md-4 col-12" style="padding: 10px;" id = divPassword' + i +'><a style="font-weight: bold;">Password: </a><input type="password" style="height: 30px; width:270px" id="password' + i +'" name="password" value="" placeholder="Digite seu password" /> <button id="removePassword" class="teste btn btn-danger btn-sm" value="' + i + '"><i class="fa fa-close"></button></div>').appendTo(forma);
+            i++;
+            return false;
+    });
+    
+   $(document).on('click', '#removePassword', function(){
+            if( i > 0 ) {
+                var id = $(this).attr('value');
+                $('#divPassword'+id).fadeOut(300, function(){ 
+                    $(this).remove();
+                });
+            }
+            return false;
+    });
+});
+
+$(document).ready(function() {
+    var forma = $('#forma');
+    var i = $('#forma').length;
+    
+   $(document).on('click', '#addSubmit', function(){
+        if (i<2) {
+            $('<div class="col-4" style="padding: 10px;" id = divSubmit'+i+'><button class="btn btn-success" type="submit" id="submit" style="width: 120px;">Submit</button> <button id="removeSubmit" class="teste btn btn-danger btn-sm" value="' + i + '"><i class="fa fa-close"></button></div>').appendTo(forma);
+            i++;
+            return false;
+        }    
+    });
+    
+   $(document).on('click', '#removeSubmit', function(){
+                var id = $(this).attr('value');
+                $('#divSubmit'+id).fadeOut(300, function(){ 
+                    $(this).remove();
+                });
+                i--;
+            return false;
+    });
+});
+
+$(document).ready(function() {
+    var forma = $('#forma');
+    var i = $('#forma').length;
+    
+   $(document).on('click', '#addReset', function(){
+        console.log(i);
+        if (i<2) {
+            $('<div class="col-4" style="padding: 10px;" id = divReset'+i+'><button class="btn btn-warning" type="reset" id="reset" style="width: 120px;">Reset</button> <button id="removeReset" class="teste btn btn-danger btn-sm" value="' + i + '"><i class="fa fa-close"></button></div>').appendTo(forma);
+            i++;
+            return false;
+        }
+    });
+    
+   $(document).on('click', '#removeReset', function(){
+                var id = $(this).attr('value');
+                $('#divReset'+id).fadeOut(300, function(){ 
+                    $(this).remove();
+                });
+                i--;
+            return false;
+    });
+});
+
+$(document).ready(function() {
+
+    var forma = $('#forma');
+    var k = $('#forma').length;
+    var j = $('.inputsCheckbox').length + 1;
+    var divCheckbox = $('#divCheckbox');
+    var teste;  
+
+
+   $(document).on('click', '#addCheckbox', function(){
+
+          $('<div class="col-md-4 col-12" style="padding: 10px;" id = divCheckbox' + k +'><a style="font-weight: bold;">Checkbox: <button id="removeCheckbox" class="teste btn btn-danger btn-sm" value="' + k + '"> <i class="fa fa-close"></i></button> <button id="addCheckboxInput" class="teste btn btn-primary btn-sm" value="' + k + '"> <i class="fa fa-plus"></i></button> <br> <div class = "inputsCheckbox'+ k +'" id = "inputsCheckbox' + k +'"></div></div></a>').appendTo(forma);
+            k++;
+            return false;
+    });
+
+    $(document).on('click', '#addCheckboxInput', function(){
+        var idCheckbox = $(this).attr('value'); 
+        $('<input type="checkbox" id="checkbox' + j +'" size="20" name="checkbox" value="" /> Option<br>').appendTo(".inputsCheckbox"+idCheckbox);
+        //$(".inputsCheckbox"+i).append('teste');
+         //<input type=\"checkbox\" id=\"checkbox' + i +'\" size=\"20\" name=\"checkbox\" value=\"\" />
+         j++;
+        return false;
+    });
+        
+$(document).on('click', '#removeCheckbox', function(){
+            if( k > 0 ) {
+                //$(this).parent().remove();
+                //i--;
+                var id = $(this).attr('value');
+                $('#divCheckbox'+id).fadeOut(300, function(){ 
+                    $(this).remove();
+                });
+           }
+            return false;
+    });    
+
+});
+
+
+
+$(document).ready(function() {
+
+    var forma = $('#forma');
+    var k = $('#forma').length;
+    var j = $('.inputsRadio').length + 1;
+    var divRadio = $('#divRadio');
+    var teste;  
+
+
+   $(document).on('click', '#addRadio', function(){
+             $('<div class="col-md-4 col-12" style="padding-top: 10px; padding-left: 10px;" id = divRadio' + k +'><a style="font-weight: bold;">Radio: <button id="removeRadio" class="teste btn btn-danger btn-sm" value="' + k + '"> <i class="fa fa-close"></i></button> <button id="addRadioOption" class="teste btn btn-primary btn-sm" value="' + k + '"> <i class="fa fa-plus"></i></button> <br> <form action ="" class = "inputsRadio'+ k +'" id = "inputsRadio' + k +'"></div></div></a>').appendTo(forma);
+            k++;
+            return false;
+    });
+
+    $(document).on('click', '#addRadioOption', function(){
+                var idRadio = $(this).attr('value'); 
+                $('<input type="radio" id="radio' + j +'" size="20" name="radio" value=""/> Escolha<br>').appendTo(".inputsRadio"+idRadio);
+                //$(".inputsRadio"+i).append('teste');
+                 //<input type=\"Radio\" id=\"Radio' + i +'\" size=\"20\" name=\"Radio\" value=\"\" />
+                 j++;
+                return false;
+            });
+        
+   $(document).on('click', '#removeRadio', function(){
+            if( k > 0 ) {
+                //$(this).parent().remove();
+                //i--;
+                var id = $(this).attr('value');
+                $('#divRadio'+id).fadeOut(300, function(){ 
+                    $(this).remove();
+                });
+           }
+            return false;
+    });    
+
+});
+    
+</script>
+<div class="container">
+  <h2>Modal Example</h2>
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div> 
+</div>
+    </body>
+</html>
