@@ -17,7 +17,7 @@
         <div class="row-fluid" style="overflow: hidden">
             <div class="span10 offset1">
                 <div class="row-fluid">
-                    <div class="span7">
+                    <div class="span8">
                         <h1>JForm</h1>
                         <hr>
                         <div class="tabbable">
@@ -33,9 +33,7 @@
                                             <legend>Formulário</legend>
                                         </fieldset>
                                         <div class="container"> 
-                                            <div>
-                                                <div id="forma"></div>
-                                            </div>
+                                                <div class = "row" id="forma"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -44,7 +42,7 @@
                         </div>
                     </div>
 
-                    <div class="span5" >
+                    <div class="span4" >
                         <h1>Botões</h1>
                         <hr>
                         <div id="components-container" class="pagination-centered">
@@ -80,7 +78,6 @@
         </div>
         </div>
       
-
   <!-- Modal -->
   <div class="modal fade" id="textfieldModal" role="dialog">
     <div class="modal-dialog">
@@ -92,19 +89,21 @@
         </div>
         <div class="modal-body">
           <p>Label:</p>
-          <p> <input type="text" name="fetchLabelTextField" id="fetchLabelTextField" value=""></p>          
+          <p> <input type="text" name="fetchLabelTextField" id="fetchLabelTextField" value=""  style="height: 30px; width:300px"></p>          
           <p>Conteúdo:</p>
-          <p> <input type="text" name="fetchPlaceholderTextField" id="fetchPlaceholderTextField" value=""></p>          
+          <p> <input type="text" name="fetchPlaceholderTextField" id="fetchPlaceholderTextField" value=""  style="height: 30px; width:300px"></p>          
           <p>Name:</p>
-          <p> <input type="text" name="fetchNameTextField" id="fetchNameTextField" value=""></p>          
+          <p> <input type="text" name="fetchNameTextField" id="fetchNameTextField" value=""  style="height: 30px; width:300px"></p>          
           <p>Width:</p>
-          <p> <input type="number" name="fetchWidthTextField" id="fetchWidthTextField" value=""></p>          
+          <p> <input type="number" name="fetchWidthTextField" id="fetchWidthTextField" value=""  style="height: 30px; width:300px"></p>            
+          <p>Div size:</p>
+          <p> <input type="text" name="fetchDivTextField" id="fetchDivTextField" value=""  style="height: 30px; width:300px"></p>          
           <p>ID:</p>
-          <p> <input type="text" name="fetchIdTextField" id="fetchIdTextField" value=""><input type="hidden" id="fetchHidden" value=""/></p>
+          <p> <input type="text" name="fetchIdTextField" id="fetchIdTextField" value=""  style="height: 30px; width:300px"><input type="hidden" id="fetchHidden" value=""/></p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-success" data-dismiss="modal" name="salvarTextField" id="salvarTextField" value="">Save</button>
-          <button type="button" class="btn btn-danger" data-dismiss="modal" value="">Close</button>
+          <button type="button" class="salvar btn btn-success" data-dismiss="modal" name="salvarTextField" id="salvarTextField" value="">Save</button>
+          <button type="button" class="fechar btn btn-danger" data-dismiss="modal" value="">Close</button>
         </div>
       </div>
       
@@ -113,6 +112,13 @@
 </div>
 
 <script type="text/javascript">
+var KEYCODE_ENTER = 13;
+var KEYCODE_ESC = 27;
+
+$(document).keyup(function(e) {
+  if (e.keyCode == KEYCODE_ENTER) $('.salvar').click();
+  if (e.keyCode == KEYCODE_ESC) $('.fechar').click();
+});
 
 $(document).ready(function(){
     $("#copyHTML").click(function(){
@@ -135,7 +141,7 @@ $(document).ready(function() {
     var i = $('#forma').length;
     
    $(document).on('click', '#addTextfield', function(){
-            $('<div class="col-12" style="padding: 10px;" id = divTextField' + i +'><label style="font-weight: bold;" id="labelTextField' + i +'">Texto: </label><input type="text" id="textfield' + i +'" style = "width: 300px;" name="textfield" value="" placeholder="Digite o seu texto" /> <button id="removeTextfield" class="teste teste btn btn-danger btn-sm" value="' + i + '"><i class="fa fa-close"></i></button> <button data-toggle="modal" data-target="#textfieldModal" name="editTextField" id="editTextField" class="teste btn btn-primary btn-sm" value="textfield' + i + '"  ><i class="fa fa-pencil"></i><input type="hidden" id="hidden' + i + '" value="' + i + '"/></button></div>').appendTo(forma);
+            $('<div class="col-12" style="padding: 10px;" id = divTextField' + i +'><label style="font-weight: bold;" id="labelTextField' + i +'">Texto: </label><input type="text" class="textfield' + i +'" id="textfield' + i +'" style = "width: 300px;" name="textfield" value="" placeholder="Digite o seu texto" /> <button id="removeTextfield" class="teste teste btn btn-danger btn-sm" value="' + i + '"><i class="fa fa-close"></i></button> <button data-toggle="modal" data-target="#textfieldModal" name="editTextField" id="editTextField" class="teste btn btn-primary btn-sm" value="' + i + '"  ><i class="fa fa-pencil"></i><input type="hidden" id="hidden' + i + '" value="' + i + '"/></button></div>').appendTo(forma);
             
             i++;
             return false;
@@ -152,27 +158,41 @@ $(document).ready(function() {
             return false;
     });
 
+});
     $(document).on('click', '#editTextField', function(){
 
       // impede que o form envie o post
       event.preventDefault();
-      var id = $(this).attr('value');
-      var idLabel = $(this).parent().find("input[type='hidden']").val();
+      var i = $(this).attr('value');
+      // var id = $(this).parent().find("input[type='hidden']").val();
+      // var idLabel = $(this).parent().find("input[type='hidden']").val();
+
+      // if (id.match(/^[0-9]+$/) != null) {
+      //   id = "textfield" + id;
+      //   idLabel = "labelTextField" + idLabel;
+      // } else{
+      //   id = id;
+      //   idLabel = idLabel;
+      // }
+
       // pega os dados de forma individual do form
       // var placeholder = $('#textfield'+id).val();
-      var placeholderTextField = $('#'+id).attr('placeholder'); 
-      var nameTextField = $('#'+id).attr('name'); 
-      var labelTextField = document.getElementById('labelTextField'+idLabel).textContent;
-      var widthTextField = $('#'+id).width();
-      var idTextField = $('#'+id).attr('id');
-      alert(labelTextField);
+      var placeholderTextField = $('.textfield'+i).attr('placeholder'); 
+      var nameTextField = $('.textfield'+i).attr('name'); 
+      var labelTextField = document.getElementById('labelTextField'+i).textContent;
+      var widthTextField = $('.textfield'+i).width();
+      var idTextField = $('.textfield'+i).attr('id');
+      var divTextField = $('#divTextField'+i).attr('class');
+      //atribui um valor para o campo com id fetchHidden
+      $(fetchHidden).val(i);
+
       $('#fetchPlaceholderTextField').attr('placeholder',placeholderTextField);
 
       $(fetchPlaceholderTextField).val(placeholderTextField);
       $('#fetchNameTextField').attr('name',nameTextField);
       $(fetchNameTextField).val(nameTextField);
 
-      $(fetchHidden).val(idLabel);
+
       $('#fetchLabelTextField').attr('value',labelTextField);
       $(fetchLabelTextField).val(labelTextField);
 
@@ -182,7 +202,10 @@ $(document).ready(function() {
       $('#fetchIdTextField').attr('name',idTextField);
       $(fetchIdTextField).val(idTextField);
 
-      $('#salvarTextField').attr('value',id);
+      $('#fetchDivTextField').attr('class',divTextField);
+      $(fetchDivTextField).val(divTextField);
+
+      // $('#salvarTextField').attr('value',id);
 
     });
 
@@ -192,26 +215,28 @@ $(document).ready(function() {
       var inputNameTextField = document.getElementById('fetchNameTextField');
       var inputWidthTextField = document.getElementById('fetchWidthTextField');
       var inputIdTextField = document.getElementById('fetchIdTextField');
-      // var idLabel = $('#fetchHidden').attr('value');
-      var id = $(this).attr('value');
-      
+      var inputDivTextField = document.getElementById('fetchDivTextField');
+      var id = $('#fetchHidden').attr('value');
+      // var id = $(this).attr('value');
+      // alert(id);
+
       var novoPlaceholderTextField = inputPlaceholderTextField.value;
       var novoLabelTextField = inputLabelTextField.value;
       var novoNameTextField = inputNameTextField.value;
       var novoWidthTextField = inputWidthTextField.value;
       var novoIdTextField = inputIdTextField.value;
+      var novoDivTextField = inputDivTextField.value;
 
-      $('#'+id).attr('placeholder',novoPlaceholderTextField);
-      $('#'+id).attr('name',novoNameTextField);
-      $('#'+id).attr('id',novoIdTextField);
-      $('#editTextField').attr('value', novoIdTextField);
+      $('.textfield'+id).attr('placeholder',novoPlaceholderTextField);
+      $('.textfield'+id).attr('name',novoNameTextField);
+      $('.textfield'+id).attr('id',novoIdTextField);
+      $('#divTextField'+id).attr('class',novoDivTextField);
+      // $('.editTextField').attr('value', novoIdTextField);
       // $("#mainTable").css("width", "100");
-      $('#'+id).css("width",novoWidthTextField);
-      // $('#textfield'+id).val(novoPlaceholder);  
-      // document.getElementById('labelTextField'+idLabel).innerHTML = novoLabelTextField;
+      $('.textfield'+id).css("width",novoWidthTextField);
+      document.getElementById('labelTextField'+id).innerHTML = novoLabelTextField;
 
     });
-});
 
 $(document).ready(function() {
     var forma = $('#forma');
@@ -281,40 +306,49 @@ $(document).ready(function() {
 
 $(document).ready(function() {
 
-    var forma = $('#forma');
-    var k = $('#forma').length;
-    var j = $('.inputsCheckbox').length + 1;
-    var divCheckbox = $('#divCheckbox');
-    var teste;  
+  var forma = $('#forma');
+  var k = $('#forma').length;
+  var j = $('.inputsCheckbox').length + 1;
+  var divCheckbox = $('#divCheckbox');
 
 
-   $(document).on('click', '#addCheckbox', function(){
+ $(document).on('click', '#addCheckbox', function(){
 
-          $('<div class="col-md-4 col-12" style="padding: 10px;" id = divCheckbox' + k +'><a style="font-weight: bold;">Checkbox: <button id="removeCheckbox" class="teste btn btn-danger btn-sm" value="' + k + '"> <i class="fa fa-close"></i></button> <button id="addCheckboxInput" class="teste btn btn-primary btn-sm" value="' + k + '"> <i class="fa fa-plus"></i></button> <br> <div class = "inputsCheckbox'+ k +'" id = "inputsCheckbox' + k +'"></div></div></a>').appendTo(forma);
-            k++;
-            return false;
-    });
+    $('<div class="col-md-4 col-12" style="padding: 10px;" id = divCheckbox' + k +'><a style="font-weight: bold;">Checkbox:</a> <button id="removeCheckbox" class="teste btn btn-danger btn-sm" value="' + k + '"> <i class="fa fa-close"></i></button> <button id="addCheckboxInput'+ k +'" class="teste addCheckboxInput btn btn-primary btn-sm" value="'+ k +'"> <i class="fa fa-plus"></i></button> <button id="removeCheckboxInput'+ k +'" class="teste removeCheckboxInput btn btn-warning btn-sm" value=""> <i class="fa fa-minus"></i></button> <br> <div class = "inputsCheckbox'+ k +'" id = "inputsCheckbox' + k +'"></div></div>').appendTo(forma);
+    k++;
+    return false;
+  });
 
-    $(document).on('click', '#addCheckboxInput', function(){
-        var idCheckbox = $(this).attr('value'); 
-        $('<input type="checkbox" id="checkbox' + j +'" size="20" name="checkbox" value="" /> Option<br>').appendTo(".inputsCheckbox"+idCheckbox);
-        //$(".inputsCheckbox"+i).append('teste');
-         //<input type=\"checkbox\" id=\"checkbox' + i +'\" size=\"20\" name=\"checkbox\" value=\"\" />
-         j++;
-        return false;
-    });
+  $(document).on('click', '.addCheckboxInput', function(){
+    var idCheckbox = $(this).attr('value');
+    var qtde = $('.checkbox'+idCheckbox).length + 1;
+    $('<input type="checkbox" id="checkbox' + qtde +'" size="20" name="checkbox" class="checkbox'+idCheckbox+'" value="' + qtde +'" /> <a class="option'+idCheckbox+'" style="font-weight: bold;">Option ' + qtde +'<br></a>').appendTo(".inputsCheckbox"+idCheckbox);
+    //$(".inputsCheckbox"+i).append('teste');
+     //<input type=\"checkbox\" id=\"checkbox' + i +'\" size=\"20\" name=\"checkbox\" value=\"\" />
+    $('#removeCheckboxInput'+idCheckbox).attr('value',idCheckbox);
+
+    return false;
+  });
+
+  $(document).on('click', '.removeCheckboxInput', function(){
+    var idCheckbox = $(this).attr('value');
+    var qtde = $('.checkbox'+idCheckbox).length;
+    $('.checkbox'+idCheckbox).last().remove();
+    $('.option'+idCheckbox).last().remove();
+    return false;
+  });
         
-$(document).on('click', '#removeCheckbox', function(){
-            if( k > 0 ) {
-                //$(this).parent().remove();
-                //i--;
-                var id = $(this).attr('value');
-                $('#divCheckbox'+id).fadeOut(300, function(){ 
-                    $(this).remove();
-                });
-           }
-            return false;
-    });    
+  $(document).on('click', '#removeCheckbox', function(){
+    if( k > 0 ) {
+        //$(this).parent().remove();
+        //i--;
+        var id = $(this).attr('value');
+        $('#divCheckbox'+id).fadeOut(300, function(){ 
+            $(this).remove();
+        });
+   }
+    return false;
+  });    
 
 });
 
