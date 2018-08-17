@@ -6,24 +6,27 @@
         <!-- <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script> -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
-        <!-- <link href="css/codemirror.css" rel="stylesheet"> -->
+        <link href="css/codemirror.css" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <link href="css/form_builder.css" rel="stylesheet">
+        <link href="css/css-custom.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="js/popper.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+    
     </head>
     <body>
         <div class="row-fluid" style="overflow: hidden">
-            <div class="span10 offset1">
-                <div class="row-fluid">
-                    <div class="span8">
+            <div class="container">
+                <div class="row">
+                    <div class="col-9">
                         <h1>JForm</h1>
                         <hr>
                         <div class="tabbable">
                             <ul class="nav nav-tabs">
                                 <li class="active"><a href="#editor-tab" data-toggle="tab">Editor</a></li>
-                                <!-- <li><a href="#source-tab" data-toggle="tab">Source</a></li> -->
+                                <li><a href="#source-tab" data-toggle="tab"  id="sourcetab">Source</a></li>                                
                             </ul>
 
                             <div class="tab-content">
@@ -32,43 +35,45 @@
                                         <fieldset id="content_form_name">
                                             <legend>Formulário</legend>
                                         </fieldset>
-                                        <div class="container"> 
-                                                <div class = "row" id="forma"></div>
+                                        <div> 
+                                                <div class = "row form-horizontal ui-droppable ui-sortable" id="forma"></div>
                                         </div>
                                     </div>
                                 </div>
-
+                              <div class="tab-pane" id="source-tab">
+                                <div class="source" id="source"></div>
+                              </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="span4" >
+                    <div class="col-3" >
                         <h1>Botões</h1>
                         <hr>
-                        <div id="components-container" class="pagination-centered">
+                        <div id="components-container" >
                             <div class="control-group component" data-type="text">
-                                <button id="addTextfield" class="btn btn-primary" style="width: 50%; height: 50px; font-size : 16px;"><i class="fa fa-indent" aria-hidden="true"></i> Add textfield</button>
+                                <button id="addTextfield" class="btn btn-primary" style="width: 100%; height: 50px; font-size : 16px;"><i class="fa fa-indent" aria-hidden="true"></i> Add textfield</button>
                             </div>
                             <div class="control-group component">
-                                <button id="addPassword" class="btn btn-primary" style="width: 50%; height: 50px; font-size : 16px;"><i class="fa fa-key" aria-hidden="true"></i> Add password</button>
+                                <button id="addPassword" class="btn btn-primary" style="width: 100%; height: 50px; font-size : 16px;"><i class="fa fa-key" aria-hidden="true"></i> Add password</button>
 
                             </div>
                             <div class="control-group component">
-                                <button id="addCheckbox" class="btn btn-primary" style="width: 50%; height: 50px; font-size : 16px;"><i class="fa fa-check-square-o" aria-hidden="true"></i> Add checkbox</button>
+                                <button id="addCheckbox" class="btn btn-primary" style="width: 100%; height: 50px; font-size : 16px;"><i class="fa fa-check-square-o" aria-hidden="true"></i> Add checkbox</button>
                             </div>
                             <div class="control-group component">
-                                    <button id="addRadio" class="btn btn-primary" style="width: 50%; height: 50px; font-size : 16px;"><i class="fa fa-circle-o" aria-hidden="true"></i> Add radio</button>
+                                    <button id="addRadio" class="btn btn-primary" style="width: 100%; height: 50px; font-size : 16px;"><i class="fa fa-circle-o" aria-hidden="true"></i> Add radio</button>
                             </div>
                             <div class="control-group component">
-                                    <button id="addSubmit" class="btn btn-primary" style="width: 50%; height: 50px; font-size : 16px;"><i class="fa fa-send-o"></i> Add submit</button>
+                                    <button id="addSubmit" class="btn btn-primary" style="width: 100%; height: 50px; font-size : 16px;"><i class="fa fa-send-o"></i> Add submit</button>
                             </div>                          
                             <div class="control-group component">
-                                    <button id="addReset" class="btn btn-primary" style="width: 50%; height: 50px; font-size : 16px;"><i class="fa fa-refresh"></i> Add reset</button>
+                                    <button id="addReset" class="btn btn-primary" style="width: 100%; height: 50px; font-size : 16px;"><i class="fa fa-refresh"></i> Add reset</button>
                             </div>
                             <div class="form-actions component" data-type="submit">
-                                <input class="btn btn-danger"  type="button" value="Refresh Page" onClick="window.location.reload()" style="width: 33%; height: 33px; font-size : 16px;">
-                                <input class="btn btn-success"  type="button" value="Save" id="save" style="width: 33%; height: 33px; font-size : 16px;">
-                                <input class="btn btn-info"  type="button" value="Copy HTML" id="copyHTML" style="width: 33%; height: 33px; font-size : 16px; margin-top: 10px;">
+                                <input class="btn btn-danger"  type="button" value="Refresh Page" onClick="window.location.reload()" style="width: 100%; height: 33px; font-size : 16px;">
+                                <input class="btn btn-info"  type="button" id="copyHTML" value="Copy HTML" style="width: 100%; height: 33px; font-size : 16px; margin-top: 10px;">
+                                <!-- data-toggle="modal" data-target="#modalCopyHTML" -->
                             </div>
                         </div>
                     </div>
@@ -79,7 +84,7 @@
         </div>
       
   <!-- Modal -->
-  <div class="modal fade" id="textfieldModal" role="dialog">
+  <div class="modal fade" id="modalTextField" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content-->
@@ -109,9 +114,145 @@
       
     </div>
   </div> 
+
+    <!-- Modal -->
+  <div class="modal fade" id="modalCopyHTML" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Source</h4>
+        </div>
+        <div class="modal-body">
+          <div class = "row form-horizontal ui-droppable ui-sortable" id="formaHTML"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="fechar btn btn-danger" data-dismiss="modal" value="">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
 </div>
 
 <script type="text/javascript">
+
+function updateSource(){
+     var content = $("#source").html();
+     source.setValue(this.cleanContent(content));
+     // source.autoFormatRange(
+     //   { line: 0, ch: 0 },
+     //   { line: source.lastLine()+1, ch: 0 }
+     // );
+}; 
+
+    function cleanContent(content) {
+     return $("#source")
+         .replace(/\t/, '')
+         .replace(/ ui-draggable| element/gi, '')
+         .replace(/col-4/g, 'lol')
+         .replace(/ data-(.+)="(.+)"/g, '');
+    };
+
+// function copyToClipboard(text) {
+
+//    var textArea = document.createElement( "textarea" );
+//    textArea.value = text;
+//    document.body.appendChild( textArea );
+
+//    textArea.select();
+
+//    try {
+//       var successful = document.execCommand( 'copy' );
+//       var msg = successful ? 'successful' : 'unsuccessful';
+//       alert('Copying text command was ' + msg);
+//    } catch (err) {
+//       alert('Oops, unable to copy');
+//    }
+
+//    document.body.removeChild( textArea );
+// }
+
+// $('#copyHTML').click( function()
+//  {
+//  });
+
+// $(document).ready(function(){
+//     $("#copyHTML").click(function(){
+//      var clipboardText = "";
+//      clipboardText = $('#source').html();
+//      copyToClipboard(clipboardText);
+//     });
+// });
+
+
+//https://css-tricks.com/make-a-view-source-button/
+$(document).ready(function(){
+    $(document).bind('click', function(e){
+        $(".space").remove();
+        $("#source").html("");
+        // var html = $("#forma").html();
+        $( "style" ).replaceWith( "lol" );
+        $("<pre />", {
+    "html":   '&lt;!DOCTYPE html>\n&lt;html>' + 
+        $("#forma")
+          .html()
+          .replace(/[<>]/g, function(m) { return {'<':'&lt;','>':'&gt;'}[m]})
+          .replace(/></g, 'lol')
+          .replace(/button id="remove(.+)\/button/g, '')
+          .replace(/button data-toggle(.+)\/button/g, '')
+          // .replace(/[><]/g, 'lol')
+          .replace(/((ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?)/gi,'<a href="$1">$1</a>') + 
+        '\n&lt;/html>'
+       }).appendTo("#source");
+        // $($("#forma").clone()).appendTo("#formaHTML");
+        // $('.teste').fadeOut(300, function(){ 
+        //     $(this).remove();
+        // }); 
+
+    });
+});
+
+//   // // create codemirror instance & assign to global var source
+//     source = CodeMirror.fromTextArea(document.getElementById("source"), {
+//      lineNumbers: true,
+//      tabMode: 'indent',
+//      mode: { name: 'htmlmixed' }
+//     });
+
+//     // hack to sort random bug with codemirror & bootstrap tabs not playing nicely.
+//     // adding a refresh after 1ms seems to sort out an issue where the source code
+//     // box does not display until user starts typing something
+//     $("a[href=#source-tab]").click(function() {
+//      setTimeout(function() {
+//        form_builder.updateSource();
+//        source.refresh();
+//      }, 1);
+//     });   
+
+  $("#forma")
+  .droppable({
+    accept: '.component',
+    hoverClass: 'content-hover',
+    // drop: function(e, ui) {
+    //  form_builder.addComponent(ui.draggable);
+    // }
+  })
+  .sortable({
+    placeholder: "element-placeholder",
+    start: function(e, ui) {
+      ui.item.popover('hide');
+    }
+  })
+  .disableSelection();
+
+
+$('#modalTextField').on('shown.bs.modal', function () {
+    $('#fetchLabelTextField').focus();
+}) 
+
 var KEYCODE_ENTER = 13;
 var KEYCODE_ESC = 27;
 
@@ -120,17 +261,9 @@ $(document).keyup(function(e) {
   if (e.keyCode == KEYCODE_ESC) $('.fechar').click();
 });
 
-$(document).ready(function(){
-    $("#copyHTML").click(function(){
-        alert($("#forma").html());
-    });
-});
 
 $(document).ready(function() {
     $('#save').on('click', function() { 
-            $('.teste').fadeOut(300, function(){ 
-                $(this).remove();
-            }); 
    })
     return false;
 });
@@ -139,10 +272,9 @@ $(document).ready(function() {
 $(document).ready(function() {
     var forma = $('#forma');
     var i = $('#forma').length;
-    
+                   
    $(document).on('click', '#addTextfield', function(){
-            $('<div class="col-12" style="padding: 10px;" id = divTextField' + i +'><label style="font-weight: bold;" id="labelTextField' + i +'">Texto: </label><input type="text" class="textfield' + i +'" id="textfield' + i +'" style = "width: 300px;" name="textfield" value="" placeholder="Digite o seu texto" /> <button id="removeTextfield" class="teste teste btn btn-danger btn-sm" value="' + i + '"><i class="fa fa-close"></i></button> <button data-toggle="modal" data-target="#textfieldModal" name="editTextField" id="editTextField" class="teste btn btn-primary btn-sm" value="' + i + '"  ><i class="fa fa-pencil"></i><input type="hidden" id="hidden' + i + '" value="' + i + '"/></button></div>').appendTo(forma);
-            
+            $('<div class = "space"></div>\n\t<div class="col-4" style="padding-left: 30px;padding-bottom: 10px;" id = divTextField' + i +'>\n\t\t<label style="font-weight: bold;" id="labelTextField' + i +'" for="textfield' + i +'">Texto: </label>\n\t\t<input type="text" class="textfield' + i +'" id="textfield' + i +'" style = "width: 100%;" name="textfield" value="" placeholder="Digite o seu texto" /><button id="removeTextfield" class="teste teste btn btn-danger btn-sm" value="' + i + '"><i class="fa fa-close"></i></button> <button data-toggle="modal" data-target="#modalTextField" name="editTextField" id="editTextField" class="teste btn btn-primary btn-sm" value="' + i + '"  ><i class="fa fa-pencil"></i><input type="hidden" id="hidden' + i + '" value="' + i + '"/></button>\n\t</div>\n').appendTo(forma);
             i++;
             return false;
     });    
@@ -160,7 +292,6 @@ $(document).ready(function() {
 
 });
     $(document).on('click', '#editTextField', function(){
-
       // impede que o form envie o post
       event.preventDefault();
       var i = $(this).attr('value');
@@ -391,7 +522,7 @@ $(document).ready(function() {
     });    
 
 });
-    
+
 </script>
 
     </body>
