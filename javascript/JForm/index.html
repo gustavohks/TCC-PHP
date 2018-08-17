@@ -14,7 +14,6 @@
         <script src="js/popper.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/jquery-ui.min.js"></script>
-    
     </head>
     <body>
         <div class="row-fluid" style="overflow: hidden">
@@ -23,13 +22,27 @@
                     <div class="col-9">
                         <h1>JForm</h1>
                         <hr>
-                        <div class="tabbable">
-                            <ul class="nav nav-tabs">
-                                <li class="active"><a href="#editor-tab" data-toggle="tab">Editor</a></li>
-                                <li><a href="#source-tab" data-toggle="tab"  id="sourcetab">Source</a></li>                                
-                            </ul>
+                        <div class="tab">
+                                <button class="tablinks active" onclick="openCity(event, 'content')">Editor</button>
+                                <button class="tablinks" onclick="openCity(event, 'fonte')">Source</button>
+                                <!-- <li><a href="#source-tab" data-toggle="tab"  id="sourcetab">Source</a></li>                                 -->
+                        </div>
+                                <!-- Tab content -->
 
-                            <div class="tab-content">
+                                    <div id="content" class="tabcontent">
+                                        <div> 
+                                          <div class = "row form-horizontal ui-droppable ui-sortable" id="forma"><div class = "col-12"><h3>Formulário</h3></div></div>
+                                        </div>
+                                    </div>
+
+
+                                <div id="fonte" class="tabcontent">
+                                  <div class="tab-pane" id="source-tab">
+                                    <div class="source" id="source"></div>
+                                  </div>
+                                </div>
+
+<!--                             <div class="tab-content">
                                 <div class="tab-pane active" id="editor-tab">
                                     <div id="content" class="form-horizontal">
                                         <fieldset id="content_form_name">
@@ -43,36 +56,36 @@
                               <div class="tab-pane" id="source-tab">
                                 <div class="source" id="source"></div>
                               </div>
-                            </div>
-                        </div>
+                            </div> -->
+                        
                     </div>
 
-                    <div class="col-3" >
+                    <div class="col-md-3 col-sm-12" >
                         <h1>Botões</h1>
                         <hr>
                         <div id="components-container" >
                             <div class="control-group component" data-type="text">
-                                <button id="addTextfield" class="btn btn-primary" style="width: 100%; height: 50px; font-size : 16px;"><i class="fa fa-indent" aria-hidden="true"></i> Add textfield</button>
+                                <button id="addTextfield" class="btn btn-primary" style="width: 235px; height: 50px; font-size : 16px;"><i class="fa fa-indent" aria-hidden="true"></i> Add textfield</button>
                             </div>
                             <div class="control-group component">
-                                <button id="addPassword" class="btn btn-primary" style="width: 100%; height: 50px; font-size : 16px;"><i class="fa fa-key" aria-hidden="true"></i> Add password</button>
+                                <button id="addPassword" class="btn btn-primary" style="width: 235px; height: 50px; font-size : 16px;"><i class="fa fa-key" aria-hidden="true"></i> Add password</button>
 
                             </div>
                             <div class="control-group component">
-                                <button id="addCheckbox" class="btn btn-primary" style="width: 100%; height: 50px; font-size : 16px;"><i class="fa fa-check-square-o" aria-hidden="true"></i> Add checkbox</button>
+                                <button id="addCheckbox" class="btn btn-primary" style="width: 235px; height: 50px; font-size : 16px;"><i class="fa fa-check-square-o" aria-hidden="true"></i> Add checkbox</button>
                             </div>
                             <div class="control-group component">
-                                    <button id="addRadio" class="btn btn-primary" style="width: 100%; height: 50px; font-size : 16px;"><i class="fa fa-circle-o" aria-hidden="true"></i> Add radio</button>
+                                    <button id="addRadio" class="btn btn-primary" style="width: 235px; height: 50px; font-size : 16px;"><i class="fa fa-circle-o" aria-hidden="true"></i> Add radio</button>
                             </div>
                             <div class="control-group component">
-                                    <button id="addSubmit" class="btn btn-primary" style="width: 100%; height: 50px; font-size : 16px;"><i class="fa fa-send-o"></i> Add submit</button>
+                                    <button id="addSubmit" class="btn btn-primary" style="width: 235px; height: 50px; font-size : 16px;"><i class="fa fa-send-o"></i> Add submit</button>
                             </div>                          
                             <div class="control-group component">
-                                    <button id="addReset" class="btn btn-primary" style="width: 100%; height: 50px; font-size : 16px;"><i class="fa fa-refresh"></i> Add reset</button>
+                                    <button id="addReset" class="btn btn-primary" style="width: 235px; height: 50px; font-size : 16px;"><i class="fa fa-refresh"></i> Add reset</button>
                             </div>
                             <div class="form-actions component" data-type="submit">
-                                <input class="btn btn-danger"  type="button" value="Refresh Page" onClick="window.location.reload()" style="width: 100%; height: 33px; font-size : 16px;">
-                                <input class="btn btn-info"  type="button" id="copyHTML" value="Copy HTML" style="width: 100%; height: 33px; font-size : 16px; margin-top: 10px;">
+                                <input class="btn btn-danger"  type="button" value="Refresh Page" onClick="window.location.reload()" style="width: 235px; height: 50px; font-size : 16px;">
+                                <!-- <input class="btn btn-info"  type="button" id="copyHTML" value="Copy HTML" style="width: 100%; height: 33px; font-size : 16px; margin-top: 10px;"> -->
                                 <!-- data-toggle="modal" data-target="#modalCopyHTML" -->
                             </div>
                         </div>
@@ -139,22 +152,38 @@
 
 <script type="text/javascript">
 
-function updateSource(){
-     var content = $("#source").html();
-     source.setValue(this.cleanContent(content));
-     // source.autoFormatRange(
-     //   { line: 0, ch: 0 },
-     //   { line: source.lastLine()+1, ch: 0 }
-     // );
-}; 
+$('.btn').mouseup(function() { this.blur() })
 
-    function cleanContent(content) {
-     return $("#source")
-         .replace(/\t/, '')
-         .replace(/ ui-draggable| element/gi, '')
-         .replace(/col-4/g, 'lol')
-         .replace(/ data-(.+)="(.+)"/g, '');
-    };
+function openCity(evt, nome) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(nome).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+// function updateSource(){
+//      var content = $("#source").html();
+//      source.setValue(this.cleanContent(content));
+//      // source.autoFormatRange(
+//      //   { line: 0, ch: 0 },
+//      //   { line: source.lastLine()+1, ch: 0 }
+//      // );
+// }; 
+
+//     function cleanContent(content) {
+//      return $("#source")
+//          .replace(/\t/, '')
+//          .replace(/ ui-draggable| element/gi, '')
+//          .replace(/col-4/g, 'lol')
+//          .replace(/ data-(.+)="(.+)"/g, '');
+//     };
 
 // function copyToClipboard(text) {
 
@@ -190,55 +219,30 @@ function updateSource(){
 
 //https://css-tricks.com/make-a-view-source-button/
 $(document).ready(function(){
-    $(document).bind('click', function(e){
+    $('button').on('click', function(e){
+
         $(".space").remove();
         $("#source").html("");
         // var html = $("#forma").html();
-        $( "style" ).replaceWith( "lol" );
         $("<pre />", {
-    "html":   '&lt;!DOCTYPE html>\n&lt;html>' + 
+    "html":   '&lt;!DOCTYPE html>\n&lt;html>\n\t' + 
         $("#forma")
           .html()
           .replace(/[<>]/g, function(m) { return {'<':'&lt;','>':'&gt;'}[m]})
-          .replace(/></g, 'lol')
           .replace(/button id="remove(.+)\/button/g, '')
           .replace(/button data-toggle(.+)\/button/g, '')
-          // .replace(/[><]/g, 'lol')
+          .replace(/^\s*[\r\n]/gm, '')
+          .replace(/&lt;&gt;/g, '')
           .replace(/((ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?)/gi,'<a href="$1">$1</a>') + 
         '\n&lt;/html>'
        }).appendTo("#source");
-        // $($("#forma").clone()).appendTo("#formaHTML");
-        // $('.teste').fadeOut(300, function(){ 
-        //     $(this).remove();
-        // }); 
-
     });
 });
-
-//   // // create codemirror instance & assign to global var source
-//     source = CodeMirror.fromTextArea(document.getElementById("source"), {
-//      lineNumbers: true,
-//      tabMode: 'indent',
-//      mode: { name: 'htmlmixed' }
-//     });
-
-//     // hack to sort random bug with codemirror & bootstrap tabs not playing nicely.
-//     // adding a refresh after 1ms seems to sort out an issue where the source code
-//     // box does not display until user starts typing something
-//     $("a[href=#source-tab]").click(function() {
-//      setTimeout(function() {
-//        form_builder.updateSource();
-//        source.refresh();
-//      }, 1);
-//     });   
 
   $("#forma")
   .droppable({
     accept: '.component',
     hoverClass: 'content-hover',
-    // drop: function(e, ui) {
-    //  form_builder.addComponent(ui.draggable);
-    // }
   })
   .sortable({
     placeholder: "element-placeholder",
@@ -261,21 +265,14 @@ $(document).keyup(function(e) {
   if (e.keyCode == KEYCODE_ESC) $('.fechar').click();
 });
 
-
-$(document).ready(function() {
-    $('#save').on('click', function() { 
-   })
-    return false;
-});
-
-
 $(document).ready(function() {
     var forma = $('#forma');
     var i = $('#forma').length;
                    
    $(document).on('click', '#addTextfield', function(){
-            $('<div class = "space"></div>\n\t<div class="col-4" style="padding-left: 30px;padding-bottom: 10px;" id = divTextField' + i +'>\n\t\t<label style="font-weight: bold;" id="labelTextField' + i +'" for="textfield' + i +'">Texto: </label>\n\t\t<input type="text" class="textfield' + i +'" id="textfield' + i +'" style = "width: 100%;" name="textfield" value="" placeholder="Digite o seu texto" /><button id="removeTextfield" class="teste teste btn btn-danger btn-sm" value="' + i + '"><i class="fa fa-close"></i></button> <button data-toggle="modal" data-target="#modalTextField" name="editTextField" id="editTextField" class="teste btn btn-primary btn-sm" value="' + i + '"  ><i class="fa fa-pencil"></i><input type="hidden" id="hidden' + i + '" value="' + i + '"/></button>\n\t</div>\n').appendTo(forma);
+            $('<div class = "space"></div>\n\t<div class="col-4" style="padding-left: 30px;padding-bottom: 10px;" id = divTextField' + i +'>\n\t\t<label style="font-weight: bold;" id="labelTextField' + i +'" for="textfield' + i +'">Texto: </label>\n\t\t<input type="text" class="textfield' + i +'" id="textfield' + i +'" style = "width: 100%;" name="textfield" value="" placeholder="Digite o seu texto" /> <button id="removeTextfield" class=" btn btn-danger btn-sm" value="' + i + '"><i class="fa fa-close"></i></button> <button data-toggle="modal" data-target="#modalTextField" name="editTextField" id="editTextField" class=" btn btn-primary btn-sm" value="' + i + '"  ><i class="fa fa-pencil"></i><input type="hidden" id="hidden' + i + '" value="' + i + '"/></button>\n\t</div>\n').appendTo(forma);
             i++;
+
             return false;
     });    
    $(document).on('click', '#removeTextfield', function(){
@@ -305,7 +302,6 @@ $(document).ready(function() {
       //   id = id;
       //   idLabel = idLabel;
       // }
-
       // pega os dados de forma individual do form
       // var placeholder = $('#textfield'+id).val();
       var placeholderTextField = $('.textfield'+i).attr('placeholder'); 
@@ -316,27 +312,20 @@ $(document).ready(function() {
       var divTextField = $('#divTextField'+i).attr('class');
       //atribui um valor para o campo com id fetchHidden
       $(fetchHidden).val(i);
-
       $('#fetchPlaceholderTextField').attr('placeholder',placeholderTextField);
-
       $(fetchPlaceholderTextField).val(placeholderTextField);
       $('#fetchNameTextField').attr('name',nameTextField);
       $(fetchNameTextField).val(nameTextField);
-
-
       $('#fetchLabelTextField').attr('value',labelTextField);
       $(fetchLabelTextField).val(labelTextField);
-
       $('#fetchWidthTextField').attr('width',widthTextField);
       $(fetchWidthTextField).val(widthTextField);
-
       $('#fetchIdTextField').attr('name',idTextField);
       $(fetchIdTextField).val(idTextField);
-
       $('#fetchDivTextField').attr('class',divTextField);
       $(fetchDivTextField).val(divTextField);
-
       // $('#salvarTextField').attr('value',id);
+
 
     });
 
@@ -350,14 +339,12 @@ $(document).ready(function() {
       var id = $('#fetchHidden').attr('value');
       // var id = $(this).attr('value');
       // alert(id);
-
       var novoPlaceholderTextField = inputPlaceholderTextField.value;
       var novoLabelTextField = inputLabelTextField.value;
       var novoNameTextField = inputNameTextField.value;
       var novoWidthTextField = inputWidthTextField.value;
       var novoIdTextField = inputIdTextField.value;
       var novoDivTextField = inputDivTextField.value;
-
       $('.textfield'+id).attr('placeholder',novoPlaceholderTextField);
       $('.textfield'+id).attr('name',novoNameTextField);
       $('.textfield'+id).attr('id',novoIdTextField);
@@ -366,7 +353,6 @@ $(document).ready(function() {
       // $("#mainTable").css("width", "100");
       $('.textfield'+id).css("width",novoWidthTextField);
       document.getElementById('labelTextField'+id).innerHTML = novoLabelTextField;
-
     });
 
 $(document).ready(function() {
@@ -374,7 +360,7 @@ $(document).ready(function() {
     var i = $('#forma').length;
     
    $(document).on('click', '#addPassword', function(){
-            $('<div class="col-12" style="padding: 10px;" id = divPassword' + i +'><a style="font-weight: bold;">Password: </a><input type="password" style="height: 30px; width:270px" id="password' + i +'" name="password" value="" placeholder="Digite seu password" /> <button id="removePassword" class="teste btn btn-danger btn-sm" value="' + i + '"><i class="fa fa-close"></button></div>').appendTo(forma);
+            $('<div class="col-12" style="padding: 10px;" id = divPassword' + i +'><a style="font-weight: bold;">Password: </a><input type="password" style="height: 30px; width:270px" id="password' + i +'" name="password" value="" placeholder="Digite seu password" /> <button id="removePassword" class=" btn btn-danger btn-sm" value="' + i + '"><i class="fa fa-close"></button></div>').appendTo(forma);
             i++;
             return false;
     });
@@ -396,7 +382,7 @@ $(document).ready(function() {
     
    $(document).on('click', '#addSubmit', function(){
         if (i<2) {
-            $('<div class="col-4" style="padding: 10px;" id = divSubmit'+i+'><button class="btn btn-success" type="submit" id="submit" style="width: 120px;">Submit</button> <button id="removeSubmit" class="teste btn btn-danger btn-sm" value="' + i + '"><i class="fa fa-close"></button></div>').appendTo(forma);
+            $('<div class="col-4" style="padding: 10px;" id = divSubmit'+i+'><button class="btn btn-success" type="submit" id="submit" style="width: 120px;">Submit</button> <button id="removeSubmit" class=" btn btn-danger btn-sm" value="' + i + '"><i class="fa fa-close"></button></div>').appendTo(forma);
             i++;
             return false;
         }    
@@ -419,7 +405,7 @@ $(document).ready(function() {
    $(document).on('click', '#addReset', function(){
         console.log(i);
         if (i<2) {
-            $('<div class="col-4" style="padding: 10px;" id = divReset'+i+'><button class="btn btn-warning" type="reset" id="reset" style="width: 120px;">Reset</button> <button id="removeReset" class="teste btn btn-danger btn-sm" value="' + i + '"><i class="fa fa-close"></button></div>').appendTo(forma);
+            $('<div class="col-4" style="padding: 10px;" id = divReset'+i+'><button class="btn btn-warning" type="reset" id="reset" style="width: 120px;">Reset</button> <button id="removeReset" class=" btn btn-danger btn-sm" value="' + i + '"><i class="fa fa-close"></button></div>').appendTo(forma);
             i++;
             return false;
         }
@@ -445,7 +431,7 @@ $(document).ready(function() {
 
  $(document).on('click', '#addCheckbox', function(){
 
-    $('<div class="col-md-4 col-12" style="padding: 10px;" id = divCheckbox' + k +'><a style="font-weight: bold;">Checkbox:</a> <button id="removeCheckbox" class="teste btn btn-danger btn-sm" value="' + k + '"> <i class="fa fa-close"></i></button> <button id="addCheckboxInput'+ k +'" class="teste addCheckboxInput btn btn-primary btn-sm" value="'+ k +'"> <i class="fa fa-plus"></i></button> <button id="removeCheckboxInput'+ k +'" class="teste removeCheckboxInput btn btn-warning btn-sm" value=""> <i class="fa fa-minus"></i></button> <br> <div class = "inputsCheckbox'+ k +'" id = "inputsCheckbox' + k +'"></div></div>').appendTo(forma);
+    $('<div class="col-md-4 col-12" style="padding: 10px;" id = divCheckbox' + k +'><a style="font-weight: bold;">Checkbox:</a> <button id="removeCheckbox" class=" btn btn-danger btn-sm" value="' + k + '"> <i class="fa fa-close"></i></button> <button id="addCheckboxInput'+ k +'" class=" addCheckboxInput btn btn-primary btn-sm" value="'+ k +'"> <i class="fa fa-plus"></i></button> <button id="removeCheckboxInput'+ k +'" class=" removeCheckboxInput btn btn-warning btn-sm" value=""> <i class="fa fa-minus"></i></button> <br> <div class = "inputsCheckbox'+ k +'" id = "inputsCheckbox' + k +'"></div></div>').appendTo(forma);
     k++;
     return false;
   });
@@ -454,7 +440,7 @@ $(document).ready(function() {
     var idCheckbox = $(this).attr('value');
     var qtde = $('.checkbox'+idCheckbox).length + 1;
     $('<input type="checkbox" id="checkbox' + qtde +'" size="20" name="checkbox" class="checkbox'+idCheckbox+'" value="' + qtde +'" /> <a class="option'+idCheckbox+'" style="font-weight: bold;">Option ' + qtde +'<br></a>').appendTo(".inputsCheckbox"+idCheckbox);
-    //$(".inputsCheckbox"+i).append('teste');
+    //$(".inputsCheckbox"+i).append('');
      //<input type=\"checkbox\" id=\"checkbox' + i +'\" size=\"20\" name=\"checkbox\" value=\"\" />
     $('#removeCheckboxInput'+idCheckbox).attr('value',idCheckbox);
 
@@ -490,12 +476,11 @@ $(document).ready(function() {
     var forma = $('#forma');
     var k = $('#forma').length;
     var j = $('.inputsRadio').length + 1;
-    var divRadio = $('#divRadio');
-    var teste;  
+    var divRadio = $('#divRadio'); 
 
 
    $(document).on('click', '#addRadio', function(){
-             $('<div class="col-md-4 col-12" style="padding-top: 10px; padding-left: 10px;" id = divRadio' + k +'><a style="font-weight: bold;">Radio: <button id="removeRadio" class="teste btn btn-danger btn-sm" value="' + k + '"> <i class="fa fa-close"></i></button> <button id="addRadioOption" class="teste btn btn-primary btn-sm" value="' + k + '"> <i class="fa fa-plus"></i></button> <br> <form action ="" class = "inputsRadio'+ k +'" id = "inputsRadio' + k +'"></div></div></a>').appendTo(forma);
+             $('<div class="col-md-4 col-12" style="padding-top: 10px; padding-left: 10px;" id = divRadio' + k +'><a style="font-weight: bold;">Radio: <button id="removeRadio" class=" btn btn-danger btn-sm" value="' + k + '"> <i class="fa fa-close"></i></button> <button id="addRadioOption" class=" btn btn-primary btn-sm" value="' + k + '"> <i class="fa fa-plus"></i></button> <br> <form action ="" class = "inputsRadio'+ k +'" id = "inputsRadio' + k +'"></div></div></a>').appendTo(forma);
             k++;
             return false;
     });
@@ -503,7 +488,7 @@ $(document).ready(function() {
     $(document).on('click', '#addRadioOption', function(){
                 var idRadio = $(this).attr('value'); 
                 $('<input type="radio" id="radio' + j +'" size="20" name="radio" value=""/> Escolha<br>').appendTo(".inputsRadio"+idRadio);
-                //$(".inputsRadio"+i).append('teste');
+                //$(".inputsRadio"+i).append('');
                  //<input type=\"Radio\" id=\"Radio' + i +'\" size=\"20\" name=\"Radio\" value=\"\" />
                  j++;
                 return false;
