@@ -441,13 +441,14 @@ $(document).on('click', '#salvarText', function(){
   var novoPlaceholderText = inputPlaceholderText.value;
   var novoLabelText = inputLabelText.value;
   var novoNameText = inputNameText.value;
-  var novoWidthText = inputWidthText.value;
-  var novoHeightText = inputHeightText.value;
+  var novoWidthText = parseInt(inputWidthText.value)+26;
+  var novoHeightText = parseInt(inputHeightText.value) + 14;
   var novoIdText = inputIdText.value;
   var novoDivText = "col-" + inputDivText.value + " form-group hoverButton editText";
   var novoTypeText = inputTypeText.value;
   var novoRequiredText;
   
+
 
   if ((inputRequiredText.value == 'sim')) {   
     novoRequiredText == "required";
