@@ -37,3 +37,25 @@ body {font-family: Arial;}
     border-top: none;
 }
 
+.form-group:hover{
+background: rgba(192,192,192,0.3); /* make this whatever you want */
+cursor: move;
+}
+
+.hoverOption:hover{
+cursor: pointer;
+}
+
+div.inline { float:right; }
+.clearBoth { clear:both; }
+
+ .showme{ 
+   display: none;
+ }
+
+ .showhim:hover .showme{
+   display : inline;
+   margin-top: 5px;
+   float: center;
+ }
+ 
