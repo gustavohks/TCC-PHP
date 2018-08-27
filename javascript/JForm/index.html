@@ -188,7 +188,11 @@
         </div>
         <div class="modal-body">
           <p>Label:</p> 
-          <p> <input type="text" name="fetchLabelOptionsBox" id="fetchLabelOptionsBox" value=""  style="height: 30px; width:300px"></p>             
+          <p> <input type="text" name="fetchLabelOptionsBox" id="fetchLabelOptionsBox" value=""  style="height: 30px; width:300px"></p>
+
+          <p>Name:</p>
+          <p> <input type="text" name="fetchNameOptionsBox" id="fetchNameOptionsBox" value=""  style="height: 30px; width:300px"></p>
+
           <p>Type:</p>
           <p><select name="fetchTypeOptionsBox" id="fetchTypeOptionsBox"" style="height: 30px; width:300px">
             <option label="Checkbox" value="checkbox">Checkbox</option>
@@ -216,7 +220,9 @@
         </div>
         <div class="modal-body">
           <p>Legenda:</p>
-          <p> <input type="text" name="fetchOption" id="fetchOption" value=""  style="height: 30px; width:300px"><input type="hidden" id="fetchHiddenOption" value=""/></p>             
+          <p> <input type="text" name="fetchOption" id="fetchOption" value=""  style="height: 30px; width:300px"><input type="hidden" id="fetchHiddenOption" value=""/></p>  
+          <p>Valor:</p>
+          <p> <input type="text" name="fetchValue" id="fetchValue" value=""  style="height: 30px; width:300px">          
         <div class="modal-footer">
           <button type="button" class="salvar btn btn-success" data-dismiss="modal" name="salvarOption" id="salvarOption" value="">Save</button>
           <button type="button" class="fechar btn btn-danger" data-dismiss="modal" value="">Close</button>
@@ -283,6 +289,7 @@ $(document).ready(function(){
 });
 
 var $phpVars = [];
+var $tableVars = [];
 var $idsString;
 $(document).ready(function ()
 {
@@ -292,37 +299,94 @@ $(document).ready(function ()
         $('#botoes').hide();
         var results = [];
         //cria uma array de objetos com os ids
-        var $ids = $('#forma input[id]').map(function() {
+        var $nomes = $('#forma input[name]').map(function() {
         results.push({
-            id: this.id
+            name: this.name
         });
         //cria uma array de strings com os idss
-        var $idsArray = results.map(function(item) {
-          return item['id'];
+        var $nomesArray = results.map(function(item) {
+          return item['name'];
         });
+
         //cria uma string com os elementos da array
-        $idsString = "$"+$idsArray.join(', $');
+        $nomesString = ("$"+$nomesArray.join(',$')).replace(/\[\]/g, '');
+        $nomesStringUnicos = $.unique($nomesString.split(','));
+        $nomesString = $nomesStringUnicos.join(",");        
         //cria as variaveis de php
-        var $combinar = [];
-        for (var i = 0; i < $idsArray.length; i++) {
-          $combinar[i] = "$" + $idsArray[i] + " = $_POST['" + $idsArray[i];
+        var $combinarNomes = [];
+        for (var i = 0; i < $nomesArray.length; i++) {
+          $combinarNomes[i] = ("\n\t$" + $nomesArray[i] + " = $_POST['" + $nomesArray[i]).replace(/\[\]/g, '');
         }
-        $phpVars = $combinar.join('\']; \n\t') + "'];";
+        $phpVars = $combinarNomes.join('\'];') + "'];";
+        $phpVarsUnicas = ($.unique($phpVars.split(';')));
+        $phpVars = $phpVarsUnicas.join(";");
+
+        var $combinarNomesTables = [];
+        for (var i = 0; i < $nomesArray.length; i++) {
+          $combinarNomesTables[i] = ("\n\t      &lt;th scope=\"col\">" + $nomesArray[i] + "&lt;/th>").replace(/\[\]/g, '');
+        }        
+        $tableVars = $combinarNomesTables.join('');
+        $tableVarsUnicas = ($.unique($tableVars.split('&lt;/th>')));
+        $tableVars = $tableVarsUnicas.join("&lt;/th>");
+               
+
+        $nomesStringNormal = ($nomesArray.join(',')).replace(/\[\]/g, '')
+        $nomesStringNormalUnicas = ($.unique($nomesStringNormal.split(',')));
+        $nomesStringNormal = $nomesStringNormalUnicas.join(",");;    
+
+        var $combinarNomesOo = [];
+        for (var i = 0; i < $nomesArray.length; i++) {
+          $combinarNomesOo[i] = ("\n\t    &lt;td>&lt;?=$this->rs[\"" + $nomesArray[i] + "\"]?>&lt;/td>").replace(/\[\]/g, '');
+        }
+        $ooVars = $combinarNomesOo.join('');
+        $ooVarsUnicas = ($.unique($ooVars.split('&lt;/td>')));
+        $ooVars = $ooVarsUnicas.join("&lt;/td>");
+
+        // $nomesTable = ("<th scope=\"col\">"+$nomesArray.join('</th>\n\t')).replace(/\[\]/g, '');   
+        // $nomesTableUnicos = $.unique($nomesTable.split(','));
+        // $nomesTable = $nomesTableUnicos.join(",");
         }).get();
-      $("<pre />", {
-  "html": '&lt;?php\n\nrequire_once(\"classes/crud.class.php\");\n\n$site = new Crud;\n\nif (isset($_POST[\'cadastrar\'])) {\n\n\t' + $phpVars +   '\n\n\t$site->cadastrar('+ $idsString +');' + '\n\n } elseif (isset($_GET[\'cadastrarForm\'])) {\n\n\t$site->cadastrarForm();\n\n} elseif (isset($_POST[\'editar\'])) {\n\n\t$id   = $_POST[\'id\'];\n\t' + $phpVars + '\n\n\t$site->editar($id, '+ $idsString +');' + '\n\n} elseif (isset($_POST[\'editarForm\'])) {\n\n\t$id = (int) $_POST[\'id\'];\n\n\t$site->editarForm($id);\n\n} elseif (isset($_POST[\'excluir\'])) {\n\n\t$id = (int) $_POST[\'id\'];\n\n\t$site->excluir($id);\n\n} else {\n\n\t$site->listar();\n\n}\n\n?>' +
-      $("#crudAux")
+
+        $(".space").remove();
+        var $html = $("#forma")
         .html()
         .replace(/[<>]/g, function(m) { return {'<':'&lt;','>':'&gt;'}[m]})
         .replace(/button id="remove(.+)\/button/g, '')
         .replace(/button data-toggle(.+)\/button/g, '')
         .replace(/hoverButton/g, '')
+        .replace(/&lt;div class="col-12"&gt;&lt;\/div&gt;/g, '')
         .replace(/style="position: relative; left: 0px; top: 0px;"/g, '')
         .replace(/^\s*[\r\n]/gm, '')
+        .replace(/&lt;&gt;/g, '')
+        .replace(/((ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?)/gi,'<a href="$1">$1</a>');
+        console.log($html); 
+        //     $("<pre />", {
+        // "html": '&lt;?php\n\nrequire_once(\"classes/crud.class.php\");\n\n$site = new Crud;\n\nif (isset($_POST[\'cadastrar\'])) {\n\t' + $phpVars +   '\n\n\t$site->cadastrar('+ $nomesString +');' + '\n\n } elseif (isset($_GET[\'cadastrarForm\'])) {\n\n\t$site->cadastrarForm();\n\n} elseif (isset($_POST[\'editar\'])) {\n\n\t$id   = $_POST[\'id\'];\t' + $phpVars + '\n\n\t$site->editar($id,'+ $nomesString +');' + '\n\n} elseif (isset($_POST[\'editarForm\'])) {\n\n\t$id = (int) $_POST[\'id\'];\n\n\t$site->editarForm($id);\n\n} elseif (isset($_POST[\'excluir\'])) {\n\n\t$id = (int) $_POST[\'id\'];\n\n\t$site->excluir($id);\n\n} else {\n\n\t$site->listar();\n\n}\n\n?>' +
+        //     $("#crudAux")
+        //       .html()
+        //       .replace(/[<>]/g, function(m) { return {'<':'&lt;','>':'&gt;'}[m]})
+        //       .replace(/button id="remove(.+)\/button/g, '')
+        //       .replace(/button data-toggle(.+)\/button/g, '')
+        //       .replace(/hoverButton/g, '')        
+        //       .replace(/style="position: relative; left: 0px; top: 0px;"/g, '')
+        //       .replace(/^\s*[\r\n]/gm, '')
+        //       .replace(/&lt;&gt;/g, '')
+        //       .replace(/((ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?)/gi,'<a href="$1">$1</a>'),
+        //     "class": "prettyprint"
+        //    }).appendTo("#crud");
+       
+      $("<pre />", {
+  "html": '&lt;?php\n\nclass Crud {\n\n\tpublic $local;\n\tpublic $user;\n\tpublic $pass;\n\tpublic $banco;\n\tpublic $conecta;\n\tpublic $prepara;\n\tpublic $rs;\n\tpublic $sql;\n\n\tpublic function __construct(){\n\n\t\t$this->conecta(\'localhost\',\'root\',\'\',\'mercado\');\n\n\t\t$this->header();\n\n\t\t$this->menu();\n\n\t}\n\n\tpublic function __destruct(){\n\n\t\t$this->footer();\n\n\t}\n\n\tpublic function listar(){\n\n\t?>\n\n\t&lt;table class="table">\n\t  &lt;thead>\n\t    &lt;tr>\n\t      &lt;th scope="col">DEL&lt/th>\n\t      &lt;th scope="col">EDIT&lt;/th>\n\t      &lt;th scope="col">ID&lt;/th>'+$tableVars +   '\n\t    &lt;/tr>\n\t  &lt;/thead>\n\t  &lt;tbody>\n\n\t&lt?php\n\n\t$this->sql       = "SELECT id,'+$nomesStringNormal+' FROM produto";\n\t$this->prepara   = mysqli_query($this->conecta, $this->sql);\n\twhile ($this->rs = mysqli_fetch_array($this->prepara)) {\n\n\t?>\n\t  &lt;tr>\n\t    &lt;td scope="row">\n\t\t&lt;form method="POST" action="index.php">\n\t\t  &lt;input type="hidden" name="id" value="&lt;?=$this->rs["id"]?>">\n\t\t  &lt;input type="submit" name="excluir" value="X" class="btn btn-danger">\n\t\t&lt;/form>\n\t    &lt;/td>\n\t    &lt;td scope="row">\n\t\t&lt;form method="POST" action="index.php">\n\t\t  &lt;input type="hidden" name="id" value=" &lt;?=$this->rs["id"]?>">\n\t\t  &lt;input type="submit" name="editarForm" value="Editar" class="btn btn-info">\n\t\t&lt;/form>\n\t    &lt;/td>\n\t    &lt;td>&lt;?=$this->rs["id"]?>&lt;/td>'+$ooVars +   '\n\t  &lt;/tr>\n\n\t&lt;?php\n\n\t}\n\n\t?>\n\t  &lt;/tbody>\n\t&lt;/table>\n\n\t&lt;?php\n\n\t}\n\n\tpublic function cadastrar($nome){\n\n\t  $this->sql = "INSERT INTO produto ('+$nomesStringNormal+') VALUES (\''+$nomesString+'\')";\n\n\t  if(mysqli_query($this->conecta, $this->sql)){\n\t    echo \'&lt;p class="alert alert-success">Cadastrado com sucesso&lt;/p>\';  \n\t  } else {\n\t    echo \'&lt;p class="alert alert-danger">deu pau na kombi&lt;/p>\';\n\t  }\n\n\t$this->listar();\n\n\t}\n\n\tpublic function cadastrarForm(){\n\n\t  ?>\n\n\t  &lt;form method="POST">\n\t  &lt;div class="container">\n\t    &lt;div class="row">\n\     '+$html+'\n\t      &lt;div class="col-12 form-group">&lt;button type="submit" name="cadastrar" class="btn btn-info">Cadastrar&lt;/button>&lt;/div>\n\t    &lt;/div>\n\t  &lt;/div>\n\t  &lt;/form>\n\t  &lt;?php\n\t}\n\n\tpublic function editar($id, $nome){\n\n\t  $this->sql = "UPDATE produto SET nome = \'$nome\' WHERE id = " . $id;\n\n\t  if(mysqli_query($this->conecta, $this->sql)){\n\t    echo \'&lt;p class="alert alert-success">Editado com sucesso&lt;/p>\'\n\t  } else {;\n\t  echo \'&lt;p class="alert alert-danger">deu pau na kombi&lt;/p>\'\n\t  };\n\n\t  $this->listar();\n\n\t}\n\n\tpublic function editarForm($id){                                        \n\n}?>' +
+      $("#crudAux")
+        .html()
+        .replace(/[<>]/g, function(m) { return {'<':'&lt;','>':'&gt;'}[m]})       
+        // .replace(/^\s*[\r\n]/gm, '')
         .replace(/&lt;&gt;/g, '')
         .replace(/((ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?)/gi,'<a href="$1">$1</a>'),
       "class": "prettyprint"
      }).appendTo("#crud");
+
+
     }); 
 });
 
@@ -348,13 +412,13 @@ $('#modalText').on('shown.bs.modal', function () {
     $('#fetchLabelText').focus();
 }) 
 
-//atribui atalhos para salvar e fechar
-// var KEYCODE_ENTER = 13;
-// var KEYCODE_ESC = 27;
-// $(document).keyup(function(e) {
-//   if (e.keyCode == KEYCODE_ENTER) $('.salvar').click();
-//   if (e.keyCode == KEYCODE_ESC) $('.fechar').click();
-// });
+// atribui atalhos para salvar e fechar
+var KEYCODE_ENTER = 13;
+var KEYCODE_ESC = 27;
+$(document).keyup(function(e) {
+  if (e.keyCode == KEYCODE_ENTER) $('.salvar').click();
+  if (e.keyCode == KEYCODE_ESC) $('.fechar').click();
+});
 
 //esconde os botões
 $(document).ready(function () {
@@ -370,7 +434,7 @@ $(document).ready(function() {
   var i = $('#forma').length;
                  
  $(document).on('click', '#addText', function(){
-    $('<div class = "space"></div>\n\t<div class="col-12 form-group hoverButton editText" id = divText' + i +' value="' + i + '" data-toggle="modal" data-target="#modalText">\n\t\t<label id="labelText' + i +'" for="text' + i +'">Texto: </label><span id = "requiredText'+i+'" style="color:red;"></span> <button id="removeText" class=" btn btn-danger btn-sm" value="' + i + '" style="display: none;"><i class="fa fa-close"></i></button>\n\t\t<input type="text" class="form-control text' + i +'" id="text' + i +'" name="text" value="" placeholder="Digite o seu texto"/> \n\t</div>\n').appendTo(forma);
+    $('<div class = "space"></div>\n\t\t<div class="col-12 form-group hoverButton editText" id = divText' + i +' value="' + i + '" data-toggle="modal" data-target="#modalText">\n\t\t\t<label id="labelText' + i +'" for="text' + i +'">Texto: </label><span id = "requiredText'+i+'" style="color:red;"></span> <button id="removeText" class=" btn btn-danger btn-sm" value="' + i + '" style="display: none;"><i class="fa fa-close"></i></button>\n\t\t\t<input type="text" class="form-control text' + i +'" id="text' + i +'" name="text' + i +'" value="" placeholder="Digite o seu texto"/> \n\t\t</div>\n').appendTo(forma);
     i++;
     // updateSource();
     return false;
@@ -487,28 +551,28 @@ $(document).on('click', '#salvarText', function(){
   document.getElementById('labelText'+id).innerHTML = novoLabelText;
 });
 
-    $(document).ready(function() {
-        var forma = $('#forma');
-        var i = $('#forma').length;
-                       
-       $(document).on('click', '#addTextTag', function(){
-                $('<div class = "space"></div>\n\t<div class="col-12 form-group hoverButton editTextTag" id = divTextTag' + i +' value= "'+i+'" data-toggle="modal" data-target="#modalTextTag">\n\t\t<h3 id="textTag' + i +'" class="textTag' + i +'">Título: </h3> <button id="removeTextTag" class=" btn btn-danger btn-sm" value="' + i + '" style="display: none; margin-bottom:10px"><i class="fa fa-close"></i></button> \n\t</div>\n').appendTo(forma);
-                i++;
-                // updateSource();
-                return false;
-        }); 
-       $(document).on('click', '#removeTextTag', function(){
-                if( i > 0 ) {
-                    //$(this).parent().remove();
-                    //i--;
-                    var id = $(this).attr('value');
-                    $('#divTextTag'+id).fadeOut(300, function(){ 
-                        $(this).remove();
-                    });
-               }
-                return false;
-        });
-    });
+  $(document).ready(function() {
+      var forma = $('#forma');
+      var i = $('#forma').length;
+                     
+     $(document).on('click', '#addTextTag', function(){
+              $('<div class = "space"></div>\n\t<div class="col-12 form-group hoverButton editTextTag" id = divTextTag' + i +' value= "'+i+'" data-toggle="modal" data-target="#modalTextTag">\n\t\t<h3 id="textTag' + i +'" class="textTag' + i +'">Título: </h3> <button id="removeTextTag" class=" btn btn-danger btn-sm" value="' + i + '" style="display: none; margin-bottom:10px"><i class="fa fa-close"></i></button> \n\t</div>\n').appendTo(forma);
+              i++;
+              // updateSource();
+              return false;
+      }); 
+     $(document).on('click', '#removeTextTag', function(){
+              if( i > 0 ) {
+                  //$(this).parent().remove();
+                  //i--;
+                  var id = $(this).attr('value');
+                  $('#divTextTag'+id).fadeOut(300, function(){ 
+                      $(this).remove();
+                  });
+             }
+              return false;
+      });
+  });
 
     $(document).on('click', '.editTextTag', function(){
 
@@ -605,7 +669,7 @@ $(document).ready(function() {
     $(document).on('click', '.addOptionsBoxInput', function(){
       var idOptionsBox = $(this).attr('value');
       var qtde = $('.optionsBox'+idOptionsBox).length + 1;
-      $('\n\t\t\t<input type="checkbox" id="optionsBox' + j +'" size="20" name="optionsBox" class="optionsBox'+idOptionsBox+'" value="'+j+'" /> \n\t\t\t<span data-toggle="modal" data-target="#modalOptions" class="editOption optionSpan'+idOptionsBox+'" id = "optionSpan'+j+'" value="'+j+'">Opção '+qtde+' <br>\n\t\t\t</span> \n\t\t\t').appendTo(".inputsOptionsBox"+idOptionsBox);
+      $('\n\t\t\t<input type="checkbox" size="20" name="optionsBox[]" class="optionsBox'+idOptionsBox+' option'+j+'" value="optionsBox'+j+'" /> \n\t\t\t<span data-toggle="modal" data-target="#modalOptions" class="editOption optionSpan'+idOptionsBox+'" id = "optionSpan'+j+'" value="'+j+'">Opção '+qtde+' <br></span> \n\t\t\t').appendTo(".inputsOptionsBox"+idOptionsBox);
       $('#removeCheckboxInput'+idOptionsBox).attr('value',idOptionsBox);
       j++;
       return false;
@@ -616,18 +680,24 @@ $(document).ready(function() {
       event.preventDefault();
       var i = $(this).attr('value');
       var idOption = $('#optionSpan'+i).attr('id');
-      var contentOption = $('#optionSpan'+i).html().replace(/<br>/g, '');
+      var valueOption = $('.option'+i).attr('value');
+      var contentOption = $('#optionSpan'+i).html().replace(/<br>/g, '').trim();
       $(fetchOption).val(contentOption);
-      $(fetchHiddenOption).val(idOption);
+      $(fetchValue).val(valueOption);
+      $(fetchHiddenOption).val(i);
     });
 
     var i = 0;
     $(document).on('click', '#salvarOption', function(){
-      var idOptionSpan = $('#fetchHiddenOption').attr('value'); 
+      var id = $('#fetchHiddenOption').attr('value');
       var inputOptionSpan = document.getElementById('fetchOption');    
+      var valueOption = document.getElementById('fetchValue');    
       var novoOptionSpan = inputOptionSpan.value;
+      var novoValue = valueOption.value;
       // $('#optionSpan'+id).attr('class',novoDivTextTag);
-      document.getElementById(idOptionSpan).innerHTML = novoOptionSpan + "<br>";
+      $('#optionSpan'+id).html(novoOptionSpan + "<br>");
+      // document.getElementById('#optionSpan'+id).innerHTML = novoOptionSpan + "<br>";
+      $('.option'+id).attr('value',novoValue);
     });
 
     $(document).on('click', '.editOptionsBox', function(){
@@ -636,10 +706,12 @@ $(document).ready(function() {
       var labelOptionsBox = document.getElementById('labelOptionsBox'+i).textContent;
       var typeOptionsBox = $('.optionsBox'+i).attr('type');
       var divOptionsBox = $('#divOptionsBox'+i).attr('class').replace(/col-/g, '').replace(/form-group hoverButton/g, '');
+      var nameOptionsBox = $('.optionsBox'+i).attr('name').replace(/\[\]/g, '');
       $(fetchHiddenOptionsBox).val(i);
       $(fetchLabelOptionsBox).val(labelOptionsBox);
       $(fetchDivOptionsBox).val(divOptionsBox);
       $(fetchTypeOptionsBox).val(typeOptionsBox);
+      $(fetchNameOptionsBox).val(nameOptionsBox);
     });
 
     var i = 0;
@@ -647,14 +719,17 @@ $(document).ready(function() {
       var inputLabelOptionsBox = document.getElementById('fetchLabelOptionsBox');
       var inputTypeOptionsBox = document.getElementById('fetchTypeOptionsBox');
       var inputDivOptionsBox = document.getElementById('fetchDivOptionsBox');
+      var inputNameOptionsBox = document.getElementById('fetchNameOptionsBox');
       var id = $('#fetchHiddenOptionsBox').attr('value');
       var novoLabelOptionsBox = inputLabelOptionsBox.value;
       var novoTypeOptionsBox = inputTypeOptionsBox.value;
       var novoRequiredOptionsBox;
       var novoDivOptionsBox = "col-" + inputDivOptionsBox.value + " form-group hoverButton";
+      var novoNameOptionsBox = inputNameOptionsBox.value +"[]";
 
       $('#divOptionsBox'+id).attr('class',novoDivOptionsBox);
-      $('.OptionsBox'+id).attr("type",novoTypeOptionsBox);
+      $('.optionsBox'+id).attr('name',novoNameOptionsBox);
+      $('.optionsBox'+id).attr("type",novoTypeOptionsBox);
       document.getElementById('labelOptionsBox'+id).innerHTML = novoLabelOptionsBox;
 
     });
