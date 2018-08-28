@@ -51,6 +51,7 @@
 
                         <div id="content" class="tabcontent"> 
                               <div class = "row form-horizontal ui-droppable ui-sortable" id="forma"><div class = "col-12"></div></div>
+                              <div class = "row form-horizontal ui-droppable ui-sortable" id="formaMirror" style="display: none;"><div class = "col-12" ></div></div>
                         </div>
                         <div id="fonte" class="tabcontentSource">
                             <div class="source" id="source"></div>
@@ -322,22 +323,20 @@ $(document).ready(function ()
         $phpVars = $phpVarsUnicas.join(";");
 
         var $combinarNomesTables = [];
+        var $combinarNomesOo = [];
         for (var i = 0; i < $nomesArray.length; i++) {
           $combinarNomesTables[i] = ("\n\t      &lt;th scope=\"col\">" + $nomesArray[i] + "&lt;/th>").replace(/\[\]/g, '');
+          $combinarNomesOo[i] = ("\n\t    &lt;td>&lt;?=$this->rs[\"" + $nomesArray[i] + "\"]?>&lt;/td>").replace(/\[\]/g, '');
+          // <input type="text" class="form-control" value="<?=$this->rs['nome']?>" name="nome" id="nome"  placeholder="Digite o nome do produto">
         }        
         $tableVars = $combinarNomesTables.join('');
         $tableVarsUnicas = ($.unique($tableVars.split('&lt;/th>')));
         $tableVars = $tableVarsUnicas.join("&lt;/th>");
                
-
         $nomesStringNormal = ($nomesArray.join(',')).replace(/\[\]/g, '')
         $nomesStringNormalUnicas = ($.unique($nomesStringNormal.split(',')));
         $nomesStringNormal = $nomesStringNormalUnicas.join(",");;    
 
-        var $combinarNomesOo = [];
-        for (var i = 0; i < $nomesArray.length; i++) {
-          $combinarNomesOo[i] = ("\n\t    &lt;td>&lt;?=$this->rs[\"" + $nomesArray[i] + "\"]?>&lt;/td>").replace(/\[\]/g, '');
-        }
         $ooVars = $combinarNomesOo.join('');
         $ooVarsUnicas = ($.unique($ooVars.split('&lt;/td>')));
         $ooVars = $ooVarsUnicas.join("&lt;/td>");
@@ -348,7 +347,7 @@ $(document).ready(function ()
         }).get();
 
         $(".space").remove();
-        var $html = $("#forma")
+        var $htmlCadastro = $("#forma")
         .html()
         .replace(/[<>]/g, function(m) { return {'<':'&lt;','>':'&gt;'}[m]})
         .replace(/button id="remove(.+)\/button/g, '')
@@ -359,24 +358,37 @@ $(document).ready(function ()
         .replace(/^\s*[\r\n]/gm, '')
         .replace(/&lt;&gt;/g, '')
         .replace(/((ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?)/gi,'<a href="$1">$1</a>');
-        console.log($html); 
-        //     $("<pre />", {
-        // "html": '&lt;?php\n\nrequire_once(\"classes/crud.class.php\");\n\n$site = new Crud;\n\nif (isset($_POST[\'cadastrar\'])) {\n\t' + $phpVars +   '\n\n\t$site->cadastrar('+ $nomesString +');' + '\n\n } elseif (isset($_GET[\'cadastrarForm\'])) {\n\n\t$site->cadastrarForm();\n\n} elseif (isset($_POST[\'editar\'])) {\n\n\t$id   = $_POST[\'id\'];\t' + $phpVars + '\n\n\t$site->editar($id,'+ $nomesString +');' + '\n\n} elseif (isset($_POST[\'editarForm\'])) {\n\n\t$id = (int) $_POST[\'id\'];\n\n\t$site->editarForm($id);\n\n} elseif (isset($_POST[\'excluir\'])) {\n\n\t$id = (int) $_POST[\'id\'];\n\n\t$site->excluir($id);\n\n} else {\n\n\t$site->listar();\n\n}\n\n?>' +
-        //     $("#crudAux")
-        //       .html()
-        //       .replace(/[<>]/g, function(m) { return {'<':'&lt;','>':'&gt;'}[m]})
-        //       .replace(/button id="remove(.+)\/button/g, '')
-        //       .replace(/button data-toggle(.+)\/button/g, '')
-        //       .replace(/hoverButton/g, '')        
-        //       .replace(/style="position: relative; left: 0px; top: 0px;"/g, '')
-        //       .replace(/^\s*[\r\n]/gm, '')
-        //       .replace(/&lt;&gt;/g, '')
-        //       .replace(/((ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?)/gi,'<a href="$1">$1</a>'),
-        //     "class": "prettyprint"
-        //    }).appendTo("#crud");
+        $(".space").remove();
+
+        var $htmlEdicao = $("#formaMirror")
+        .html()
+        .replace(/[<>]/g, function(m) { return {'<':'&lt;','>':'&gt;'}[m]})
+        .replace(/button id="remove(.+)\/button/g, '')
+        .replace(/button data-toggle(.+)\/button/g, '')
+        .replace(/hoverButton/g, '')
+        .replace(/&lt;div class="col-12"&gt;&lt;\/div&gt;/g, '')
+        .replace(/style="position: relative; left: 0px; top: 0px;"/g, '')
+        .replace(/^\s*[\r\n]/gm, '')
+        .replace(/&lt;&gt;/g, '')
+        .replace(/((ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?)/gi,'<a href="$1">$1</a>');
+
+            $("<pre />", {
+        "html": '&lt;?php\n\nrequire_once(\"classes/crud.class.php\");\n\n$site = new Crud;\n\nif (isset($_POST[\'cadastrar\'])) {\n\t' + $phpVars +   '\n\n\t$site->cadastrar('+ $nomesString +');' + '\n\n } elseif (isset($_GET[\'cadastrarForm\'])) {\n\n\t$site->cadastrarForm();\n\n} elseif (isset($_POST[\'editar\'])) {\n\n\t$id   = $_POST[\'id\'];\t' + $phpVars + '\n\n\t$site->editar($id,'+ $nomesString +');' + '\n\n} elseif (isset($_POST[\'editarForm\'])) {\n\n\t$id = (int) $_POST[\'id\'];\n\n\t$site->editarForm($id);\n\n} elseif (isset($_POST[\'excluir\'])) {\n\n\t$id = (int) $_POST[\'id\'];\n\n\t$site->excluir($id);\n\n} else {\n\n\t$site->listar();\n\n}\n\n?>' +
+            $("#crudAux")
+              .html()
+              .replace(/[<>]/g, function(m) { return {'<':'&lt;','>':'&gt;'}[m]})
+              .replace(/button id="remove(.+)\/button/g, '')
+              .replace(/button data-toggle(.+)\/button/g, '')
+              .replace(/hoverButton/g, '')        
+              .replace(/style="position: relative; left: 0px; top: 0px;"/g, '')
+              .replace(/^\s*[\r\n]/gm, '')
+              .replace(/&lt;&gt;/g, '')
+              .replace(/((ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?)/gi,'<a href="$1">$1</a>'),
+            "class": "prettyprint"
+           }).appendTo("#crud");
        
       $("<pre />", {
-  "html": '&lt;?php\n\nclass Crud {\n\n\tpublic $local;\n\tpublic $user;\n\tpublic $pass;\n\tpublic $banco;\n\tpublic $conecta;\n\tpublic $prepara;\n\tpublic $rs;\n\tpublic $sql;\n\n\tpublic function __construct(){\n\n\t\t$this->conecta(\'localhost\',\'root\',\'\',\'mercado\');\n\n\t\t$this->header();\n\n\t\t$this->menu();\n\n\t}\n\n\tpublic function __destruct(){\n\n\t\t$this->footer();\n\n\t}\n\n\tpublic function listar(){\n\n\t?>\n\n\t&lt;table class="table">\n\t  &lt;thead>\n\t    &lt;tr>\n\t      &lt;th scope="col">DEL&lt/th>\n\t      &lt;th scope="col">EDIT&lt;/th>\n\t      &lt;th scope="col">ID&lt;/th>'+$tableVars +   '\n\t    &lt;/tr>\n\t  &lt;/thead>\n\t  &lt;tbody>\n\n\t&lt?php\n\n\t$this->sql       = "SELECT id,'+$nomesStringNormal+' FROM produto";\n\t$this->prepara   = mysqli_query($this->conecta, $this->sql);\n\twhile ($this->rs = mysqli_fetch_array($this->prepara)) {\n\n\t?>\n\t  &lt;tr>\n\t    &lt;td scope="row">\n\t\t&lt;form method="POST" action="index.php">\n\t\t  &lt;input type="hidden" name="id" value="&lt;?=$this->rs["id"]?>">\n\t\t  &lt;input type="submit" name="excluir" value="X" class="btn btn-danger">\n\t\t&lt;/form>\n\t    &lt;/td>\n\t    &lt;td scope="row">\n\t\t&lt;form method="POST" action="index.php">\n\t\t  &lt;input type="hidden" name="id" value=" &lt;?=$this->rs["id"]?>">\n\t\t  &lt;input type="submit" name="editarForm" value="Editar" class="btn btn-info">\n\t\t&lt;/form>\n\t    &lt;/td>\n\t    &lt;td>&lt;?=$this->rs["id"]?>&lt;/td>'+$ooVars +   '\n\t  &lt;/tr>\n\n\t&lt;?php\n\n\t}\n\n\t?>\n\t  &lt;/tbody>\n\t&lt;/table>\n\n\t&lt;?php\n\n\t}\n\n\tpublic function cadastrar($nome){\n\n\t  $this->sql = "INSERT INTO produto ('+$nomesStringNormal+') VALUES (\''+$nomesString+'\')";\n\n\t  if(mysqli_query($this->conecta, $this->sql)){\n\t    echo \'&lt;p class="alert alert-success">Cadastrado com sucesso&lt;/p>\';  \n\t  } else {\n\t    echo \'&lt;p class="alert alert-danger">deu pau na kombi&lt;/p>\';\n\t  }\n\n\t$this->listar();\n\n\t}\n\n\tpublic function cadastrarForm(){\n\n\t  ?>\n\n\t  &lt;form method="POST">\n\t  &lt;div class="container">\n\t    &lt;div class="row">\n\     '+$html+'\n\t      &lt;div class="col-12 form-group">&lt;button type="submit" name="cadastrar" class="btn btn-info">Cadastrar&lt;/button>&lt;/div>\n\t    &lt;/div>\n\t  &lt;/div>\n\t  &lt;/form>\n\t  &lt;?php\n\t}\n\n\tpublic function editar($id, $nome){\n\n\t  $this->sql = "UPDATE produto SET nome = \'$nome\' WHERE id = " . $id;\n\n\t  if(mysqli_query($this->conecta, $this->sql)){\n\t    echo \'&lt;p class="alert alert-success">Editado com sucesso&lt;/p>\'\n\t  } else {;\n\t  echo \'&lt;p class="alert alert-danger">deu pau na kombi&lt;/p>\'\n\t  };\n\n\t  $this->listar();\n\n\t}\n\n\tpublic function editarForm($id){                                        \n\n}?>' +
+  "html": '&lt;?php\n\nclass Crud {\n\n\tpublic $local;\n\tpublic $user;\n\tpublic $pass;\n\tpublic $banco;\n\tpublic $conecta;\n\tpublic $prepara;\n\tpublic $rs;\n\tpublic $sql;\n\n\tpublic function __construct(){\n\n\t\t$this->conecta(\'localhost\',\'root\',\'\',\'mercado\');\n\n\t\t$this->header();\n\n\t\t$this->menu();\n\n\t}\n\n\tpublic function __destruct(){\n\n\t\t$this->footer();\n\n\t}\n\n\tpublic function listar(){\n\n\t?>\n\n\t&lt;table class="table">\n\t  &lt;thead>\n\t    &lt;tr>\n\t      &lt;th scope="col">DEL&lt/th>\n\t      &lt;th scope="col">EDIT&lt;/th>\n\t      &lt;th scope="col">ID&lt;/th>'+$tableVars +   '\n\t    &lt;/tr>\n\t  &lt;/thead>\n\t  &lt;tbody>\n\n\t&lt?php\n\n\t$this->sql       = "SELECT id,'+$nomesStringNormal+' FROM produto";\n\t$this->prepara   = mysqli_query($this->conecta, $this->sql);\n\twhile ($this->rs = mysqli_fetch_array($this->prepara)) {\n\n\t?>\n\t  &lt;tr>\n\t    &lt;td scope="row">\n\t\t&lt;form method="POST" action="index.php">\n\t\t  &lt;input type="hidden" name="id" value="&lt;?=$this->rs["id"]?>">\n\t\t  &lt;input type="submit" name="excluir" value="X" class="btn btn-danger">\n\t\t&lt;/form>\n\t    &lt;/td>\n\t    &lt;td scope="row">\n\t\t&lt;form method="POST" action="index.php">\n\t\t  &lt;input type="hidden" name="id" value=" &lt;?=$this->rs["id"]?>">\n\t\t  &lt;input type="submit" name="editarForm" value="Editar" class="btn btn-info">\n\t\t&lt;/form>\n\t    &lt;/td>\n\t    &lt;td>&lt;?=$this->rs["id"]?>&lt;/td>'+$ooVars +   '\n\t  &lt;/tr>\n\n\t&lt;?php\n\n\t}\n\n\t?>\n\t  &lt;/tbody>\n\t&lt;/table>\n\n\t&lt;?php\n\n\t}\n\n\tpublic function cadastrar('+$nomesString+'){\n\n\t  $this->sql = "INSERT INTO produto ('+$nomesStringNormal+') VALUES (\''+$nomesString+'\')";\n\n\t  if(mysqli_query($this->conecta, $this->sql)){\n\t    echo \'&lt;p class="alert alert-success">Cadastrado com sucesso&lt;/p>\';  \n\t  } else {\n\t    echo \'&lt;p class="alert alert-danger">deu pau na kombi&lt;/p>\';\n\t  }\n\n\t$this->listar();\n\n\t}\n\n\tpublic function cadastrarForm(){\n\n\t  ?>\n\n\t  &lt;form method="POST">\n\t  &lt;div class="container">\n\t    &lt;div class="row">\n\     '+$htmlCadastro+'\n\t      &lt;div class="col-12 form-group">&lt;button type="submit" name="cadastrar" class="btn btn-info">Cadastrar&lt;/button>&lt;/div>\n\t    &lt;/div>\n\t  &lt;/div>\n\t  &lt;/form>\n\t  &lt;?php\n\t}\n\n\tpublic function editar($id, '+$nomesString+'){\n\n\t  $this->sql = "UPDATE produto SET '+$nomesStringNormal+' = \''+$nomesString+'\' WHERE id = " . $id;\n\n\t  if(mysqli_query($this->conecta, $this->sql)){\n\t    echo \'&lt;p class="alert alert-success">Editado com sucesso&lt;/p>\';\n\t  } else {;\n\t  echo \'&lt;p class="alert alert-danger">deu pau na kombi&lt;/p>\';\n\t  };\n\n\t  $this->listar();\n\n\t}\n\n\tpublic function editarForm($id){\n\t  $this->sql = "SELECT id,'+$nomesStringNormal+' FROM produto WHERE id = " .$id;\n\t  $this->rs  = mysqli_fetch_array(mysqli_query($this->conecta, $this->sql));\n\t  ?>\n\n\t  &lt;form method="POST">\n\t  &lt;div class="container">\n\t    &lt;div class="row">\n\t\t&lt;input type="hidden" name="id" value="&lt;?=$this->rs[\'id\']?>" class="form-group">\n'+$htmlEdicao+'\n\t\t&lt;div class="col-12 form-group">&lt;button type="submit" name="editar" class="btn btn-info">Editar&lt;/button>&lt;/div>\n\t    &lt;/div>\n\t  &lt;/div>\n\t  &lt;/form>\n\t  &lt?php\n\t}\n\n\tpublic function excluir($id){\n\n\t  $this->sql = "DELETE FROM produto WHERE id = ".$id;\n\n\t    if(mysqli_query($this->conecta, $this->sql)){\n\t\techo \'&lt;p class="alert alert-success">Excluído com sucesso&lt;/p>\';\n\t    } else\n\t\techo \'&lt;p class="alert alert-danger">deu pau na kombi&lt;/p>\'; {\n\t    }\n\n\t    $this->listar();\n\t}\n\n\tpublic function conecta($local,$user,$pass,$banco){\n\n\t  $this->conecta = mysqli_connect($local,$user,$pass,$banco);\n\t}\n\n\tpublic function header(){\n\t  ?>\n\n\t\t&lt;!DOCTYPE html>\n\t\t&lt;html>\n\t\t&lt;head>\n\t\t\t&lt;meta charset="utf-8">\n\t\t\t&lt;meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">\n\t\t\t&lt;link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">\n\t\t\t&lt;link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">\n\t\t\t&lt;link rel="stylesheet" href="css/bootstrap.min.css">\n\t\t\t&lt;link rel="stylesheet" href="css/estilos.css">\n\t\t\t&lt;link rel="stylesheet" href="css/media.css">\n\t\t\t&lt;title>CRUD&lt;/title>\n\t\t&lt;/head>\n\t\t&lt;body>\n\n\t\t&lt;div class="container-fluid">\n\t  &lt;?php\n\t}\n\n\tpublic function footer(){\n\n\t  ?>\n\t\t&lt;/div>\n\t\t\t&lt;script src="js/jquery-3.3.1.slim.min.js">&lt;\/script>\n\t\t\t&lt;script src="js/popper.min.js">&lt;\/script>\n\t\t\t&lt;script src="js/bootstrap.min.js">&lt;\/script>\n\t\t&lt;/body>\n\t\t&lt;/html>\n\t  &lt;?php\n\t}\n\n\tpublic function menu(){\n\n\t  ?>\n\n\t\t&lt;p>\n\t\t&lt;nav class="navbar navbar-expand-lg navbar-dark bg-primary">\n\t\t\t&lt;a class="navbar-brand" href="#">CRUD&lt;/a>\n\t\t\t&lt;button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">&lt;span class="navbar-toggler-icon">&lt;/span>&lt;/button>\n\t\t\t&lt;div class="collapse navbar-collapse" id="navbarNav">\n\t\t\t  &lt;ul class="navbar-nav">\n\t\t\t    &lt;li class="nav-item">\n\t\t\t\t&lt;a class="nav-link" href="index.php">Listagem&lt;/a>\n\t\t\t    &lt;/li>\n\t\t\t    &lt;li class="nav-item">\n\t\t\t\t&lt;a class="nav-link" href="?cadastrarForm">Cadastrar&lt;/a>\n\t\t\t    &lt;/li>\n\t\t\t  &lt;/ul>\n\t\t&lt;/div>\n\t\t&lt;/nav>\n\t\t&lt;/p>\n\t  &lt;?php\n\t}\n\n}\n?>' +
       $("#crudAux")
         .html()
         .replace(/[<>]/g, function(m) { return {'<':'&lt;','>':'&gt;'}[m]})       
@@ -435,6 +447,7 @@ $(document).ready(function() {
                  
  $(document).on('click', '#addText', function(){
     $('<div class = "space"></div>\n\t\t<div class="col-12 form-group hoverButton editText" id = divText' + i +' value="' + i + '" data-toggle="modal" data-target="#modalText">\n\t\t\t<label id="labelText' + i +'" for="text' + i +'">Texto: </label><span id = "requiredText'+i+'" style="color:red;"></span> <button id="removeText" class=" btn btn-danger btn-sm" value="' + i + '" style="display: none;"><i class="fa fa-close"></i></button>\n\t\t\t<input type="text" class="form-control text' + i +'" id="text' + i +'" name="text' + i +'" value="" placeholder="Digite o seu texto"/> \n\t\t</div>\n').appendTo(forma);
+    $('<div class = "space"></div>\n\t\t<div class="col-12 form-group hoverButton editText" id = divText' + i +' value="' + i + '" data-toggle="modal" data-target="#modalText">\n\t\t\t<label id="labelText' + i +'" for="text' + i +'">Texto: </label><span id = "requiredText'+i+'" style="color:red;"></span> <button id="removeText" class=" btn btn-danger btn-sm" value="' + i + '" style="display: none;"><i class="fa fa-close"></i></button>\n\t\t\t<input type="text" class="form-control textA' + i +' text' + i +'" id="text' + i +'" name="text' + i +'" value="<?=$this->rs[\'text'+i+'\']?>" placeholder="Digite o seu texto"/> \n\t\t</div>\n').appendTo(formaMirror);
     i++;
     // updateSource();
     return false;
@@ -520,14 +533,13 @@ $(document).on('click', '#salvarText', function(){
   var novoPlaceholderText = inputPlaceholderText.value;
   var novoLabelText = inputLabelText.value;
   var novoNameText = inputNameText.value;
+  var novoNameTextMirror = "<?=$this->rs['" + inputNameText.value + "']?>";
   var novoWidthText = parseInt(inputWidthText.value)+26;
   var novoHeightText = parseInt(inputHeightText.value) + 14;
   var novoIdText = inputIdText.value;
   var novoDivText = "col-" + inputDivText.value + " form-group hoverButton editText";
   var novoTypeText = inputTypeText.value;
   var novoRequiredText;
-  
-
 
   if ((inputRequiredText.value == 'sim')) {   
     novoRequiredText == "required";
@@ -541,6 +553,7 @@ $(document).on('click', '#salvarText', function(){
 
   $('.text'+id).attr('placeholder',novoPlaceholderText);
   $('.text'+id).attr('name',novoNameText);
+  $('.textA'+id).attr('value',novoNameTextMirror);
   $('.text'+id).attr('id',novoIdText);
   $('#divText'+id).attr('class',novoDivText);
   // $('.editText').attr('value', novoIdText);
