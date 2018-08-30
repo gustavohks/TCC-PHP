@@ -17,6 +17,7 @@
         <!-- <link rel='stylesheet' href='http://css-tricks.com/examples/ViewSourceButton/css/style.css' /> -->
         <link rel='stylesheet' href='http://css-tricks.com/examples/ViewSourceButton/css/prettify.css' />
         <script src="js/prettify.js"></script>
+        <script src='https://cdn.jsdelivr.net/lodash/4.17.2/lodash.min.js'></script>
         <style>
           #source {background: rgba(0,0,0,0.8);}
           #crud {background: rgba(0,0,0,0.8);}
@@ -35,6 +36,25 @@
         </style>
     </head>
     <body>
+
+                            <script type="text/javascript">
+                            $(document).ready(function(){
+                              $('#teste').click(function(){
+                                var dadosForm = $('#batata').serialize();
+                                console.log(dadosForm);
+                              });
+                            });
+                            </script>
+
+                            <form id="batata">
+                              <input type="checkbox" name="c1[]" value="vc1">vc1<br>
+                              <input type="checkbox" name="c1[]" value="vc2">vc2<br>
+                              <input type="checkbox" name="c2[]" value="vc3">vc3<br>
+                              <input type="checkbox" name="c2[]" value="vc4">vc4<br>
+                            </form>
+                            <button id="teste">teste</button>
+
+
         <div class="row-fluid" style="overflow: hidden">
             <div class="container">
                 <div class="row">
@@ -54,6 +74,7 @@
                               <div class = "row form-horizontal ui-droppable ui-sortable" id="formaMirror" style="display: none;"><div class = "col-12" ></div></div>
                         </div>
                         <div id="fonte" class="tabcontentSource">
+
                             <div class="source" id="source"></div>
                         </div> 
                         <div id="geraCrud" class="tabcontentCrud">
@@ -289,24 +310,43 @@ $(document).ready(function(){
 //gerador do crud
 $(document).ready(function (){
     $('.tabCrud').on('click', function(e){
+
+
         var $phpVars = [];
         var $results = [];
         var $resultsNomes = [];
         var $resultsOption = [];
+        var $resultsInputValues = [];
+        var $resultsInputValuesIsolado = [];
+        var $grouped = [];
         var $idsString;
         var $tableVars;
         var $ooVars;
         var $nomesMerged;
         var $nomesMergedNormal;
+        var $nomesValues;
+        var $valuesOptionsString;
         $("#crudAux").html("");
         $("#crud").html("");
         $('#botoes').hide();
         //mapeia todos os inputs e cria uma array de objetos
-        var $nomes = $('#forma input[name]').map(function() {
-        $results.push({
-            name: this.name,
-            type: this.type
-          });
+        $('#forma input[name]').each(function() {
+          $results.push({
+              name: this.name,
+              type: this.type
+            });
+          $resultsInputValues.push({
+              name: this.name,
+              type: this.type,
+              value: this.value
+            });
+
+          // unique
+
+          // percorrer vetor for
+
+          // dentro for
+
         }).get();
         //remove os objetos duplicados
         function remove_duplicates(objectsArray) {
@@ -324,7 +364,7 @@ $(document).ready(function (){
         }
         $results = remove_duplicates($results);
         //cria uma array de strings para os diferentes tipos de inputs
-        var $nomesArray = $results.map(function(item) {
+        $results.map(function(item) {
           if (item['type'] == "text") {
             //cria uma array com tipos texto
             $resultsNomes.push(item['name']);
@@ -333,12 +373,35 @@ $(document).ready(function (){
               $resultsOption.push(item['name']);
           }
         });
+
+        $grouped = _.groupBy($resultsInputValues, function(obj) {
+          return obj.name;
+        });
+
+        console.log($grouped);
+
+        vetor = [["optionsBox1","optionsBox2"] , ["optionsBox3","optionsBox4"]];
+        console.log($resultsInputValues);
+        // console.log($grouped);
+
+        // console.log($resultsInputValues);
+        // var $valuesOptions = $resultsInputValues.map(function(item) {
+        //   if ((item['type'] == "checkbox") || (item['type'] == "radio")) {
+        //       $resultsInputValuesIsolado.push(item['value']);
+        //       $resultsInputValuesIsolado.push(item['name']);
+        //   }
+        // });
+
+        // console.log($resultsInputValues);
+        // console.log($resultsInputValuesIsolado);
         //concatena as arrays de strings
         var $mergeNomes = $resultsNomes.concat($resultsOption);  
         //cria uma string com os elementos da array
         $nomesMerged = ("$"+$mergeNomes.join(', $')).replace(/\[\]/g, ''); 
-        $nomesMergedNormal = ($mergeNomes.join(', ')).replace(/\[\]/g, '')
-        $nomesValues = "\'$"+($mergeNomes.join('\', \'$') + "\'").replace(/\[\]/g, '')
+        $nomesMergedNormal = ($mergeNomes.join(', ')).replace(/\[\]/g, '');
+        $nomesValues = "\'$"+($mergeNomes.join('\', \'$') + "\'").replace(/\[\]/g, '');
+        // $valuesOptionsString = $resultsInputValuesIsolado.join('');
+        // console.log($valuesOptionsString);
         //cria as variaveis de php
         var $combinarNomes = [];
         for (var i = 0; i < $mergeNomes.length; i++) {            
