@@ -14,7 +14,6 @@
         <script src="js/popper.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/jquery-ui.min.js"></script>
-        
         <!-- <link rel='stylesheet' href='http://css-tricks.com/examples/ViewSourceButton/css/style.css' /> -->
         <link rel='stylesheet' href='http://css-tricks.com/examples/ViewSourceButton/css/prettify.css' />
         <script src="js/prettify.js"></script>
@@ -37,25 +36,6 @@
         </style>
     </head>
     <body>
-
-                <!--             <script type="text/javascript">
-                            $(document).ready(function(){
-                              $('#teste').click(function(){
-                                var dadosForm = $('#batata').serialize();
-                                console.log(dadosForm);
-                              });
-                            });
-                            </script>
-
-                            <form id="batata">
-                              <input type="checkbox" name="c1[]" value="vc1">vc1<br>
-                              <input type="checkbox" name="c1[]" value="vc2">vc2<br>
-                              <input type="checkbox" name="c2[]" value="vc3">vc3<br>
-                              <input type="checkbox" name="c2[]" value="vc4">vc4<br>
-                            </form>
-                            <button id="teste">teste</button> -->
-
-
         <div class="row-fluid" style="overflow: hidden">
             <div class="container">
                 <div class="row">
@@ -94,18 +74,15 @@
                             <div class="control-group component" data-type="text">
                                 <button id="addText" class="btn btn-primary" style="width: 235px; height: 50px; font-size : 16px;"><i class="fa fa-indent" aria-hidden="true"></i> Text</button>
                             </div>
+                            <div class="control-group component" data-type="text">
+                                <button id="addNumber" class="btn btn-primary" style="width: 235px; height: 50px; font-size : 16px;"><i class="fa fa-calculator" aria-hidden="true"></i> Number</button>
+                            </div>
                             <div class="control-group component">
                                 <button id="addOptionsBox" class="btn btn-primary" style="width: 235px; height: 50px; font-size : 16px;"><i class="fa fa-check-square-o" aria-hidden="true"></i> Option Box</button>
                             </div>
-<!--                             <div class="control-group component">
-                                    <button id="addRadio" class="btn btn-primary" style="width: 235px; height: 50px; font-size : 16px;"><i class="fa fa-circle-o" aria-hidden="true"></i> Radio</button>
-                            </div> -->
                             <div class="control-group component">
-                                    <button id="addSubmit" class="btn btn-primary" style="width: 235px; height: 50px; font-size : 16px;"><i class="fa fa-send-o"></i> Submit</button>
+                                    <button id="addButton" class="btn btn-primary" style="width: 235px; height: 50px; font-size : 16px;"><i class="fa fa-send-o"></i> Button</button>
                             </div>                          
-                            <div class="control-group component">
-                                    <button id="addReset" class="btn btn-primary" style="width: 235px; height: 50px; font-size : 16px;"><i class="fa fa-refresh"></i> Reset</button>
-                            </div>
                             <div class="form-actions component" data-type="submit">
                                 <input class="btn btn-danger"  type="button" value="Refresh Page" onClick="window.location.reload()" style="width: 235px; height: 50px; font-size : 16px;">
                                 <!-- <input class="btn btn-info"  type="button" id="copyHTML" value="Copy HTML" style="width: 100%; height: 33px; font-size : 16px; margin-top: 10px;"> -->
@@ -117,8 +94,7 @@
             </div>
         </div>
         </div>
-      
-  <!-- Modal -->
+   <!-- Modal -->
   <div class="modal fade" id="modalText" role="dialog">
     <div class="modal-dialog">
     
@@ -147,9 +123,9 @@
           <p>Name:</p>
           <p> <input type="text" name="fetchNameText" id="fetchNameText" value=""  style="height: 30px; width:300px"></p>          
           <p>Width:</p>
-          <p> <input type="text" name="fetchWidthText" id="fetchWidthText" value=""  style="height: 30px; width:300px"></p>             
+          <p> <input type="number" name="fetchWidthText" id="fetchWidthText" value=""  style="height: 30px; width:300px"></p>             
           <p>Height:</p>
-          <p> <input type="text" name="fetchHeightText" id="fetchHeightText" value=""  style="height: 30px; width:300px"></p>            
+          <p> <input type="number" name="fetchHeightText" id="fetchHeightText" value=""  style="height: 30px; width:300px"></p>            
           <p>Div Size:</p>
           <p> <input type="text" name="fetchDivText" id="fetchDivText" value=""  style="height: 30px; width:300px"></p>                    
           <p>ID:</p>
@@ -157,6 +133,96 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="salvar btn btn-success" data-dismiss="modal" name="salvarText" id="salvarText" value="">Save</button>
+          <button type="button" class="fechar btn btn-danger" data-dismiss="modal" value="">Close</button>
+        </div>
+      </div>      
+    </div>
+  </div> 
+   <!-- Modal -->
+  <div class="modal fade" id="modalNumber" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal Number-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Editar</h4>
+        </div>
+        <div class="modal-body">
+          <p>Label:</p>
+          <p> <input type="text" name="fetchLabelNumber" id="fetchLabelNumber" value=""  style="height: 30px; width:300px"></p>             
+          <p>Type:</p>
+          <p><select name="fetchTypeNumber" id="fetchTypeNumber" style="height: 30px; width:300px">
+            <option label="Number" value="number">Number Field</option>
+            <option label="Range" value="range">Range</option>
+          </select></p>             
+          <p>Required:</p>
+          <p><select name="fetchRequiredNumber" id="fetchRequiredNumber" style="height: 30px; width:300px">
+            <option label="Sim" value="sim">Sim</option>
+            <option label="Nao" value="nao">Não</option>
+          </select></p>                   
+          <p>Name:</p>
+          <p> <input type="text" name="fetchNameNumber" id="fetchNameNumber" value=""  style="height: 30px; width:300px"></p>          
+          <p>Width:</p>
+          <p> <input type="number" name="fetchWidthNumber" id="fetchWidthNumber" value=""  style="height: 30px; width:300px"></p>             
+          <p>Height:</p>
+          <p> <input type="number" name="fetchHeightNumber" id="fetchHeightNumber" value=""  style="height: 30px; width:300px"></p>               
+          <p>Min:</p>
+          <p> <input type="number" name="fetchMinNumber" id="fetchMinNumber" value=""  style="height: 30px; width:300px"></p>               
+          <p>Max:</p>
+          <p> <input type="number" name="fetchMaxNumber" id="fetchMaxNumber" value=""  style="height: 30px; width:300px"></p>               
+          <p>Step:</p>
+          <p> <input type="number" name="fetchStepNumber" id="fetchStepNumber" value=""  style="height: 30px; width:300px"></p>            
+          <p>Div Size:</p>
+          <p> <input type="text" name="fetchDivNumber" id="fetchDivNumber" value=""  style="height: 30px; width:300px"></p>                    
+          <p>ID:</p>
+          <p> <input type="text" name="fetchIdNumber" id="fetchIdNumber" value="" ><input type="hidden" id="fetchHiddenNumber" value=""/></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="salvar btn btn-success" data-dismiss="modal" name="salvarNumber" id="salvarNumber" value="">Save</button>
+          <button type="button" class="fechar btn btn-danger" data-dismiss="modal" value="">Close</button>
+        </div>
+      </div>      
+    </div>
+  </div> 
+
+  <!-- Modal -->
+  <div class="modal fade" id="modalButton" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal Button-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Editar</h4>
+        </div>
+        <div class="modal-body">          
+          <p>Type:</p>
+          <p><select name="fetchTypeButton" id="fetchTypeButton" style="height: 30px; width:300px">
+            <option label="button" value="button">Button</option>
+            <option label="submit" value="submit">Submit</option>
+            <option label="reset" value="reset">Reset</option>
+          </select></p>           
+          <p>Style:</p>
+          <p id = "butoesEstilos">
+            <button name="fetchStyleButton" class="fetchStyleButtonDefault btn-xs btn btn-default" id="fetchStyleButtonDefault" value="Default" type="button">Default</button>
+            <button name="fetchStyleButton" class="fetchStyleButtonDanger btn-xs btn btn-danger"  id="fetchStyleButtonDanger" value="Danger" type="button">Danger</button>
+            <button name="fetchStyleButton" class="fetchStyleButtonInfo btn-xs btn btn-info"    id="fetchStyleButtonInfo" value="Info" type="button">Info</button>
+            <button name="fetchStyleButton" class="fetchStyleButtonPrimary btn-xs btn btn-primary" id="fetchStyleButtonPrimary" value="Primary" type="button">Primary</button>
+            <button name="fetchStyleButton" class="fetchStyleButtonWarning btn-xs btn btn-warning" id="fetchStyleButtonWarning" value="Warning" type="button">Warning</button>
+            <button name="fetchStyleButton" class="fetchStyleButtonSuccess btn-xs btn btn-success" id="fetchStyleButtonSuccess" value="Success" type="button">Success</button>
+            <!-- <button id="addButton" class="btn btn-primary" style="width: 235px; height: 50px; font-size : 16px;"><i class="fa fa-send-o"></i> Button</button> -->
+          </p>         
+          <p>Name:</p>
+          <p> <input type="text" name="fetchNameButton" id="fetchNameButton" value=""  style="height: 30px; width:300px"></p>          
+          <p>Width:</p>
+          <p> <input type="text" name="fetchWidthButton" id="fetchWidthButton" value=""  style="height: 30px; width:300px"></p>             
+          <p>Height:</p>
+          <p> <input type="text" name="fetchHeightButton" id="fetchHeightButton" value=""  style="height: 30px; width:300px"></p>            
+          <p>Div Size:</p>
+          <p> <input type="text" name="fetchDivButton" id="fetchDivButton" value=""  style="height: 30px; width:300px"></p>                    
+          <input type="hidden" id="fetchHiddenButton" value=""/></p>
+      </div>
+        <div class="modal-footer">
+          <button type="button" class="salvar btn btn-success" data-dismiss="modal" name="salvarButton" id="salvarButton" value="">Save</button>
           <button type="button" class="fechar btn btn-danger" data-dismiss="modal" value="">Close</button>
         </div>
       </div>      
@@ -243,9 +309,7 @@
         </div>
         <div class="modal-body">
           <p>Legenda:</p>
-          <p> <input type="text" name="fetchOption" id="fetchOption" value=""  style="height: 30px; width:300px"><input type="hidden" id="fetchHiddenOption" value=""/></p>  
-          <p>Valor:</p>
-          <p> <input type="text" name="fetchValue" id="fetchValue" value=""  style="height: 30px; width:300px">          
+          <p> <input type="text" name="fetchOption" id="fetchOption" value=""  style="height: 30px; width:300px"><input type="hidden" id="fetchHiddenOption" value=""/></p>          
         <div class="modal-footer">
           <button type="button" class="salvar btn btn-success" data-dismiss="modal" name="salvarOption" id="salvarOption" value="">Save</button>
           <button type="button" class="fechar btn btn-danger" data-dismiss="modal" value="">Close</button>
