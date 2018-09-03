@@ -59,4 +59,76 @@ $(document).ready(function () {
   }).on('mouseleave', '.hoverButton', function () {
       $(this).find(":button").hide();
   });
+});   
+//esconde os botões
+$(document).ready(function () {
+  $(document).on('mouseenter', '.hoverButtonEdit', function () {
+      $(this).find("#removeButton").show();
+  }).on('mouseleave', '.hoverButtonEdit', function () {
+      $(this).find("#removeButton").hide();
+  });
 });    
+
+ $(document).on('click', '.btn-xs', function(){
+    var style = $(this).val();
+    var classe =  'fetchStyleButton'+style+' btn-xs btn btn-'+style+' selected';
+    var defaultDanger = 'fetchStyleButtonDanger btn-xs btn btn-danger';
+    var defaultDefault = 'fetchStyleButtonDefault btn-xs btn btn-Default';
+    var defaultInfo = 'fetchStyleButtonInfo btn-xs btn btn-Info';
+    var defaultPrimary = 'fetchStyleButtonPrimary btn-xs btn btn-Primary';
+    var defaultWarning = 'fetchStyleButtonWarning btn-xs btn btn-Warning';
+    var defaultSuccess = 'fetchStyleButtonSuccess btn-xs btn btn-Success';
+    switch(style) {
+    case "Default":
+      $('#fetchStyleButton'+style).attr('class',classe);
+      $('#fetchStyleButtonDanger').attr('class',defaultDanger);
+      $('#fetchStyleButtonInfo').attr('class',defaultInfo);
+      $('#fetchStyleButtonPrimary').attr('class',defaultPrimary);
+      $('#fetchStyleButtonWarning').attr('class',defaultWarning);
+      $('#fetchStyleButtonSuccess').attr('class',defaultSuccess);
+        break;
+    case "Danger":
+      $('#fetchStyleButton'+style).attr('class',classe);
+      $('#fetchStyleButtonDefault').attr('class',defaultDefault);
+      $('#fetchStyleButtonInfo').attr('class',defaultInfo);
+      $('#fetchStyleButtonPrimary').attr('class',defaultPrimary);
+      $('#fetchStyleButtonWarning').attr('class',defaultWarning);        
+      $('#fetchStyleButtonSuccess').attr('class',defaultSuccess);
+        break;
+    case "Info":
+      $('#fetchStyleButton'+style).attr('class',classe);
+      $('#fetchStyleButtonDanger').attr('class',defaultDanger);
+      $('#fetchStyleButtonDefault').attr('class',defaultDefault);
+      $('#fetchStyleButtonPrimary').attr('class',defaultPrimary);
+      $('#fetchStyleButtonWarning').attr('class',defaultWarning);        
+      $('#fetchStyleButtonSuccess').attr('class',defaultSuccess);
+        break;
+    case "Primary":
+      $('#fetchStyleButton'+style).attr('class',classe);
+      $('#fetchStyleButtonDanger').attr('class',defaultDanger);
+      $('#fetchStyleButtonInfo').attr('class',defaultInfo);
+      $('#fetchStyleButtonDefault').attr('class',defaultDefault);
+      $('#fetchStyleButtonWarning').attr('class',defaultWarning);     
+      $('#fetchStyleButtonSuccess').attr('class',defaultSuccess);
+        break;
+    case "Warning":
+      $('#fetchStyleButton'+style).attr('class',classe);
+      $('#fetchStyleButtonDanger').attr('class',defaultDanger);
+      $('#fetchStyleButtonInfo').attr('class',defaultInfo);
+      $('#fetchStyleButtonPrimary').attr('class',defaultPrimary);
+      $('#fetchStyleButtonDefault').attr('class',defaultDefault);        
+      $('#fetchStyleButtonSuccess').attr('class',defaultSuccess);
+        break;
+    case "Success":
+      $('#fetchStyleButton'+style).attr('class',classe);
+      $('#fetchStyleButtonDanger').attr('class',defaultDanger);
+      $('#fetchStyleButtonInfo').attr('class',defaultInfo);
+      $('#fetchStyleButtonPrimary').attr('class',defaultPrimary);
+      $('#fetchStyleButtonWarning').attr('class',defaultWarning);
+      $('#fetchStyleButtonDefault').attr('class',defaultDefault);     
+        break;
+    default:
+        
+    }
+});
+
