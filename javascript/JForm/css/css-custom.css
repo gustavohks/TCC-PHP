@@ -58,4 +58,8 @@ div.inline { float:right; }
    margin-top: 5px;
    float: center;
  }
+
+ .selected {
+    border: 2px solid #343434;
+ }
  
