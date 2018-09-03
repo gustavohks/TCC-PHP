@@ -75,9 +75,15 @@ input[type=text] {
 	display: none;
 }
 .components-container{
-		border: 1px dashed #3a87ad;
+	border: 1px dashed #3a87ad;
 	color: #3a87ad;
 	background: #d9edf7;
 	min-height: 50px;
 	opacity: 0.5;
+}
+
+.btn-xs {
+	height: 30px;
+	width: 70px;
+	font-size: 12;
 }
