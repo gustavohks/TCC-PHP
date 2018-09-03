@@ -29,48 +29,46 @@ $(document).ready(function(){
 $(document).ready(function (){
     $('.tabCrud').on('click', function(e){
         // var $teste = [];
-        var $results = [];
-        var $resultsNomes = [];
-        var $resultsOption = [];
-        var $resultsOptionValues = [];
-        var $resultsOptionTypes = [];
-        var $a_Elements = [];
-        var $nomesMerged;
-        var $nomesMergedNormal;
-        var $nomesValues;
+        var $results = [], $resultsNomes = [], $resultsOption = [], $resultsOptionValues = [], $resultsOptionTypes = [], $a_Elements = [];
         $("#crudAux").html("");
         $("#crud").html("");
         $('#botoes').hide();
-        //mapeia todos os inputs e cria uma array de objetos
+        //mapeia todos os inputs e cria um vetor de objetos
         $('#forma input[name]').each(function() {
           $results.push({
               name: this.name,
               type: this.type
             });
         }).get();
+        //mapeia todos os inputs do tipo checkbox e radio
         $('#forma input[type=checkbox],input[type=radio]').each(function() {
           $resultsOptionValues.push({
               name: this.name,
               value: this.value
             });
         }).get();
-
         $('#forma input[type=checkbox],input[type=radio]').each(function() {
           $resultsOptionTypes.push({
               type: this.type
             });
         }).get();
+        console.log($resultsOptionTypes);
+        //converte para um vetor de strings
         $resultsOptionTypes = $resultsOptionTypes.map(function (obj) {
           return obj.type;
         });
+        console.log($resultsOptionTypes);
+        //mapeia todos os elementos <a>
         $('#forma a').each(function() {
           $a_Elements.push({
-              type: this.type
+              name: this.name
             });
         }).get();
+        //converte para um vetor de strings
         $a_Elements = $a_Elements.map(function (obj) {
           return obj.name;
         });
+        //vetor para associar os nomes dos tipos checkbox e radio com seus respectivos valores
         var endData=[], dat='', row=[];
         for (var i=0; i<$resultsOptionValues.length; i++) {
             var obj=$resultsOptionValues[i], val='\''+obj.value+'\'';
@@ -82,11 +80,13 @@ $(document).ready(function (){
                 row.push(val);
             }
         }
+        //vetor para pegar somente os valores
         endData.push(row);
-        var $combineValues = [];
-        for (var i = 0; i < endData.length; i++) {            
+        var $combineOptionValues = [];
+        for (var i = 0; i < endData.length; i++) {    
+              //remove o primeiro elemento do vetor        
               endData[i].shift();
-              $combineValues[i] = (endData[i]);
+              $combineOptionValues[i] = (endData[i]);
         }
         //remove items duplicados
         function remove_duplicates(objectsArray) {
@@ -103,17 +103,17 @@ $(document).ready(function (){
             return objectsArray;
         }
         $results = remove_duplicates($results);
-        //cria uma array de strings para os diferentes tipos de inputs
+        //cria um vetor de strings para os diferentes tipos de inputs
         $results.map(function(item) {
           if ((item['type'] == "text") || (item['type'] == "color") || (item['type'] == "email") || (item['type'] == "password")) {
-            //cria uma array com tipos texto
+            //cria um vetor com tipos texto
             $resultsNomes.push(item['name']);
-          } else if (item['type'] == "checkbox") {
-            //cria uma array com tipos option
-              $resultsOption.push(item['name']);
+          } else if ((item['type'] == "checkbox") || (item['type'] == "radio")) {
+            //cria um vetor com tipos option
+            $resultsOption.push(item['name']);
           }
         });
-
+        //verifica se a array existe
          if ($resultsOption.length === 0) {
           console.log("Empty array");
          } else {
@@ -123,12 +123,11 @@ $(document).ready(function (){
          }
         //concatena as arrays de strings
         var $mergeNomes = $resultsNomes.concat($resultsOption);
-        console.log($resultsOption);
         //cria uma string com os elementos da array
-        $nomesMerged = ("$"+$mergeNomes.join(', $')).replace(/\[\]/g, ''); 
-        $nomesMergedNormal = ($mergeNomes.join(', ')).replace(/\[\]/g, '');
-        $nomesValues = "\'$"+($mergeNomes.join('\', \'$') + "\'").replace(/\[\]/g, '');
-        $combineValuesMerged = "'"+$combineValues.join('\',');
+        var $nomesMerged = ("$"+$mergeNomes.join(', $')).replace(/\[\]/g, '');
+        var $nomesMergedNormal = ($mergeNomes.join(', ')).replace(/\[\]/g, '');
+        var $nomesValues = "\'$"+($mergeNomes.join('\', \'$') + "\'").replace(/\[\]/g, '');
+        var $combineOptionValuesMerged = "'"+$combineOptionValues.join('\',');
         var $nomesMergedNormalVetor = $nomesMergedNormal.split(" ");
         var $nomesValuesVetor = $nomesValues.split(" ");
         //cria as variaveis de php
@@ -137,14 +136,7 @@ $(document).ready(function (){
               $combinarNomes[i] = ("\n\tif (isset($_POST['"+ $mergeNomes[i] +"'])) {\n\t\t$" + $mergeNomes[i] + " = $_POST['" + $mergeNomes[i] + "'];\n\t} else {\n\t\t$" + $mergeNomes[i] + " = '';\n\t}").replace(/\[\]/g, '');
         }
         //modifica as arrays de strings para criar novas variáveis
-        var $combinarNomesTables = [];
-        var $combinarNomesOo = [];
-        var $combinarUpdate = [];
-        var $combinarSelecionadas = [];
-        var $combinarTitulosCheckboxes = [];
-        var $combinarCheckboxesDinamicos = [];
-        var $combinarCheckboxesValidation = [];
-        var $combinarHidden = [];
+        var $combinarNomesTables = [], $combinarNomesOo = [], $combinarUpdate = [], $combinarSelecionadas = [], $combinarTitulosCheckboxes = [], $combinarCheckboxesDinamicos = [], $combinarCheckboxesValidation = [], $combinarHidden = [];
         for (var i = 0; i < $mergeNomes.length; i++) {
                 $combinarNomesTables[i] = ("\n\t      &lt;th scope=\"col\">" + $mergeNomes[i] + "&lt;/th>").replace(/\[\]/g, '');
                 $combinarNomesOo[i] = ("\n\t    &lt;td>&lt;?=$this->rs[\"" + $mergeNomes[i] + "\"]?>&lt;/td>").replace(/\[\]/g, '');
@@ -152,7 +144,7 @@ $(document).ready(function (){
         //$this->sql = "UPDATE produto SET '+$nomesMergedNormal+' = '+$nomesValues+' WHERE id = " . $id;
         }
         for (var i = 0; i < $resultsOption.length; i++) {
-                $combinarHidden[i] = ("\n\t  $popular_" + $resultsOption[i] + " = array(" +  $combineValues[i] + ");").replace(/ \,\)/g, ')').replace(/\[\]/g, '');
+                $combinarHidden[i] = ("\n\t  $popular_" + $resultsOption[i] + " = array(" +  $combineOptionValues[i] + ");").replace(/ \,\)/g, ')').replace(/\[\]/g, '');
                 $combinarSelecionadas[i] = ("\n\t  $selecionadas_" + $resultsOption[i] + " = explode(',', $this->rs['" +  $resultsOption[i] + "']);").replace(/ \,\)/g, ')').replace(/\[\]/g, '');
                 $combinarCheckboxesDinamicos[i] = ("\n\t  &lt;label>" + $a_Elements[i] + "&lt;/label>&lt;br>&lt;?php\n\t\tforeach ($popular_"+$resultsOption[i]+" as $valor) {\n\t\t?>\n\t\t\t&lt;input type=\""+$resultsOptionTypes[i]+"\" name=\""+$resultsOption[i]+"[]\" value=\"&lt;?=$valor?>\" &lt;?=(in_array($valor, $selecionadas_"+$resultsOption[i]+")?'checked':'')?>> &lt;?=$valor?>&lt;br>\n\t\t&lt;?php } ?>");
                 $combinarCheckboxesValidation[i] = ("\n\n\t  if (!empty($" + $resultsOption[i] + ")) {\n\t\t$" +  $resultsOption[i] + " = implode(',', $"+ $resultsOption[i] +");\n\t  } else {\n\t\t$"+ $resultsOption[i] +" = '';\n\t  }").replace(/ \,\)/g, ')').replace(/\[\]/g, '');
