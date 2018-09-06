@@ -1,3 +1,26 @@
+//download de arquivos
+function download(filename, text, charset, format = 'txt') {
+    charset = charset ? charset : 'utf-8';
+    const dataFormat = this.getDataFormat(format);
+    const pom = document.createElement('a');
+    pom.setAttribute('href', `data:${dataFormat};charset=${charset},` + encodeURIComponent(text));
+    pom.setAttribute('download', filename);
+
+    if (document.createEvent) {
+      var event = document.createEvent('MouseEvents');
+      event.initEvent('click', true, true);
+      pom.dispatchEvent(event);
+    } else {
+      pom.click();
+    }
+  }
+
+  function getDataFormat(format) {
+    if (format == 'txt')
+      return 'text/plain';
+  }
+
+
 //script para o funcionamento das tabs
 $('.btn').mouseup(function() { this.blur() })
 function openTab(evt, nome) {
