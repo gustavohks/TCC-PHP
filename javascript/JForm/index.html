@@ -33,14 +33,23 @@
           #crud pre { font: 12px/1.6 Monaco, Courier, MonoSpace;  color: white; overflow: auto; }
           #crud pre a, #crud pre a span { text-decoration: none; color: #00ccff !important; }
           h1, h2, h3, h4, h5, h6, small, strong {display: inline;}
+
+              form * {
+              display: block;
+              margin: 10px;
+          }
+
         </style>
+      <script src="chrome-extension://hhojmcideegachlhfgfdhailpfhgknjm/web_accessible_resources/index.js"></script>
     </head>
-    <body>
+    <body>  
+
         <div class="row-fluid" style="overflow: hidden">
+
             <div class="container">
                 <div class="row">
                     <div class="col-9">
-                        <h1>JForm</h1>
+                        <h1>Swift Form</h1>
                         <hr>
                         <div class="tab">
                                 <button class="tablinks tabEditor" id="defaultOpen" onclick="openTab(event, 'content') ">Editor</button>
@@ -56,11 +65,24 @@
                         </div>
                         <div id="fonte" class="tabcontentSource">
 
-                            <div class="source" id="source"></div>
+                            <div class="source" id="source">
+
+                            </div>
                         </div> 
                         <div id="geraCrud" class="tabcontentCrud">
+                            <div id="components-container">
+                              <div class="control-group component"> 
+                                    <button name="database.sql" id = "sql" onclick="download(this.name, this.value)" value = "" class="btn btn-primary" style="width: 100%; height: 50px; font-size : 16px;">Download SQL</button>
+                              </div>
+                              <div class="control-group component">        
+                                    <button name="index.php" id = "indexphp" onclick="download(this.name, this.value)" value = "" class="btn btn-primary" style="width: 100%; height: 50px; font-size : 16px;">Download index.php</button>
+                              </div>
+                              <div class="control-group component">        
+                                    <button name="crud.class.php" id = "classesphp" onclick="download(this.name, this.value)" value = "" class="btn btn-primary" style="width: 100%; height: 50px; font-size : 16px;">Download crud.class.php</button>
+                              </div>
+                            </div>
                             <div class="crud" id="crudAux" style="display: none;"></div>
-                            <div class="crud" id="crud"></div>
+                            <div class="crud" id="crud" style="display: none;"></div>
                         </div>                        
                     </div>
 
@@ -322,7 +344,8 @@
 <script src="js/utilidades.js"></script>
 <script src="js/geradorCode.js"></script>
 <script src="js/formBuilder.js"></script>
-
-
+<?php 
+  
+?>
     </body>
 </html>
