@@ -1,0 +1,45 @@
+B2B:
+	Autonomos, Empresas.
+	
+	Autonomos
+
+	Segmento: TI
+	Tamanho N funcionamental: '1'
+	Localização: Blumenau e região
+	Faturamento: 80.000
+	Maturidade: Média/Alta
+	Ciclo de venda: Mensal
+
+	Empresas
+
+	Segmento: TI
+	Tamanho N funcionamental:  Mínimo um funcionário
+	Localização: Blumenau e região
+	Faturamento: 80.000
+	Maturidade: Média/Alta
+	Ciclo de venda: Trimestral
+
+
+
+	B2C:
+	Estudantes de programação e autonomos
+
+	Estudantes de programação
+	Perfil: Estudante 
+	Idade: 	Mínimo 16 anos
+	Sexo: 	Masculino e Feminimo
+	Renda:	9.200 
+	Localização:  Blumenau e região
+	Escolaridade: Cursando ensino médio ou superior
+	Classe social: Todos
+	Ciclo de compra: Unico
+
+	autonomos
+	Perfil: Autonomo 
+	Idade: 	18 anos ou mais
+	Sexo: 	Masculino e Feminimo
+	Renda:	50.000 
+	Localização:  Blumenau e região
+	Escolaridade: Não há necessidade. 
+	Classe social: Todos
+	Ciclo de compra: Unico
