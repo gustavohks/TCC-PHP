@@ -1,3 +1,19 @@
+ESTUDANTES DE PROGRAMAÇÃO - RAZÃO
+	-FACILIDADE
+	-APRENDIZAGEM
+	-ACESSIBILIDADE
+
+AUTONOMOS - RAZÃO
+	-PRATICIDADE
+	-RAPIDEZ
+	-REDUÇÃO DE TEMPO
+
+EMPRESAS - RAZÃO
+	-REDUÇÃO DE CUSTOS
+	-REDUÇÃO DE TEMPO
+	-INTEGRAÇÃO COM SISTEMAS
+
+
 OQ - PROJETO
 Sistema web que possibilita ao usuário a criação de formulários de forma rápida e dinâmica, com edição dos componentes. Ferramenta de geração do código fonte, além de geração do sistema com integração do formulário com banco de dados. 
 
